@@ -213,7 +213,7 @@ body{
 
 .overlay button {
     padding: 10px 20px;
-    border: none;
+    border: 1px solid;
     background-color: #000;
     color: #fff;
     font-size: 16px;
@@ -237,4 +237,26 @@ body{
 
 .imagem-policia img{
     height: 516px;
+}
+
+
+.realizacao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 78px; 
+}
+
+.realizacao .crime{
+    border: 1px solid #000;
+    height: 100px;
+
+}
+
+.realizacao .praticidade{
+    border: 1px solid #000;
+}
+
+.realizacao .otimizacao{
+    border: 1px solid #000;
 }
