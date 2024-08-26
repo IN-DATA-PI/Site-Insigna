@@ -189,20 +189,19 @@ body{
 }
 
 .imagem-principal .fundo img {
-    width: 98%;
+    width: 100%;
     border: 5px solid black;
     border-radius: 64px;
 }
 
 .overlay {
     position: absolute; 
-    top: 50%; 
+    top: 57%; 
     left: 24%; 
     transform: translate(-50%, -50%); 
     text-align: center; 
     color: white;
     background: rgba(0, 0, 0, 0.5); 
-    padding: 20px;
     border-radius: 15px;
 }
 
@@ -242,21 +241,37 @@ body{
 
 .realizacao {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    height: 78px; 
+    height: 78px;
+    width: 100%;
 }
+
+
 
 .realizacao .crime{
     border: 1px solid #000;
-    height: 100px;
+    width: 26%;
+    height: 183px;
+    padding: 6px;
+    border-radius: 10px 10px 10px;
+}
+
+.crime img{
+    
+    border: 0px solid #000;
+    border-radius: 34px 35px;
+    width: 15%;
+}
+
+
+
+.crime img{
+    border: 0px solid #000;
+    border-radius: 34px 35px;
+    width: 15%;
 
 }
 
-.realizacao .praticidade{
-    border: 1px solid #000;
-}
 
-.realizacao .otimizacao{
-    border: 1px solid #000;
-}
+
