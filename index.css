@@ -11,10 +11,12 @@ body{
    overflow-x: hidden;
 }
 
+
+
 .header {
     width: 100%;
     height: 13%;
-    padding: 0 50px;
+    padding: 10px 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -60,8 +62,9 @@ body{
 
 
 .nav ul img{
-    width: 1vw;
-    height: 2vh;
+    width: 20px;
+    height: auto;
+    margin-left: -5%;
 }
 
 .nav ul li a {
@@ -115,4 +118,123 @@ body{
     padding: 9px;
     margin: 10px;
     border-radius: 21px 24px 27px;
+}
+
+@media only screen and (max-width: 768px){
+.nav {
+    width: 44%;
+  
+}
+
+.nav ul{
+    width: 88%;
+    height: 18vh;
+}
+
+.header{
+    padding: 3px 20px
+}
+.nav ul li {
+    font-size: 8px;
+}
+
+.nav ul img{
+    width: 13px;
+    height: auto;
+    margin-left: -2%;
+}
+
+.entrar li img {
+    width: 21px;
+}
+
+.entrar ul{
+    width: 74%;
+    height: 17vh;
+}
+
+.entrar ul li {
+    display: flex;
+    font-size: 11px;
+}
+
+
+.cadastro {
+    padding: 6px;
+    border: 1px solid #000000;
+    
+}
+
+.titulo {
+    padding: 6vh 0vw;
+}
+};
+    
+
+.box-big {
+    display: flex;
+    justify-content: center;
+}
+
+.imagem-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 113vh; /* Ou ajuste conforme necessário */
+}
+
+.fundo{
+    width: 89%;
+    
+}
+
+.imagem-principal .fundo img {
+    width: 98%;
+    border: 5px solid black;
+    border-radius: 64px;
+}
+
+.overlay {
+    position: absolute; 
+    top: 50%; 
+    left: 24%; 
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    color: white;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.overlay p {
+    margin: 0 0 10px 0; /* Margem abaixo do texto */
+    font-size: 24px;
+}
+
+.overlay button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background-color: #444;
+}
+
+.imagem-policia {
+    position: absolute; 
+    top: 66%; 
+    left: 66%; 
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.imagem-policia img{
+    height: 516px;
 }
