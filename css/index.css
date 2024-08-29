@@ -274,38 +274,75 @@ body{
 
 }
 
-.sobre-nos{
+.sobre-nos {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
     height: 600px;
-    background-image: url(../assets/images.jpg);
-    background-size: cover;
-    background-position: center;
-        
 }
 
-.borda-preta{
+.borda-preta {
+    position: absolute;
+    right: 44%;
+    z-index: 5;
+    width: 19%;
+    height: 332px;
+    border: 4px solid black;
+    border-radius: 7%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 2px solid black;
-    width: 13%;
-    height: 350px;
+    bottom: 10%
 }
 
+
 .borda-backgroud {
-    
     border: 2px solid #000;
     background-color: #000;
     width: 40%;
     height: 25px;
-
 }
 
+.sobre-nos img {
+    position: relative;
+    z-index: 0;
+    width: 20%;
+    height: 325px;
+    transform: translateX(13%);
+    border-radius: 10%;
+}
 
-.imagem-equipe{
+.texto-equipe {
+    position: absolute;
+    left: 68%;
+    top: 20%;
+    z-index: 10;
+    width: 40%;
+    padding: 21px;
+}
+
+.servicos{
     display: flex;
-    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+   
 }
+
+.principal-servico{
+    border: 1px solid #000;
+    background-color: black;
+    width: 85%;
+    height: 460px;
+    align-items: center;
+    justify-content: center;
+}
+
+.principal-servico h1{
+    position: absolute;
+    left: 30%;
+
+}
+
