@@ -328,21 +328,39 @@ body{
     align-items: center;
     text-align: center;
     color: white;
-   
+    height: 565px;
+    width: 100%;
 }
+
 
 .principal-servico{
     border: 1px solid #000;
     background-color: black;
     width: 85%;
-    height: 460px;
-    align-items: center;
-    justify-content: center;
+    height: 496px;
+    border-radius: 20px;
 }
 
 .principal-servico h1{
     position: absolute;
-    left: 30%;
+    left: 35%;
+    top: 1592px;
 
 }
 
+.caixa{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 59%;
+    top: 1718px;
+    left: 21%;
+   
+  }
+.box{
+  flex: 1 1 calc(50% - 10px);
+  border: 1px solid #ffffff;
+  height: 100px;
+  display: flex;
+}
