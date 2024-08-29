@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+
+.container-login{
+    width: 50%;
+    height: 100%;
+}
+
+.nav{
+    /* border: 2px solid rgb(163, 15, 15);  */
+    height: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav a.texto{
+    color:white;
+    margin: 15px;
+}
+
+.home{
+    background-color: rgb(20, 17, 17);
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 2rem;
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav a .texto{
+    color:white;
+}
+
+.logo{
+    background-image: url(./assets/insignaLogoBoaQualidade.png);
+    background-repeat: no-repeat;
+    width: 16rem;
+    height: 9rem;
+    color: black;
+}
+
+.formulario{
+    /* border: 2px solid rgb(123, 163, 15); */
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.login {
+    width: 16rem;
+    height: 22rem;
+    flex-direction: column;
+
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50%;
+}
+
+.inputs input {
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    padding-left: 15px;
+}
+
+.login button{
+    width: 16rem;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
+.imagem{
+    background-image: url(https://blog.alfaconcursos.com.br/wp-content/uploads/2022/05/policia-civil-ou-militar-scaled.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 100%;
+}
