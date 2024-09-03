@@ -387,9 +387,9 @@ body{
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    gap: 23px;
+    gap: 36px;
     width: 51%;
-    justify-content: center; /* Centraliza o conteúdo no container */
+    justify-content: center; 
 }
 
 .caixa-equipe {
@@ -397,10 +397,40 @@ body{
     border: 1px solid #000;
     width: 23%;
     height: 203px;
+    flex-direction: column;
+    
 }
 
-/* Para as duas últimas caixas */
+
 .container .caixa-equipe:nth-child(4),
 .container .caixa-equipe:nth-child(5) {
-    margin-left: calc(30% - (22% + 18px)); /* Centraliza as duas últimas caixas */
+    margin-left: calc(30% - (22% + 18px)); 
 }
+
+
+.caixa-equipe img{
+    display: flex;
+    width: 39%;
+    height: 71px;
+    margin-bottom: 1px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+.caixa-equipe p{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.caixa-equipe h6{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.footer img{
+    display: flex;
+    width: 100%;
+    height: 353px;
+}
+
