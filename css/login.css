@@ -63,6 +63,7 @@ body{
     color: black;
 }
 
+
 .formulario{
     /* border: 2px solid rgb(123, 163, 15); */
     height: 75%;
@@ -123,10 +124,45 @@ body{
 }
 
 .imagem{
-    background-image: url(https://blog.alfaconcursos.com.br/wp-content/uploads/2022/05/policia-civil-ou-militar-scaled.jpeg);
+    background-image: url(../assets/policia-civil-ou-militar-scaled.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 50%;
     height: 100%;
 }
 
+@media only screen and (max-width: 1418px){
+
+    body{
+        background-color: #000;
+    }
+
+    .imagem{
+        display: none;
+    }
+
+    .container{
+        background-image: url(../assets/policia-responsivo.png);
+        background-size: cover;
+    }
+
+    .container-login{
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    .fundoResponsivo{
+        height: 500px;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .nav a{
+        color: white;
+    }
+    
+}
