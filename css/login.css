@@ -65,7 +65,7 @@ body{
 
 .formulario{
     /* border: 2px solid rgb(123, 163, 15); */
-    height: 90%;
+    height: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,6 +104,22 @@ body{
     color: white;
     text-align: center;
     font-size: 15px;
+    cursor: pointer;
+}
+
+.checkBox{
+    margin-top: 20px;
+}
+
+.esqueciSenha{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.esqueciSenha a{
+    font-size: 0.8rem;
+    color: rgb(71, 71, 207);
 }
 
 .imagem{
@@ -113,3 +129,4 @@ body{
     width: 50%;
     height: 100%;
 }
+
