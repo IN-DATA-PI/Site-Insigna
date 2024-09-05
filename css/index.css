@@ -226,17 +226,17 @@ body{
 }
 
 .imagem-policia {
-    position: absolute; 
-    top: 66%; 
-    left: 66%; 
-    transform: translate(-50%, -50%); 
-    text-align: center; 
-    padding: 20px;
+    position: absolute;
+    top: 66%;
+    left: 66%;
+    transform: translate(-58%, -50%);
+    text-align: center;
+    padding: 0px;
     border-radius: 15px;
 }
 
 .imagem-policia img{
-    height: 516px;
+    height: 439px;
 }
 
 
@@ -290,12 +290,12 @@ body{
     border-radius: 20px;
 }
 
-.fundo-preto h5{
+.fundo-preto h1{
     color:#ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;    
+    font-size: 30px;    
     height: 110px;
     
 }
@@ -339,9 +339,11 @@ body{
 }
 
 .principal-servico h1{
+    display: flex;
     position: absolute;
-    left: 35%;
+    left: 36%;
     top: 1592px;
+    width: 26%;
 
 }
 
@@ -401,7 +403,7 @@ body{
 
 .container .caixa-equipe:nth-child(4),
 .container .caixa-equipe:nth-child(5) {
-    margin-left: calc(30% - (22% + 18px)); 
+    margin-left: calc(30% -(25% + 38px));
 }
 
 
