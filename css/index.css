@@ -444,5 +444,45 @@ body{
     .fundo-preto p{
         width: 65%;
     }
+
+    .principal-servico{
+
+        height: 708px;
+
+    }
+
+    .principal-servico h1 {
+        left: 29%;
+        top: 1742px;
+        width: 42%;
+    }
+
+    .caixa{
+        gap: 21px;
+        width: 69%;
+        top: 1859px;
+        left: 15%;
+    }
+
+    .equipe{
+        height: 895px;
+    }
+
+    .equipe h4{
+        left: 17%;
+    width: 72%;
+    font-size: 29px;
+    top: 2485px;
+    }
+
+    .container{
+        right: 1px;
+        gap: 36px;
+        width: 93%;
+        top: 2749px;
+    }
+
+
+
    
 }
