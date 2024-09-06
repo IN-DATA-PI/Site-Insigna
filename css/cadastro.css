@@ -141,3 +141,50 @@ input {
     width: 50%;
     height: 100%;
 }
+
+@media only screen and (max-width: 1418px) {
+    
+    body {
+        background-color: #000;
+    }
+    
+
+    .nav .login a {
+        color: white;
+        font-size: 25px;
+    }
+
+    .nav .home {
+        background-color: rgb(20, 17, 17);
+        border-radius: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 25px;
+        height: 50px;
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imagem {
+        display: none;
+    }
+
+    .container {
+        background-image: url(../assets/policia-responsivo.png);
+        background-size: cover;
+    }
+
+    .container-cadastro {
+        width: 100%;
+        height: 100%;
+    }
+
+    .box-login {
+        height: 700px;
+        width: 75%;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
