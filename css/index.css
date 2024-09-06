@@ -122,53 +122,8 @@ body{
 }
 
 @media only screen and (max-width: 768px){
-.nav {
-    width: 44%;
-  
-}
 
-.nav ul{
-    width: 88%;
-    height: 18vh;
-}
-
-.header{
-    padding: 3px 20px
-}
-.nav ul li {
-    font-size: 8px;
-}
-
-.nav ul img{
-    width: 13px;
-    height: auto;
-    margin-left: -2%;
-}
-
-.entrar li img {
-    width: 21px;
-}
-
-.entrar ul{
-    width: 74%;
-    height: 17vh;
-}
-
-.entrar ul li {
-    display: flex;
-    font-size: 11px;
-}
-
-
-.cadastro {
-    padding: 6px;
-    border: 1px solid #000000;
-    
-}
-
-.titulo {
-    padding: 6vh 0vw;
-}
+   
 };
     
 
@@ -310,10 +265,10 @@ body{
 
 }
 
-.fundo-preto img{
+.fundo-preto .video{
     position: absolute;
-    width: 27%;
-    left: 60%;
+  
+    left: 50%;
     top: 1064px;
 }
 
