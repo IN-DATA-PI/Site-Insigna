@@ -16,6 +16,9 @@ body{
 }
 
 .container-cadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 50%;
     height: 100%;
 }
@@ -46,6 +49,7 @@ body{
 
 
 .nav .home a {
+    margin-right: 15px;
     text-decoration: none;
     color: white;
 }
@@ -60,9 +64,74 @@ body{
 }
 
 .box-login {
-    border: solid 3px black;
-    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 700px;
     width: 100%;
+}
+
+.imagem-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-logo img{
+    height: 9rem;
+    width: 16rem;
+}
+
+.formulario {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 300px;
+}
+
+.formulario .form1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+.formulario .form2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+input {
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    padding-left: 15px;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+}
+
+.botao button {
+    width: 16rem;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .imagem{
