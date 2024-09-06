@@ -431,9 +431,15 @@ body{
 
     .realizacao{
         flex-direction: column-reverse;
-        height: 153px;
         gap: 20px;
-        height: 189px;
+        height: 286px;
+    }
+
+    .realizacao .crime{
+        width: 42%;
+        height: 241px;
+        font-size: 21px;
+        padding: 12px;
     }
 
     .video{
@@ -442,7 +448,8 @@ body{
 
 
     .fundo-preto p{
-        width: 65%;
+        width: 88%;
+        font-size: 20px;
     }
 
     .principal-servico{
@@ -453,33 +460,56 @@ body{
 
     .principal-servico h1 {
         left: 29%;
-        top: 1742px;
+        top: 1813px;
         width: 42%;
+    }
+
+    .box{
+        height: 106px;
+    }
+
+    .caixa-texto{
+        font-size: 21px;
     }
 
     .caixa{
         gap: 21px;
         width: 69%;
-        top: 1859px;
+        top: 1956px;
         left: 15%;
     }
 
+    .caixa-equipe{
+        height: 275px;
+    
+    }
+
+    .caixa-equipe h6{
+        font-size: 20px;
+    }
+
+    .caixa-equipe p{
+        font-size: 27px; 
+    }
+
+    
+
     .equipe{
-        height: 895px;
+        height: 798px;
     }
 
     .equipe h4{
         left: 17%;
     width: 72%;
-    font-size: 29px;
-    top: 2485px;
+    font-size: 33px;
+    top: 2500px;
     }
 
     .container{
-        right: 1px;
-        gap: 36px;
+        right: 24px;
+        gap: 23px;
         width: 93%;
-        top: 2749px;
+        top: 2783px;
     }
 
 
