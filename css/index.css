@@ -204,6 +204,7 @@ body{
     color: white;
     background: rgba(0, 0, 0, 0.5); 
     border-radius: 15px;
+    width: 31%;
 }
 
 .overlay p {
@@ -254,7 +255,7 @@ body{
     border: 1px solid #000;
     width: 26%;
     height: 183px;
-    padding: 6px;
+    padding: 17px;
     border-radius: 10px 10px 10px;
 }
 
@@ -291,12 +292,12 @@ body{
 }
 
 .fundo-preto h1{
-    color:#ffffff;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;    
-    height: 110px;
+    font-size: 30px;
+    height: 46px;
     
 }
 
@@ -304,7 +305,8 @@ body{
     
     color: white;
     width: 43%;
-    margin-left: 27px;
+    margin-left: 26px;
+    margin-top: 18px;
 
 }
 
@@ -365,13 +367,21 @@ body{
   display: flex;
 }
 
+.box img{
+    display: flex;
+    display: flex;
+    margin-left: 12px;
+    margin-top: 10px;
+    width: 18%;
+    height: 85px;
+}
+
 .caixa-texto{
  display: flex;
  justify-content: center;
  flex-direction: column;
  align-items: center;
- margin-left: 16px;
- margin-bottom: 31px;
+
 }
 
 .equipe {
@@ -382,13 +392,24 @@ body{
     align-items: center;
 }
 
+.equipe h4{
+    display: flex;
+    position: absolute;
+    left: 10%;
+    width: 27%;
+    font-size: 26px;
+    top: 2134px;
+}
+
 .container {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
+    right: 120px;
     gap: 36px;
     width: 51%;
-    justify-content: center; 
+    top: 2133px;
+    justify-content: center;
 }
 
 .caixa-equipe {
@@ -401,10 +422,7 @@ body{
 }
 
 
-.container .caixa-equipe:nth-child(4),
-.container .caixa-equipe:nth-child(5) {
-    margin-left: calc(30% -(25% + 38px));
-}
+
 
 
 .caixa-equipe img{
@@ -419,12 +437,19 @@ body{
 .caixa-equipe p{
     margin-left: 10px;
     margin-bottom: 10px;
+    font-size: 19px;
 }
 
 .caixa-equipe h6{
     margin-left: 10px;
     margin-bottom: 10px;
-    font-size: 12px;
+    font-size: 14px;
+}
+
+
+.container h4{
+    display: flex;
+  
 }
 
 .footer img{
