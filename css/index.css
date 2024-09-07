@@ -407,25 +407,29 @@ body{
   
 }
 
-.footer img{
-    display: flex;
-    width: 100%;
-    height: 353px;
-}
 
-/* footer {
-    background: url(/Site-Insigna/assets/Captura\ de\ tela\ 2024-09-03\ 123420.png) no-repeat center center;
+
+ footer {
+    background: url(../assets/Captura\ de\ tela\ 2024-09-03\ 123420.png) no-repeat center center;
     background-size: cover;
+    height: 400px;
   }
   
   .footer-section {
+
     color: white;
-   
+    
+    display: flex;
+    justify-content: space-evenly;
+   height: 100px;
   }
+
+  
+
   
   .footer-columns {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     
   }
   
@@ -436,16 +440,75 @@ body{
   }
   
   .newsletter input[type=email] {
-   
-  }
-  
-  .newsletter button {
+    width: 80%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-bottom: 19px;
     
-  } */
+    transition: border-color 0.3s ease;
+}
+
+.newsletter input[type=email]:focus {
+    border-color: black; 
+    outline: none; 
+}
+
+.newsletter button {
+    padding: 9px 20px;
+    font-size: 1em;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: gray;
+}
+
+.newsletter button:active {
+    background-color: gray; 
+}
+
   
 
 @media only screen and (max-width: 1418px){
+    .nav ul{
+        width: 88%;
+        height: 15vh;
+    }
 
+    .titulo {
+        padding: 6vh 0vw;
+        font-size: 31px;
+    }
+    
+
+    .nav ul li {
+        font-size: 20px;
+    }
+
+    .nav ul img {
+        width: 34px;
+    }
+
+    .entrar ul li {
+    
+        font-size: 21px;
+    }
+    .entrar ul {
+    
+        width: 80%;
+    }
+
+    .entrar li img {
+        width: 4vw;
+    }   
+    
     .imagem-principal{
         height: 70vh;
     }
@@ -543,6 +606,10 @@ body{
         top: 2783px;
     }
 
+    .column{
+        font-size: 20px;
+        margin-left: 22px;
+    }
 
 
    
