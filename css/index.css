@@ -413,6 +413,37 @@ body{
     height: 353px;
 }
 
+/* footer {
+    background: url(/Site-Insigna/assets/Captura\ de\ tela\ 2024-09-03\ 123420.png) no-repeat center center;
+    background-size: cover;
+  }
+  
+  .footer-section {
+    color: white;
+   
+  }
+  
+  .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  .column {
+    margin-right: 20px; 
+    color: white;
+    
+  }
+  
+  .newsletter input[type=email] {
+   
+  }
+  
+  .newsletter button {
+    
+  } */
+  
+
 @media only screen and (max-width: 1418px){
 
     .imagem-principal{
