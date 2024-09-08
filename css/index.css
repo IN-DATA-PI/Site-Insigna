@@ -70,15 +70,28 @@ body{
 
 .nav ul li a {
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
     transition: 0.5s;
 }
 
 .nav a:hover {
     transition: 0.5s;
     opacity: 0.7;
-    font-size: 22px;
+    font-size: 19px;
 }
+
+.nav .teste ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: 0.5s;
+}
+
+.nav .teste a:hover {
+    transition: 0.5s;
+    opacity: 0.7;
+    font-size: 19px;
+}
+
 
 
 
@@ -123,8 +136,7 @@ body{
 
 .teste{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 53px;
 }
 
     
