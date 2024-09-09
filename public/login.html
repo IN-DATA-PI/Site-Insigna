@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Insigna</title>
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="icon" href="/assets/LogoSoDistintivo.png" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-login">
+        <div class="nav">
+          <a href="./cadastro.html" class="cadastro">CADASTRE-SE</a>
+          <div class="home">
+            <a href="./index.html" class="texto">HOME</a>
+            <img src="./assets/mdi_arrow-right.png" alt="" />
+          </div>
+        </div>
+        <div class="formulario">
+          <div class="fundoResponsivo">
+            <div class="login">
+              <img
+                src="./assets/insignaLogoBoaQualidade.png"
+                alt="logo"
+                class="logo"
+              />
+              <div class="inputs">
+                <input type="text" placeholder="Usuário" id="ipt_nome"/>
+                <input type="password" placeholder="Senha" id="ipt_senha"/>
+              </div>
+              <button onclick="logar()">Entrar</button>
+              <div class="checkBox">
+                <input type="checkbox" />
+                Lembrar Senha
+              </div>
+              <div class="esqueciSenha">
+                <a href="">Esqueceu sua senha?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="imagem"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function logar() {
+    var nomeVar = ipt_nome.value;
+    var senhaVar = ipt_senha.value;
+
+    console.log("FORM LOGIN: ", nomeVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    if (nomeVar == "" || senhaVar == "") {
+      alert("Preencha todos os campos para prosseguir!");
+      return false;
+    } else {
+      fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeServer: nomeVar,
+          senhaServer: senhaVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!");
+
+          if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then((json) => {
+              console.log(json);
+              console.log(JSON.stringify(json));
+
+              alert("Login com sucesso!");
+              setTimeout(function () {
+                window.location = "index.html";
+              }, 1000); // apenas para exibir o loading
+            });
+          } else {
+            alert("Email ou Senha inválidos");
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then((texto) => {
+              console.error(texto);
+            });
+          }
+        })
+        .catch(function (erro) {
+          console.log(erro);
+        });
+
+      return false;
+    }
+  }
+</script>

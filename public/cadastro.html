@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/cadastro.css" />
+    <link rel="icon" href="/assets/LogoSoDistintivo.png" />
+    <title>Cadastro - Insigna</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-cadastro">
+        <div class="nav">
+          <div class="login">
+            <a href="./login.html">LOGIN</a>
+          </div>
+
+          <div class="home">
+            <a href="./index.html">HOME</a>
+            <img src="./assets/mdi_arrow-right.png" alt="" />
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="box-login">
+            <div class="imagem-logo">
+              <img src="./assets/insignaLogoBoaQualidade.png" />
+            </div>
+
+            <div class="formulario">
+              <div class="form1">
+                <input type="text" placeholder="Nome Completo" id="ipt_nome"/>
+                <input type="text" placeholder="Departamento" id="ipt_departamento"/>
+                <input type="text" placeholder="E-mail" id="ipt_email"/>
+              </div>
+
+              <div class="form2">
+                <input type="text" placeholder="Matrícula" id="ipt_matricula"/>
+                <input type="password" placeholder="Senha" id="ipt_senha"/>
+                <input type="password" placeholder="Confirmação de senha" id="ipt_confirmarSenha"/>
+              </div>
+            </div>
+
+            <div class="botao">
+              <button onclick="cadastrar()">ENTRAR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="imagem"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function cadastrar() {
+    var nomeVar = ipt_nome.value;
+    var departamentoVar = ipt_departamento.value;
+    var emailVar = ipt_email.value;
+    var matriculaVar = Number(ipt_matricula.value);
+    var senhaVar = ipt_senha.value;
+    var confirmarSenhaVar = ipt_confirmarSenha.value;
+
+    if (
+      nomeVar == "" ||
+      departamentoVar == "" ||
+      emailVar == "" ||
+      matriculaVar == "" ||
+      senhaVar == "" ||
+      confirmarSenhaVar == ""
+    ) {
+      alert("Mensagem de erro para todos os campos em branco");
+      return false;
+    } else if (emailVar.indexOf("@") == -1) {
+      alert("Email inválido!");
+      return false;
+    } else if (emailVar.indexOf(".") == -1) {
+      alert("Email inválido!");
+      return false;
+    } else if (matriculaVar <= 6) {
+      alert("Matrícula inválida");
+      return false;
+    } else if (senhaVar.length <= 6) {
+      alert("Senha inválida!");
+      return false;
+    } else if (confirmarSenhaVar != senhaVar) {
+      alert("Confirmação inválida!");
+      return false;
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        departamentoServer: departamentoVar,
+        emailServer: emailVar,
+        matriculaServer: matriculaVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          alert("Cadastrado com sucesso!");
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "1000");
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+</script>
