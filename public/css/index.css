@@ -388,7 +388,7 @@ html{
     left: 10%;
     width: 27%;
     font-size: 26px;
-    top: 2134px;
+    top: 2263px;
 }
 
 .container {
@@ -396,24 +396,23 @@ html{
     display: flex;
     flex-wrap: wrap;
     right: 120px;
-    gap: 36px;
     width: 51%;
     top: 2133px;
     justify-content: center;
 }
 
 .caixa-equipe {
-    display: flex;
+
     border: 1px solid #000;
-    width: 23%;
+    width: 31%;
     height: 203px;
     flex-direction: column;
+    margin: 29px;
     
 }
 
 
 .caixa-equipe img{
-    display: flex;
     width: 39%;
     height: 71px;
     margin-bottom: 1px;
@@ -606,16 +605,16 @@ html{
     }
 
     .caixa-equipe{
-        height: 275px;
+        height: 203px;
     
     }
 
     .caixa-equipe h6{
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .caixa-equipe p{
-        font-size: 27px; 
+        font-size: 24px; 
     }
 
     
@@ -633,9 +632,8 @@ html{
 
     .container{
         right: 24px;
-        gap: 23px;
         width: 93%;
-        top: 2783px;
+        top: 2706px;
     }
 
     .column{
