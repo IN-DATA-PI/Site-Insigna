@@ -20,7 +20,7 @@ header {
     width: 100%;
     height: 13%;
     padding: 10px 20px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     display: flex;
@@ -36,7 +36,7 @@ header {
 }
 
 nav {
-    width: 59%;
+    width: 55%;
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -50,7 +50,7 @@ nav {
 
 
 nav ul {
-    width: 62%;
+    width: auto;
     height: 15vh;
     display: flex;
     flex-direction: row;
@@ -125,7 +125,7 @@ nav .teste a:hover {
 
 .entrar ul{
     display: flex;
-    width: 52%;
+    width: auto;
     height: 15vh;   
     flex-direction: row;
     align-items: center;
@@ -344,12 +344,11 @@ nav .teste a:hover {
     width: 45%; 
     margin: 10px 0; 
     padding: 10px; 
-    background-color: #222; 
     border-radius: 10px; 
 }
 
 .caixa-texto img {
-    width: 60px;
+    width: 89px;
     margin-bottom: 10px; 
 }
 
@@ -483,3 +482,9 @@ nav .teste a:hover {
 }
 
   
+form label{
+    display: flex;
+    padding: 0px 1px 9px;
+    
+
+}
