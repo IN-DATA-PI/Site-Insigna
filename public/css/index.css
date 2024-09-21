@@ -160,20 +160,13 @@ nav .teste a:hover {
 }
 
     
-.imagem-principal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 113vh;
-    position: relative; /* Para controlar o posicionamento */
-}
 
 .fundo {
     display: flex;
- 
     width: 100%;
     align-items: center;
-    justify-content: center
+    height: 104vh;
+    justify-content: center;
 }
 
 .fundo img {
@@ -185,26 +178,26 @@ nav .teste a:hover {
 
 .overlay {
     display: flex;
-    flex-direction: column; /* Alinha texto e botão em coluna */
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: center; /* Centraliza verticalmente */
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    width: 30%; /* Ajusta a largura do overlay */
-    max-width: 400px; /* Limita a largura máxima */
-    padding: 20px; /* Adiciona um padding para o overlay */
-    position: absolute; /* Mantém o overlay sobre a imagem de fundo */
-    top: 50%; /* Alinha verticalmente */
-    left: 25%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%); /* Move para o centro */
+    width: 30%; 
+    max-width: 400px; 
+    padding: 20px; 
+    position: absolute; 
+    top: 50%; 
+    left: 25%; 
+    transform: translate(-50%, -50%);
 }
 
 .overlay p {
-    margin: 0 0 10px 0; /* Margem abaixo do texto */
+    margin: 0 0 10px 0; 
     font-size: 24px;
-    line-height: 1.4; /* Aumenta o espaçamento entre linhas */
+    line-height: 1.4; 
 }
 
 .overlay button {
@@ -289,11 +282,11 @@ nav .teste a:hover {
 
 }
 
-.fundo-preto .video{
+.video{
     position: absolute;
-  
     left: 50%;
-    top: 1064px;
+    height: auto;
+    width: auto;
 }
 
 
