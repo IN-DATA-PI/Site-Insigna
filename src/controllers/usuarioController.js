@@ -77,7 +77,48 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarOp(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeOp = req.body.nomeOpServer;
+    var qtdPoliciais = req.body.qtdPoliciaisServer;
+    var local = req.body.localServer;
+    var dataOp = req.body.dataOpServer;
+    var desc = req.body.descServer;
+
+    // Faça as validações dos valores
+    if (nomeOp == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (qtdPoliciais == undefined) {
+        res.status(400).send("A qtd policiais está undefined!");
+    } else if (local == undefined) {
+        res.status(400).send("Seu local está undefined!");
+    } else if (desc == undefined) {
+        res.status(400).send("Sua desc está undefined!");
+    } else if (dataOp == undefined) {
+        res.status(400).send("Sua data está undefined!");
+    }else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarOp(nomeOp, qtdPoliciais, local, dataOp, desc)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarOp
 }
