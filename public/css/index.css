@@ -120,13 +120,14 @@ nav .teste a:hover {
     display: flex;
     flex-direction: row;
     justify-content: right;
+    align-items: center;
+    padding: 33px 10px 0px 9px;
   
 }
 
 .entrar ul{
     display: flex;
     width: auto;
-    height: 15vh;   
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
@@ -509,3 +510,137 @@ form label{
 
 }
 
+/* Animações */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Adicionando animações nas seções */
+.nav{
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.imagem-principal {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.realizacao {
+    animation: slideInRight 1s ease-in-out forwards;
+}
+
+.sobre-nos {
+    animation: slideInBottom 1s ease-in-out forwards;
+}
+
+.servicos {
+    animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.equipe {
+    animation: slideInRight 1s ease-in-out forwards;
+}
+
+footer {
+    animation: slideInBottom 1s ease-in-out forwards;
+}
+
+@keyframes fadeInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 2;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInFromBottom {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  section {
+    opacity: 0;
+    animation-duration: 6s; 
+    animation-fill-mode: forwards; 
+    animation-timing-function: ease-in-out; 
+ 
+  }
+  
+
+  section.fade-in-left {
+    animation-name: fadeInFromLeft;
+  }
+  
+  section.fade-in-right {
+    animation-name: fadeInFromRight;
+  }
+  
+  section.fade-in-bottom {
+    animation-name: fadeInFromBottom;
+  }
+  
+
+  section.in-view {
+    visibility: visible;
+  }
+  
