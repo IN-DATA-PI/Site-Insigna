@@ -274,20 +274,17 @@ nav .teste a:hover {
     
 }
 
+.texto-sobre-nos{
+    width: 39%;
+}
+
 .fundo-preto p{
     
     color: white;
-    width: 43%;
+    width: 95%;
     margin-left: 26px;
     margin-top: 18px;
 
-}
-
-.video{
-    position: absolute;
-    left: 50%;
-    height: auto;
-    width: auto;
 }
 
 
@@ -509,6 +506,12 @@ form label{
 
 
 }
+@media(max-width: 1024px){
+    .texto-sobre-nos {
+        width: 100%;
+    }
+    
+}
 
 /* Animações */
 @keyframes slideInLeft {
@@ -625,6 +628,8 @@ footer {
     animation-timing-function: ease-in-out; 
  
   }
+
+
   
 
   section.fade-in-left {
