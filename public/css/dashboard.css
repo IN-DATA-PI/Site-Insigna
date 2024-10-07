@@ -13,9 +13,10 @@ body{
 .menu-lateral {
     width: 20%;
     height: 100vh;
+    background-color: #F1F2F7;
 }
 
-.container {
+.container-menu {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -33,18 +34,90 @@ body{
     height: 100%;
 }
 
+
 .menu {
     display: flex;
     flex-direction: column;
-    text-align: center;
     justify-content: space-evenly;
+    text-align: left;
     height: 25%;
+    width: 85%;
+    margin-left: 15%;
 }
 
 .outros {
     display: flex;
     flex-direction: column;
-    text-align: center;
     justify-content: space-evenly;
+    text-align: left;
     height: 25%;
+    width: 85%;
+    margin-left: 15%;
+}
+
+a { 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    height: 30px;
+}
+
+.painel {
+    width: 80%;
+    height: 100vh;
+}
+
+.container-painel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.header-painel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+}
+
+.nome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+
+.notificacoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+
+.conteudo-painel {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 100%;
+}
+
+.titulo {
+    padding: 20px;
+    height: 10%;
+    width: 100%;
+}
+
+.kpis {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 45%;
+    width: 100%;
+
 }
