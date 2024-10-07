@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard - INSIGNA</title>
 </head>
 <body>
@@ -14,20 +15,22 @@
             <div class="logo">
                 <img src="/public/assets/insignaLogoBoaQualidade.png" alt="logoInsigna">
             </div>
+            <br>
 
             <div class="menu">
-                <h5>MENU</h5>
-                <a>Dashboard</a>
-                <a>Cadastro de Operações</a>
-                <a>Cadastro de Investigador</a>
-                <a>Aceitar Operações</a>
+                <h4>MENU</h4>
+                <a><img src="./assets/grafico-icon.png">Dashboard</a>
+                <a><img src="./assets/user-icon.png"> Cadastro de Operações</a>
+                <a><img src="./assets/user-icon.png" alt=""> Cadastro de Investigador</a>
+                <a><img src="./assets/clipboard-icon.png" alt="">Aceitar Operações</a>
             </div>
             <br>
+            <br>
             <div class="outros">
-                <h5>OUTROS</h5>
-                <a>Ajustes</a>
-                <a>Conta</a>
-                <a>Ajuda</a>
+                <h4>OUTROS</h4>
+                <a><img src="./assets/config-icon.png" alt="">Ajustes</a>
+                <a><img src="./assets/conta-icon.png" alt="">Conta</a>
+                <a><img src="./assets/ajuda-icon.png" alt="">Ajuda</a>
             </div>
 
         </div>
@@ -39,16 +42,16 @@
             
             <div class="header-painel">
                 
-                <div class="nome">
-                    <h6>USUARIO</h6>
-                </div>
+                Bem vindo(a)<div class="nome_usuario"></div>
     
                 <div class="notificacoes">
-                    <h6>NOTIFICAÇÕES</h6>
+                    <img src="" alt="">
                 </div>
             
             </div>
         
+            <div class="linha-horizontal"></div>
+
             <div class="conteudo-painel">
     
                 <div class="titulo">
@@ -56,28 +59,47 @@
                 </div>
                 
 
-                <div class="kpis">
+                <div class="indicadores">
                     
-                    <div class="qtd-mes">
+                    <div class="secao-kpi">
                         <h3>Quantidade de Roubos esse mês</h3>
-                        <div class="caixa"></div>
+                        <div class="caixa">
+                            <div class="kpi"></div>
+                        </div>
                     </div>
     
-                    <div class="qtd-ano">
+                    <div class="linha"></div>
+
+                    <div class="secao-kpi">
                         <h3>Quantidade de Roubos esse ano</h3>
-                        <div class="caixa"></div>
+                        <div class="caixa">
+                            <div class="kpi"></div>
+                        </div>
                     </div>
+
+                    <div class="linha"></div>
                     
-                    <div class="mais-perigosa">
+                    <div class="secao-kpi">
                         <h3>Região mais perigosa atualmente</h3>
-                        <div class="caixa"></div>
+                        <div class="caixa">
+                            <div class="kpi"></div>
+                        </div>
                     </div>
                 
                 </div>
                 
+                <div class="linha-horizontal"></div>
+
                 <div class="grafico">
+
                     <h3>Roubos em São Paulo por mês</h3>
-                    <div></div>
+                    
+                    <div class="conteudo-grafico">
+                
+                        <canvas id="myChart" width="100%" height="30"></canvas>
+                
+                    </div>
+                
                 </div>
     
             </div>
@@ -89,3 +111,48 @@
 
 </body>
 </html>
+
+<script>
+    nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var comparisonChart = new Chart(ctx, {
+        type: 'bar', // Define o tipo de gráfico como "bar" (barras)
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            datasets: [
+                {
+                    label: 'Roubos em 2023', // Primeiro conjunto de dados
+                    data: [30, 50, 70, 40, 60, 80, 90, 75, 75, 80, 85, 90, 100],
+                    backgroundColor: 'rgba(128, 128, 128, 0.5)', // Cor das barras
+                    borderColor: 'rgba(128, 128, 128, 1)', // Cor da borda
+                    borderWidth: 1
+                },
+                {
+                    label: 'Roubos em 2024', // Segundo conjunto de dados
+                    data: [40, 60, 50, 80, 70, 90, 95, 80, 85, 75, 80, 80 ],
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cor das barras
+                    borderColor: 'rgba(0, 0, 0, 1)', // Cor da borda
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true // Faz o eixo Y começar em zero
+                }
+            },
+            responsive: true, // Faz o gráfico ser responsivo
+            plugins: {
+                legend: {
+                    position: 'top' // Define a posição da legenda (topo)
+                },
+                title: {
+                    display: true,
+                    text: 'Comparação de roubos por mês anos de 2023 e 2024'
+                }
+            }
+        }
+    });
+</script>

@@ -21,6 +21,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
+    color: #000 ;
 }
 
 .logo {
@@ -40,9 +41,10 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     text-align: left;
-    height: 25%;
+    height: 35%;
     width: 85%;
     margin-left: 15%;
+
 }
 
 .outros {
@@ -50,7 +52,7 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     text-align: left;
-    height: 25%;
+    height: 30%;
     width: 85%;
     margin-left: 15%;
 }
@@ -59,8 +61,25 @@ a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 80%;
-    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    height: 35px;
+
+    img {
+        height: 30px;
+        margin-right: 5px;
+        
+    };
+}
+
+a:hover {
+    color: black;
+    background-color: #969ba3;
+    height: 35px;
+    width: 95%;
+    padding: 10px;
+
 }
 
 .painel {
@@ -113,11 +132,57 @@ a {
     width: 100%;
 }
 
-.kpis {
+.indicadores {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 45%;
+    height: 30%;
     width: 100%;
+}
 
+.secao-kpi {
+    width: 30%;
+    
+    h3 {
+        margin-left: 20px;
+    }
+    
+}
+
+.linha {
+    height: 100%;
+    border: solid 1px #D3D3D3;
+    border-radius: 25px;
+}
+
+.caixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+}
+
+.kpi {
+    height: 80%;
+    width: 80%;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.linha-horizontal {
+    width: 100%;
+    border: solid 1px #D3D3D3;
+    width: 98%;
+    margin-left: 1%;
+}
+
+.grafico {
+    padding: 10px;
+    height: 60%;
+    width: 100%;
+}
+
+.conteudo-grafico {
+    height: 90%;
 }

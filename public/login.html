@@ -77,10 +77,14 @@
             resposta.json().then((json) => {
               console.log(json);
               console.log(JSON.stringify(json));
+              sessionStorage.ID_USUARIO = json.id;
+              sessionStorage.NOME_USUARIO = json.nome;
+              sessionStorage.EMAIL_USUARIO = json.email;
+              sessionStorage.SENHA_USUARIO = json.senha;
 
               alert("Login com sucesso!");
               setTimeout(function () {
-                window.location = "index.html";
+                window.location = "./dash/dashboard.html";
               }, 1000); // apenas para exibir o loading
             });
           } else {
