@@ -116,8 +116,47 @@ function cadastrarOp(req, res) {
     }
 }
 
+function cadastrarIv(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeIv = req.body.nomeIvServer;
+    var matriculaIv = req.body.matriculaIvServer;
+    var emailIv = req.body.emailIvServer;
+    var senhaIv = req.body.senhaIvServer;
+    var desc = req.body.descServer;
+
+    // Faça as validações dos valores
+    if (nomeIv == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (matriculaIv == undefined) {
+        res.status(400).send("A matricula está undefined!");
+    } else if (emailIv == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (senhaIv == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    }else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarIv(nomeIv, matriculaIv, emailIv, senhaIv)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarOp
+    cadastrarOp,
+    cadastrarIv
 }

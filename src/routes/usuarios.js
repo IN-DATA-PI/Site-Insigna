@@ -16,4 +16,8 @@ router.post("/cadastrarOp", function (req, res) {
     usuarioController.cadastrarOp(req, res);
 });
 
+router.post("/cadastrarIv", function (req, res) {
+    usuarioController.cadastrarIv(req, res);
+});
+
 module.exports = router;
