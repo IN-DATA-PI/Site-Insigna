@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro De Investigadores</title>
+</head>
+<body>
+    <div>
+        <div>
+          Nome: <input type="text" placeholder="" id="ipt_nomeIv"/>
+          Matrícula: <input type="number" placeholder="" id="ipt_matriculaIv"/>
+          E-mail: <input type="text" placeholder="" id="ipt_emailIv"/>
+        </div>
+
+        <div>
+          Senha: <input type="password" placeholder="" id="ipt_senhaIv"/>
+          Confirmar Senha: <input type="password" placeholder="." id="ipt_confirmarSenhaIv"/>
+        </div>
+      </div>
+
+      <div>
+        <button onclick="cadastrarIv()">Cadastrar</button>
+      </div>
+</body>
+</html>
+
+<script>
+    function cadastrarIv() {
+    var nomeIvVar = "iv_" + ipt_nomeIv.value;
+    var matriculaIvVar = ipt_matriculaIv.value;
+    var emailIvVar = ipt_emailIv.value;
+    var senhaIvVar = ipt_senhaIv.value;
+    var confirmarSenhaIvVar = ipt_confirmarSenhaIv.value;
+
+    if (
+        nomeIvVar == "" ||
+        matriculaIvVar == "" ||
+        emailIvVar == "" ||
+        senhaIvVar == "" ||
+        confirmarSenhaIvVar == ""
+    ) {
+      alert("Mensagem de erro para todos os campos em branco");
+      return false;
+    }
+    // Enviando o valor da nova input
+    fetch("../usuarios/cadastrarIv", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeIvServer: nomeIvVar,
+        matriculaIvServer: matriculaIvVar,
+        emailIvServer: emailIvVar,
+        senhaIvServer: senhaIvVar,
+        confirmarSenhaIvServer: confirmarSenhaIvVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          alert("Cadastrado com sucesso!");
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "1000");
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+</script>
