@@ -257,6 +257,20 @@ nav .teste a:hover {
     margin: 48px;
 }
 
+.conteudo-sobre{
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 133px;
+}
+
+.video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37vw;
+}
+
 .fundo-preto{
     background-color: #000;
     width: 89%;
@@ -504,11 +518,12 @@ form label{
         width: 42%;
     }
 
-
-}
-@media(max-width: 1024px){
     .texto-sobre-nos {
         width: 100%;
+    }
+    .video{
+        width: 100%;
+        height: 77vh;
     }
     
 }
