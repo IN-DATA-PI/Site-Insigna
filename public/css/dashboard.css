@@ -4,16 +4,17 @@
     box-sizing: border-box;
 }
 
-body{
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   display: flex;
-   flex-direction: row;
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
 }
 
 .menu-lateral {
     width: 20%;
     height: 100vh;
     background-color: #F1F2F7;
+    box-shadow:  0 0 5px #000;
 }
 
 .container-menu {
@@ -21,7 +22,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
-    color: #000 ;
+    color: #000;
 }
 
 .logo {
@@ -57,7 +58,7 @@ body{
     margin-left: 15%;
 }
 
-a { 
+a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -65,12 +66,13 @@ a {
     border-radius: 10px;
     width: 90%;
     height: 35px;
+    text-decoration: none;
+    color: #000;
 
     img {
-        height: 30px;
+        height: 25px;
         margin-right: 5px;
-        
-    };
+    }
 }
 
 a:hover {
@@ -79,7 +81,7 @@ a:hover {
     height: 35px;
     width: 95%;
     padding: 10px;
-
+    cursor: pointer;
 }
 
 .painel {
@@ -101,6 +103,24 @@ a:hover {
     align-items: center;
     height: 5%;
     width: 100%;
+}
+
+.usuario {
+    width: 20%;
+}
+
+.notificacoes {
+    width: 10%;
+    height: 25px;
+}
+
+.notificacoes img {
+    height: 20px;
+}
+.notificacoes:hover {
+    cursor: pointer;
+    border-radius: 90px;
+    background-color: #969ba3;
 }
 
 .nome {
@@ -127,12 +147,31 @@ a:hover {
 }
 
 .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 20px;
     height: 10%;
     width: 100%;
 }
 
-.indicadores {
+.filtro {
+    display: flex;
+    justify-content: center;
+
+    width: 20%;
+}
+
+.select_filtro {
+    height: 110%;
+    width: 70%;
+    border: solid 2px black;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.indicadores_geral {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -140,13 +179,13 @@ a:hover {
     width: 100%;
 }
 
-.secao-kpi {
+.secao_kpi_geral {
     width: 30%;
-    
+
     h3 {
         margin-left: 20px;
     }
-    
+
 }
 
 .linha {
@@ -155,7 +194,7 @@ a:hover {
     border-radius: 25px;
 }
 
-.caixa {
+.caixa_geral {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -163,11 +202,17 @@ a:hover {
     width: 100%;
 }
 
-.kpi {
+.kpi_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 80%;
     width: 80%;
     background-color: black;
     border-radius: 15px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .linha-horizontal {
