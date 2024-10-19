@@ -1,60 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/cadastroOperacao.css">
-    <title>Cadastro De Operações</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/cadastroOperacao.css">
+  <title>Cadastro De Operações</title>
 </head>
+
 <body>
-   <section class="menu-lateral">
+  <!-- Navbar lateral -->
+  <section class="menu-lateral">
     <div class="container">
+      <div class="logo">
+        <img src="../assets/insignaLogoBoaQualidade.png" alt="logoInsigna">
+      </div>
 
-        <div class="logo">
-            <img src="/public/assets/insignaLogoBoaQualidade.png" alt="logoInsigna">
-        </div>
+      <div class="menu">
+        <h4>MENU</h4>
+        <a><img src="../assets/grafico-icon.png">Dashboard</a>
+        <a><img src="../assets/user-icon.png"> Cadastro de Operações</a>
+        <a><img src="../assets/user-icon.png" alt=""> Cadastro de Investigador</a>
+        <a><img src="../assets/clipboard-icon.png" alt="">Aceitar Operações</a>
+      </div>
 
-        <div class="menu">
-            <h5>MENU</h5>
-            <button>Dashboard</button>
-            <button>Cadastro de Operações</button>
-            <button>Cadastro de Investigador</button>
-            <button>Aceitar Operações</button>
-        </div>
-
-        <div class="outros">
-            <h5>OUTROS</h5>
-            <button>Ajustes</button>
-            <button>Conta</button>
-            <button>Ajuda</button>
-        </div>
-
+      <div class="outros">
+        <h4>OUTROS</h4>
+        <a><img src="../assets/config-icon.png" alt="">Ajustes</a>
+        <a><img src="../assets/conta-icon.png" alt="">Conta</a>
+        <a><img src="../assets/ajuda-icon.png" alt="">Ajuda</a>
+      </div>
     </div>
-   </section>
+  </section>
 
+  <!-- Conteúdo principal ao lado da navbar -->
+  <section class="main-content">
+    <!-- Header -->
+    <section class="header">
+      <div class="box-usuario">
+        <p>Joao Kevin</p>
+      </div>
+    </section>
 
-
-    <div>
-        <div>
-          Nome da Operação: <input type="text" placeholder="Ex: Lava-Jato" id="ipt_nomeOp"/>
-          Quantidade de policias nescessários: <input type="number" placeholder="Ex: 15" id="ipt_qtdPoliciais"/>
-          Local da operação: <input type="text" placeholder="Ex: Rua Hadock Lobo" id="ipt_local"/>
+    <h1>cadastro de operações</h1>
+    <!-- Cadastro de Operações -->
+    <form class="cadastro-op">
+      <main class="cadastroOp-container">
+        <h2>Escreva as seguintes informações</h2>
+        <div class="box-op">
+          <div class="box-form">
+          <label for=""> Nome da Operação: </label>
+          <input type="text" placeholder="Ex: Lava-Jato" id="ipt_nomeOp">
+          <label for=""> Quantidade de policias necessários:</label>
+          <input type="number" placeholder="Ex: 15" id="ipt_qtdPoliciais">
+          </div>
+          <div class="box-form-1">
+          <label> Local da operação: </label>
+          <input type="text" placeholder="Ex: Rua Hadock Lobo" id="ipt_local">
+          <label for=""> Data da operação: </label>
+          <input type="text" placeholder="Ex: 2024-08-10" id="ipt_dataOp">
+          </div>
+        </div>
         </div>
 
-        <div>
-          Data da operação: <input type="text" placeholder="Ex: 2024-08-10" id="ipt_dataOp"/>
-          Descrição da operação: <input type="text" placeholder="Ex: Essa operação vai..." id="ipt_desc"/>
+        <div class="box-op">
+          <div class="box-desc">
+            Descrição da operação: <input type="text" placeholder="Ex: Essa operação vai..." id="ipt_desc">
+          </div>
         </div>
-      </div>
 
-      <div>
-        <button onclick="cadastrarOp()">Cadastrar</button>
-      </div>
+        <div class="botao">
+          <button onclick="cadastrarOp()">Registrar</button>
+        </div>
+      </main>
+    </form>
+
+  </section>
 </body>
+
 </html>
 
 <script>
-    function cadastrarOp() {
+  function cadastrarOp() {
     var nomeOpVar = ipt_nomeOp.value;
     var qtdPoliciaisVar = Number(ipt_qtdPoliciais.value);
     var localVar = ipt_local.value;

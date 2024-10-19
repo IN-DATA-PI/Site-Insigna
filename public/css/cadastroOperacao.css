@@ -1,50 +1,233 @@
-* {
+/* Estilos gerais para layout */
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   display: flex;
-   flex-direction: row;
-}
-
-.menu-lateral {
-    width: 20%;
-    height: 100vh;
-}
-
-.container {
+    display: flex;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar lateral (vertical) */
+  .menu-lateral {
+    width: 250px;
+    color: white;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-}
-
-.logo {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    height: 25%;
-}
+  }
 
-.logo img {
-    height: 100%;
-}
-
-.menu {
+  h4{
+    text-align: start;
+    padding: 10px;
+  }
+  
+  .container {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    justify-content: space-evenly;
-    height: 25%;
+    align-items: center;
+  }
+
+  a { 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    height: 35px;
+
+    img {
+        height: 30px;
+        margin-right: 5px;
+        
+    };
+}
+
+a:hover {
+    color: black;
+    background-color: #969ba3;
+    height: 35px;
+    width: 95%;
+    padding: 10px;
+
+}
+
+.box-usuario{
+  display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 10vh;
 }
 
 .outros {
     display: flex;
     flex-direction: column;
-    text-align: center;
     justify-content: space-evenly;
-    height: 25%;
+    text-align: left;
+    height: 30%;
+    width: 85%;
+    margin-left: 15%;
 }
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    height: 35%;
+    width: 85%;
+    margin-left: 15%;
+
+}
+
+
+  
+  .logo img {
+    max-width: 80%;
+  
+  }
+  
+  .menu, .outros {
+    width: 100%;
+    padding: 18px;
+    text-align: center;
+  }
+  
+  .menu h5, .outros h5 {
+    color: #aaa;
+    margin-bottom: 10px;
+  }
+  
+  .menu button, .outros button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    color: #000 ;
+    font-size: 13px;
+}
+  
+  .menu button:hover, .outros button:hover {
+    background-color: #777;
+  }
+  
+  /* Estilos para as outras seções */
+  .main-content {
+    flex-grow: 1;
+    padding: 14px;
+    background-color: #f4f4f4;
+  }
+  
+  .header {
+    height: 100px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000;
+    height: 65px;
+  }
+  
+  .cadastro-op {
+ 
+    padding: 20px;
+    height: 66vh;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box-op{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+  }
+
+  .box-desc{
+    width: 80%;
+  }
+
+  .box-desc input{
+    width: 95%;
+    height: 20vh;
+  }
+  
+  .cadastroOp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #b9bcc0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    justify-content: center;
+  }
+  
+  .box-form input{
+    display: grid;
+  grid-template-columns: 1fr 1fr; /* Cada linha terá 2 inputs */
+  gap: 20px;
+  }
+  
+  input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 89%;
+  }
+
+  .box-form, .box-form-1{
+    width: 40%;
+  }
+
+  .botao{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #5d5c5c;
+  }
+
+h2{
+    display: flex;
+    justify-content: center;
+}
+  
+  /* Ajustando o layout responsivo */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+  
+    .menu-lateral {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    .main-content {
+      padding: 10px;
+    }
+  }
+  
