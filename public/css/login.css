@@ -49,6 +49,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+        height: 25px;
+    }
 }
 
 .nav a .texto{
