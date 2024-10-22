@@ -60,7 +60,7 @@
 <script>
   function cadastrar() {
     var nomeVar = "dl_" + ipt_nome.value;
-    var departamentoVar = ipt_departamento.value;
+    var distritoPolicialVar = ipt_departamento.value;
     var emailVar = ipt_email.value;
     var matriculaVar = Number(ipt_matricula.value);
     var senhaVar = ipt_senha.value;
@@ -103,7 +103,7 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        departamentoServer: departamentoVar,
+        distritoPolicialServer: distritoPolicialVar,
         emailServer: emailVar,
         matriculaServer: matriculaVar,
         senhaServer: senhaVar,
