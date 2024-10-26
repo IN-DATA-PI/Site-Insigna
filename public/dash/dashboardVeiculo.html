@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="icon" href="/assets/LogoSoDistintivo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard - INSIGNA</title>
+</head>
+
+<body>
+
+    <div class="menu-lateral">
+        <div class="container-menu">
+
+            <div class="logo">
+                <img src="../assets/insignaLogoBoaQualidade.png">
+            </div>
+            <br>
+
+            <div class="menu">
+                <h4>MENU</h4>
+                <a href="dashboard.html"><img src="../assets/grafico-icon.png">Dashboard</a>
+                <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png">Cadastro de Operações</a>
+                <a href="cadastroInvestigadores.html"><img src="../assets/user-icon.png">Cadastro de Investigador</a>
+                <a><img src="../assets/aceitarOp.png">Aceitar Operações</a>
+            </div>
+            <br>
+            <br>
+            <div class="outros">
+                <h4>OUTROS</h4>
+                <a href="../index.html"><img src="../assets/home.png">Home</a>
+                <a><img src="../assets/config-icon.png">Ajustes</a>
+                <a><img src="../assets/conta-icon.png">Conta</a>
+                <a><img src="../assets/ajuda-icon.png">Ajuda</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="painel">
+
+        <div class="container-painel">
+
+            <div class="header-painel">
+
+                <div class="usuario">
+                    <p id="nome_usuario"></p>
+                </div>
+
+                <div class="notificacoes">
+                    <img src="../assets/notificacao.png">
+                </div>
+
+            </div>
+
+            <div class="linha-horizontal"></div>
+
+            <div class="conteudo-painel">
+
+                <div class="cabecalho">
+                    <h1>Dashboard (Veículo)</h1>
+
+                    <div class="filtro">
+
+                        <div class="selecionar">
+                            <select class="select_filtro" id="tipo_roubo">
+                                <option value="#">Escolher roubo</option>
+                                <option value="outros">Outros</option>
+                                <option value="veiculo">Veículo</option>
+                                + <option value="carga">Carga</option>
+                            </select>
+                        </div>
+
+                        <div class="selecionar">
+                            <select class="select_filtro" id="regiao">
+                                <option value="#">Região</option>
+                                <option value="geral">Geral</option>
+                                <option value="centro">Centro</option>
+                                <option value="norte">Zona Norte</option>
+                                <option value="leste">Zona Leste</option>
+                                <option value="sul">Zona Sul</option>
+                                <option value="oeste">Zona Oeste</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="indicadores_geral">
+
+                    <div class="secao_kpi_geral">
+                        <h3 id="tituloKPI1">Quantidade de Roubos esse mês</h3>
+                        <div class="caixa_geral">
+                            <div class="kpi_geral">
+                                <p id="dadosKPI1"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linha"></div>
+
+                    <div class="secao_kpi_geral">
+                        <h3 id="tituloKPI2">Quantidade de Roubos esse ano</h3>
+                        <div class="caixa_geral">
+                            <div class="kpi_geral">
+                                <p id="dadosKPI2"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linha"></div>
+
+                    <div class="secao_kpi_geral">
+                        <h3 id="tituloKPI3">Região mais perigosa atualmente</h3>
+                        <div class="caixa_geral">
+                            <div class="kpi_geral">
+                                <p id="dadosKPI3"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="linha-horizontal"></div>
+
+                <div class="grafico">
+
+                    <h3>Região com mais Roubos de Veículo</h3>
+
+                    <div class="conteudo-grafico">
+
+                        <canvas id="myChart" width="100%" height="30"></canvas>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    nome_usuario.innerHTML = "Bem vindo(a) " + sessionStorage.NOME_USUARIO;
+
+    const dados = {
+
+geral: {
+    dado_mes: 850,
+    dado_ano: 10200,
+    dado_perigo: "Leste"
+},
+
+centro: {
+    dado_mes: 200,
+    dado_ano: 2400,
+    dado_perigo: "Centro"
+},
+
+norte: {
+    dado_mes: 130,
+    dado_ano: 1560,
+    dado_perigo: "Centro"
+},
+
+leste: {
+    dado_mes: 250,
+    dado_ano: 3000,
+    dado_perigo: "Leste"
+},
+
+sul: {
+    dado_mes: 150,
+    dado_ano: 1800,
+    dado_perigo: "Leste"
+},
+
+oeste: {
+    dado_mes: 120,
+    dado_ano: 1440,
+    dado_perigo: "Centro"
+}
+}
+
+
+
+    const roubosMes = document.getElementById('dadosKPI1');
+    const roubosAno = document.getElementById('dadosKPI2');
+    const regiaoPerigo = document.getElementById('dadosKPI3');
+    const regiaoSelecionada = document.getElementById('regiao');
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    let grafico;
+
+    function atualizarDash(regiao) {
+        const regiaoDados = dados[regiao];
+
+        roubosMes.textContent = regiaoDados.dado_mes;
+        roubosAno.textContent = regiaoDados.dado_ano;
+        regiaoPerigo.textContent = regiaoDados.dado_perigo;
+
+        if (grafico) {
+            grafico.destroy();
+        }
+
+        grafico = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                datasets: [
+                    {
+                        label: 'Roubos em 2023', 
+                        data: [1213, 1144, 1495, 1259, 1201, 1146, 1136, 1131, 1174, 1315, 1349, 1420],
+                        backgroundColor: 'rgba(128, 128, 128, 0.5)', 
+                        borderColor: 'rgba(128, 128, 128, 1)', 
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Roubos em 2024', 
+                        data: [940, 990, 1030, 1043, 1113, 1051, 1015, 967, 952, 1017],
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+                        borderColor: 'rgba(0, 0, 0, 1)', 
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true 
+                    }
+                },
+                responsive: true, 
+                plugins: {
+                    legend: {
+                        position: 'top' 
+                    },
+                    title: {
+                        display: true,
+                        text: 'Comparação de roubos por mês anos de 2023 e 2024'
+                    }
+                }
+            }
+        });
+    }
+
+    regiaoSelecionada.addEventListener('change', (e) => {
+        const regiaoSelecionada = e.target.value;
+        atualizarDash(regiaoSelecionada);
+    })
+
+    const rouboSelecionado = document.getElementById('tipo_roubo')
+
+    rouboSelecionado.addEventListener('change', (e) => {
+        const rouboSelecionado = e.target.value;
+
+        if (rouboSelecionado == 'outros') {
+            window.location.href = 'dashboardOutros.html';
+        } else if (rouboSelecionado == 'veiculo') {
+            window.location.href = 'dashboardVeiculo.html';
+        } else if (rouboSelecionado == 'banco') {
+            window.location.href = 'dashboardBanco.html';
+        } else if (rouboSelecionado == 'carga') {
+            window.location.href = 'dashboardCarga.html';
+        }
+    });
+
+
+    atualizarDash('geral')
+</script>

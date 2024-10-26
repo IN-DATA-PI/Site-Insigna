@@ -147,7 +147,7 @@ a:hover {
     width: 100%;
 }
 
-.titulo {
+.cabecalho {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -158,9 +158,12 @@ a:hover {
 
 .filtro {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    width: 35%;
+}
 
-    width: 20%;
+.selecionar {
+    width: 45%;
 }
 
 .select_filtro {
