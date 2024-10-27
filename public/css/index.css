@@ -524,9 +524,20 @@ form label{
     .video{
         width: 100%;
         height: 77vh;
+        display: none;
     }
+
+    
     
 }
+
+@media(max-width: 768px){
+    .fundo{
+        height: 70vh;
+    }
+}
+
+
 
 /* Animações */
 @keyframes slideInLeft {
