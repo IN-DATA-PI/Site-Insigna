@@ -2,90 +2,108 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/cadastroOperacao.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/cadastroOperacao.css" />
   <title>Cadastro De Operações</title>
 </head>
 
 <body>
-  <!-- Navbar lateral -->
   <div class="menu-lateral">
     <div class="container-menu">
-
-        <div class="logo">
-            <img src="../assets/insignaLogoBoaQualidade.png">
-        </div>
-        <br>
-
-        <div class="menu">
-            <h4>MENU</h4>
-            <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png">Dashboard</a>
-            <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png">Cadastro de Operações</a>
-            <a href="cadastroInvestigadores.html"><img src="../assets/user-icon.png">Cadastro de Investigador</a>
-            <a><img src="../assets/aceitarOp.png">Aceitar Operações</a>
-        </div>
-        <br>
-        <br>
-        <div class="outros">
-            <h4>OUTROS</h4>
-            <a href="../index.html"><img src="../assets/home.png">Home</a>
-            <a><img src="../assets/config-icon.png">Ajustes</a>
-            <a><img src="../assets/conta-icon.png">Conta</a>
-            <a><img src="../assets/ajuda-icon.png">Ajuda</a>
-        </div>
-
-    </div>
-</div>
-
-  <!-- Conteúdo principal ao lado da navbar -->
-  <section class="main-content">
-    <!-- Header -->
-    <section class="header">
-      <div class="box-usuario">
-        <p>Joao Kevin</p>
+      <div class="logo">
+        <img src="../assets/insignaLogoBoaQualidade.png" />
       </div>
-    </section>
+      <br />
 
-    <h1>cadastro de operações</h1>
-    <!-- Cadastro de Operações -->
-    <form class="cadastro-op">
-      <main class="cadastroOp-container">
-        <h2>Escreva as seguintes informações</h2>
-        <div class="box-op">
-          <div class="box-form">
-          <label for=""> Nome da Operação: </label>
-          <input type="text" placeholder="Ex: Lava-Jato" id="ipt_nomeOp">
-          <label for=""> Quantidade de policias necessários:</label>
-          <input type="number" placeholder="Ex: 15" id="ipt_qtdPoliciais">
+      <div class="menu">
+        <h4>MENU</h4>
+        <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png" />Dashboard</a>
+        <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png" />Cadastro de Operações</a>
+        <a href="cadastroInvestigadores.html"><img src="../assets/user-icon.png" />Cadastro de Investigador</a>
+        <a><img src="../assets/aceitarOp.png" />Aceitar Operações</a>
+      </div>
+      <br />
+      <br />
+      <div class="outros">
+        <h4>OUTROS</h4>
+        <a href="../index.html"><img src="../assets/home.png" />Home</a>
+        <a><img src="../assets/config-icon.png" />Ajustes</a>
+        <a><img src="../assets/conta-icon.png" />Conta</a>
+        <a><img src="../assets/ajuda-icon.png" />Ajuda</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="painel">
+    <div class="container-painel">
+      <div class="header-painel">
+        <div class="usuario">
+          <p id="nome_usuario"></p>
+        </div>
+
+        <div class="notificacoes">
+          <img src="../assets/notificacao.png" />
+        </div>
+      </div>
+
+      <div class="linha-horizontal"></div>
+
+      <div class="cabecalho">
+        <h1>Cadastro de Operações</h1>
+      </div>
+
+      <div class="conteudo-cadastro">
+
+        <div class="cadastro">
+          <h2>Escreva as seguintes informações</h2>
+
+          <div class="horizontal">
+          
+            <div class="input1">
+              <label>Nome da Operação:</label><br>
+              <input type="text" class="ipt" id=""><br>
+              <label>Quantidade de Policiais:</label><br>
+              <input type="number" class="ipt" id=""><br>
+            </div>
+          
+            <div class="input2">
+              <label>Local da Operação:</label><br>
+              <input type="text" class="ipt" id=""><br>
+              <label>Data da Operação:</label><br>
+              <input type="date" class="ipt" id=""><br>
+            </div>
+          
           </div>
-          <div class="box-form-1">
-          <label> Local da operação: </label>
-          <input type="text" placeholder="Ex: Rua Hadock Lobo" id="ipt_local">
-          <label for=""> Data da operação: </label>
-          <input type="text" placeholder="Ex: 2024-08-10" id="ipt_dataOp">
+          
+          <div class="descricao">
+        
+            <div class="conteudo-desc">
+
+              <label>Descrição da Operação:</label><br>
+              <textarea type="text" class="ipt_desc" id="" wrap="hard">
+              </textarea>
+            
+            </div>
+        
           </div>
+        
+          <button class="btn">Registrar</button>
+          
         </div>
-        </div>
-
-        <div class="box-op">
-          <div class="box-desc">
-            Descrição da operação: <input type="text" placeholder="Ex: Essa operação vai..." id="ipt_desc">
-          </div>
-        </div>
-
-        <div class="botao">
-          <button onclick="cadastrarOp()">Registrar</button>
-        </div>
-      </main>
-    </form>
-
-  </section>
+      
+      </div>
+      
+    </div>
+  </div>
 </body>
 
 </html>
 
 <script>
+  nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
+
+
   function cadastrarOp() {
     var nomeOpVar = ipt_nomeOp.value;
     var qtdPoliciaisVar = Number(ipt_qtdPoliciais.value);
