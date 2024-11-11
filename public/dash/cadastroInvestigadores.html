@@ -3,29 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro De Investigadores</title>
+    <link rel="stylesheet" href="../css/cadatroInvestigadores.css">
+    <title>Cadastro De Investigadores - INSIGNA</title>
 </head>
 <body>
-    <div>
-        <div>
-          Nome: <input type="text" placeholder="" id="ipt_nomeIv"/>
-          Matrícula: <input type="number" placeholder="" id="ipt_matriculaIv"/>
-          E-mail: <input type="text" placeholder="" id="ipt_emailIv"/>
+  <div class="menu-lateral">
+    <div class="container-menu">
+      <div class="logo">
+        <img src="../assets/insignaLogoBoaQualidade.png" />
+      </div>
+      <br />
+
+      <div class="menu">
+        <h4>MENU</h4>
+        <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png" />Dashboard</a>
+        <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png" />Cadastro de Operações</a>
+        <a href="cadastroInvestigadores.html"><img src="../assets/user-icon.png" />Cadastro de Investigador</a>
+        <a><img src="../assets/aceitarOp.png" />Operações</a>
+      </div>
+      <br />
+      <br />
+      <div class="outros">
+        <h4>OUTROS</h4>
+        <a href="../index.html"><img src="../assets/home.png" />Home</a>
+        <a><img src="../assets/conta-icon.png" />Conta</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="painel">
+    <div class="container-painel">
+      <div class="header-painel">
+        <div class="usuario">
+          <p id="nome_usuario"></p>
         </div>
 
-        <div>
-          Senha: <input type="password" placeholder="" id="ipt_senhaIv"/>
-          Confirmar Senha: <input type="password" placeholder="." id="ipt_confirmarSenhaIv"/>
+        <div class="notificacoes">
+          <img src="../assets/notificacao.png" />
         </div>
       </div>
 
-      <div>
-        <button onclick="cadastrarIv()">Cadastrar</button>
+      <div class="linha-horizontal"></div>
+
+      <div class="cabecalho">
+        <h1>Cadastro de Investigador</h1>
       </div>
+
+      <div class="conteudo-cadastro">
+
+        <div class="cadastro">
+
+          <div class="titulo">
+            <h2>Escreva as seguintes informações</h2>
+          </div>
+
+          <div class="horizontal">
+          
+            <div class="input1">
+              <label>Nome:</label><br>
+              <input type="text" class="ipt" id="ipt_nomeIv"><br>
+              <label>Departamento:</label><br>
+              <input type="tel" class="ipt" id=""><br>
+              <label>E-mail:</label><br>
+              <input type="number" class="ipt" id="ipt_emailIv"><br>
+            </div>
+          
+            <div class="input2">
+              <label>Matrícula:</label><br>
+              <input type="text" class="ipt" id="ipt_matriculaIv"><br>
+              <label>Senha:</label><br>
+              <input type="password" class="ipt" id="ipt_senhaIv"><br>
+              <label>Confirmaçao de senha:</label><br>
+              <input type="password" class="ipt" id="ipt_confirmarSenhaIv"><br>
+            </div>
+          
+          </div>
+        
+          <button onclick="cadastrarIv()" class="btn">Registrar</button>
+          
+        </div>
+      
+      </div>
+      
+    </div>
+  </div>
 </body>
 </html>
 
 <script>
+  nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
+
+
     function cadastrarIv() {
     var nomeIvVar = "iv_" + ipt_nomeIv.value;
     var matriculaIvVar = ipt_matriculaIv.value;
