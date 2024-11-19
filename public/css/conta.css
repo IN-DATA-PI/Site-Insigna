@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .menu-lateral {
+    width: 20%;
+    height: 100vh;
+    background-color: #F1F2F7;
+    box-shadow: 0 0 5px #000;
+  }
+  
+  .container-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    color: #000;
+  }
+  
+  
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+  }
+  
+  .logo img {
+    height: 100%;
+  }
+  
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    height: 35%;
+    width: 85%;
+    margin-left: 15%;
+  
+  }
+  
+  .outros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    height: 30%;
+    width: 85%;
+    margin-left: 15%;
+  }
+  
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    height: 35px;
+    text-decoration: none;
+    color: #000;
+  
+    img {
+      height: 25px;
+      margin-right: 5px;
+    }
+  }
+  
+  a:hover {
+    color: black;
+    background-color: #969ba3;
+    height: 35px;
+    width: 95%;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  
+  .painel {
+    width: 80%;
+    height: 100vh;
+  }
+  
+  .container-painel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .header-painel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+  }
+  
+  .usuario {
+    width: 20%;
+  }
+  
+  .notificacoes {
+    width: 10%;
+    height: 25px;
+  }
+  
+  .notificacoes img {
+    height: 20px;
+  }
+  
+  .notificacoes:hover {
+    cursor: pointer;
+    border-radius: 90px;
+    background-color: #969ba3;
+  }
+
+  .linha-horizontal {
+    width: 100%;
+    border: solid 1px #D3D3D3;
+    width: 98%;
+    margin-left: 1%;
+  }
+
+  .painel-conta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .cabecalho {
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .conteudo-painel {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    padding: 20px;
+
+  }
+
+  th, tr {
+    border: solid 1px #D3D3D3;
+  }

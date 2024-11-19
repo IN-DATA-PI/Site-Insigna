@@ -5,7 +5,7 @@ var database = require("../database/config")
 function autenticar(nome, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", nome, senha)
     var instrucaoSql = `
-        SELECT id, nome, email, senha from usuario WHERE nome = '${nome}' AND senha = '${senha}';
+        SELECT id, nome, distritoPolicial, email, matricula, senha from usuario WHERE nome = '${nome}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -50,10 +50,33 @@ function cadastrarIv(nomeIv, matriculaIv, emailIv, senhaIv) {
     return database.executar(instrucaoSql);
 }
 
+function editarUsuario(nomeAtualizado, emailAtualizado, departamentoAtualizado, senhaAtualizada, usuario) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", usuario);
+    var instrucaoSql = `
+        UPDATE usuario SET nome = '${nomeAtualizado}' WHERE id = ${usuario};
+        UPDATE usuario SET email = '${emailAtualizado}' WHERE id = ${usuario};
+        UPDATE usuario SET distritoPolicial = '${departamentoAtualizado}' WHERE id = ${usuario};
+        UPDATE usuario SET senha = '${senhaAtualizada}' WHERE id = ${usuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function deletarUsuario(id) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", id);
+    var instrucaoSql = `
+        DELETE FROM usuario WHERE id = ${id};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     autenticar,
     cadastrar,
     cadastrarOp,
-    cadastrarIv
+    cadastrarIv,
+    editarUsuario,
+    deletarUsuario
 };

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/conta.css" />
+    <title>Usuários - INSIGNA</title>
+</head>
+
+<body>
+    <div class="menu-lateral">
+        <div class="container-menu">
+            <div class="logo">
+                <img src="../assets/insignaLogoBoaQualidade.png" />
+            </div>
+            <br />
+
+            <div class="menu">
+                <h4>MENU</h4>
+                <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png" />Dashboard</a>
+                <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png" />Cadastro de Operações</a>
+                <a href="cadastroInvestigadores.html"><img src="../assets/user-icon.png" />Cadastro de Investigador</a>
+                <a><img src="../assets/aceitarOp.png" />Operações</a>
+            </div>
+            <br />
+            <br />
+            <div class="outros">
+                <h4>OUTROS</h4>
+                <a href="../index.html"><img src="../assets/home.png" />Home</a>
+                <a><img src="../assets/conta-icon.png" />Conta</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="painel">
+        <div class="container-painel">
+            <div class="header-painel">
+                <div class="usuario">
+                    <p id="nome_usuario"></p>
+                </div>
+
+                <div class="notificacoes">
+                    <img src="../assets/notificacao.png" />
+                </div>
+            </div>
+
+            <div class="linha-horizontal"></div>
+
+            <div class="painel-conta">
+
+
+                    <div class="cabecalho">
+                        <h2>Lista de usuários</h2>
+                    </div>
+
+                    <div class="conteudo-painel">
+
+                        <table id="tabela" class="tabela">
+                            <tr>
+                                <th>Nome</th>
+                                <th>Departamento</th>
+                                <th>E-mail</th>
+                                <th>Senha</th>
+                            </tr>
+                            
+                            <tbody>
+
+                            </tbody>
+                        
+                        </table>
+
+                    </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function trazerTodos() {
+    tabela.innerHTML = '';
+
+    fetch(`/usuarios/trazerTodos`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+        resposta.json().then(json => {
+            json.forEach(user => {
+                if (!user.isDeletedUser) {
+                    const linha = tabela.insertRow();
+                    linha.innerHTML = `
+                    <td>${usuario.idUsuario}</td>
+                    <td>${usuario.nomeUsuario}</td>
+                    <td>${usuario.email}</td>
+                    <td>${usuario.nomeCargo || 'Não definido'}</td>
+                    <td>${usuario.nomeEmpresa || 'Não definida'}</td>
+                    <td><a onclick=""></a></td>
+                    <td><a onclick=""></a></td>
+                `;
+                }
+            });
+        })
+    }).catch(function (error) {
+        console.log("error: ", error);
+    });
+}
+</script>

@@ -20,4 +20,12 @@ router.post("/cadastrarIv", function (req, res) {
     usuarioController.cadastrarIv(req, res);
 });
 
+router.put("/editarUsuario/:usuario", function (req, res) {
+    usuarioController.editarUsuario(req, res);
+});
+
+router.delete("/deletarUsuario/:usuario", function (req, res) {
+    usuarioController.deletarUsuario(req, res);
+});
+
 module.exports = router;
