@@ -27,12 +27,28 @@ router.get("/roubosAnoVeiculo", function (req, res) {
     dashboardControler.roubosAnoVeiculo(req, res);
 });
 
+router.get("/regiaoVeiculo", function (req, res) {
+    dashboardControler.regiaoVeiculo(req, res);
+});
+
+router.get("/graficoVeiculo", function (req, res) {
+    dashboardControler.graficoVeiculo(req, res);
+});
+
 router.get("/roubosMesOutros", function (req, res) {
     dashboardControler.roubosMesOutros(req, res);
 });
 
 router.get("/roubosAnoOutros", function (req, res) {
     dashboardControler.roubosAnoOutros(req, res);
+});
+
+router.get("/regiaoOutros", function (req, res) {
+    dashboardControler.regiaoOutros(req, res);
+});
+
+router.get("/graficoOutros", function (req, res) {
+    dashboardControler.graficoOutros(req, res);
 });
 
 

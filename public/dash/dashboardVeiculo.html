@@ -10,7 +10,7 @@
     <title>Dashboard - INSIGNA</title>
 </head>
 
-<body onload="roubosMesVeiculo(), roubosAnoVeiculo()">
+<body onload="roubosMesVeiculo(), roubosAnoVeiculo(), regiaoVeiculo(), graficoVeiculo()">
 
     <div class="menu-lateral">
         <div class="container-menu">
@@ -65,9 +65,8 @@
 
                         <div class="selecionar">
                             <select class="select_filtro" id="tipo_roubo">
-                                <option value="#">Escolher roubo</option>
-                                <option value="outros">Outros</option>
                                 <option value="veiculo">Veículo</option>
+                                <option value="outros">Outros</option>
                                 + <option value="carga">Carga</option>
                             </select>
                         </div>

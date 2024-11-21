@@ -32,7 +32,7 @@ function regiao(req, res) {
     dashboardModel.regiao()
       .then(function (resultadoRegiao) {
         res.json({
-            regiao: resultadoRegiao[0].regiao
+            regiao: resultadoRegiao[0].zona
         });
       })
       .catch(function (erro) {
@@ -82,6 +82,33 @@ function roubosAnoVeiculo(req, res) {
       });
 }
 
+function regiaoVeiculo(req, res) {
+  dashboardModel.regiaoVeiculo()
+    .then(function (resultadoRegiaoVeiculo) {
+      res.json({
+          regiaoVeiculo: resultadoRegiaoVeiculo[0].zona
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function graficoVeiculo(req, res) {
+  dashboardModel.graficoVeiculo()
+    .then(function (resultadoGraficoVeiculo) {
+      res.json(resultadoGraficoVeiculo);
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o ranking! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function roubosMesOutros(req, res) {
     dashboardModel.roubosMesOutros()
       .then(function (resultadoroubosMesOutrosNum) {
@@ -110,6 +137,32 @@ function roubosAnoOutros(req, res) {
       });
 }
 
+function regiaoOutros(req, res) {
+  dashboardModel.regiaoOutros()
+    .then(function (resultadoRegiaoOuregiaoOutros) {
+      res.json({
+          regiaoOutros: resultadoRegiaoOuregiaoOutros[0].zona
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function graficoOutros(req, res) {
+  dashboardModel.graficoOutros()
+    .then(function (resultadoGraficoOutros) {
+      res.json(resultadoGraficoOutros);
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o ranking! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     roubosMesCarga,
     roubosAnoCarga,
@@ -117,6 +170,10 @@ module.exports = {
     grafico,
     roubosMesVeiculo,
     roubosAnoVeiculo,
+    regiaoVeiculo,
+    graficoVeiculo,
     roubosMesOutros,
-    roubosAnoOutros
+    roubosAnoOutros,
+    regiaoOutros,
+    graficoOutros
 }

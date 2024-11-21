@@ -53,56 +53,98 @@ function roubosAnoOutros() {
   
 }
 
+var regiaoOutros
+function regiaoOutros() {
+    fetch(`/dashboardRouter/regiaoOutros`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO regiaoOutros()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(regiaoOutros = json.regiaoOutros)
+  
+          regiaoOutros = json.regiaoOutros;
+          dadosKPI3.innerHTML = regiaoOutros
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
+var roubos2023 = []
+var roubos2024 = []
+
+function graficoOutros() {
+  fetch(`/dashboardRouter/graficoOutros`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      }
+  }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO graficoOutros()!");
+      if (resposta.ok) {
+          resposta.json().then((json) => {
+              roubos2023 = json.map((item) => item.roubos_2023);
+              roubos2024 = json.map((item) => item.roubos_2024);
+
+              // Criar o gráfico após os dados serem carregados
+              criarGrafico();
+          });
+      } else {
+          console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+  });
+}
+
+
 const dados = {
 
-    geral: {
-        dado_mes: 1947,
-        dado_ano: 10458,
-        dado_perigo: "Centro",
-        2023: [11768, 10931, 12471, 10540, 10940, 10341, 10334, 10706, 10006, 11056, 10619, 10787],
-        2024: [10157, 9850, 10265, 9690, 9455, 9057, 9491, 8787, 8893, 9104]    
-    },
+geral: {
+dado_mes: 850,
+dado_ano: 10200,
+dado_perigo: "Leste"
+},
 
-    centro: {
-        dado_mes: 521,
-        dado_ano: 3254,
-        dado_perigo: "Centro",
-        2023: [3015, 2700, 2450, 2690, 2412, 2357, 2390, 2435, 2218, 2459, 2689, 2918],
-        2024: [2991, 3001, 3102, 2912, 2632, 2513, 2560, 2601, 2390, 2693],   
-    },
+centro: {
+dado_mes: 200,
+dado_ano: 2400,
+dado_perigo: "Centro"
+},
 
-    norte: {
-        dado_mes: 289,
-        dado_ano: 2015,
-        dado_perigo: "Centro",
-        2023: [2205, 2009, 2103, 2210, 2224, 2109, 2012, 2107, 2201, 2307, 2393, 2290],
-        2024: [2102, 1802, 1921, 1940, 1905, 1879, 1981, 1998, 2119, 2389]   
-    },
+norte: {
+dado_mes: 130,
+dado_ano: 1560,
+dado_perigo: "Centro"
+},
 
-    leste: {
-        dado_mes: 429,
-        dado_ano: 2478,
-        dado_perigo: "Centro",
-        2023: [1907, 2509, 2409, 2219, 2182, 2014, 1923, 1864, 1872, 1941, 1991, 2012],
-        2024: [2090, 2412, 2501, 2606, 2412, 2319, 2210, 2102, 2292, 2301]   
-    },
+leste: {
+dado_mes: 250,
+dado_ano: 3000,
+dado_perigo: "Leste"
+},
 
-    sul: {
-        dado_mes: 348,
-        dado_ano: 1511,
-        dado_perigo: "Centro",
-        2023: [3001, 2934, 2812, 2710, 2690, 2512, 2500, 2491, 2190, 2389, 2512, 2893],
-        2024: [2891, 2623, 2781, 2721, 2700, 2610, 2709, 2712, 2793, 2812]   
-    },
+sul: {
+dado_mes: 150,
+dado_ano: 1800,
+dado_perigo: "Leste"
+},
 
-    oeste: {
-        dado_mes: 360,
-        dado_ano: 1200,
-        dado_perigo: "Centro",
-        2023: [2994, 3001, 2971, 2940, 2910, 2812, 2721, 2691, 2517, 2692, 2812, 2987],
-        2024: [2912, 2812, 2865, 2990, 2855, 2717, 2791, 2687, 2893, 2804]   
-    }
+oeste: {
+dado_mes: 120,
+dado_ano: 1440,
+dado_perigo: "Centro"
 }
+}
+
+
 
 const roubosMes = document.getElementById('dadosKPI1');
 const roubosAno = document.getElementById('dadosKPI2');
@@ -110,37 +152,31 @@ const regiaoPerigo = document.getElementById('dadosKPI3');
 const regiaoSelecionada = document.getElementById('regiao');
 const ctx = document.getElementById('myChart').getContext('2d');
 
-let grafico;
+let grafico1;
 
-function atualizarDash(regiao) {
-    const regiaoDados = dados[regiao];
+function criarGrafico() {
 
-    roubosMes.textContent = regiaoDados.dado_mes;
-    roubosAno.textContent = regiaoDados.dado_ano;
-    regiaoPerigo.textContent = regiaoDados.dado_perigo;
-    dados.textContent = regiaoDados.data;
-
-    if (grafico) {
-        grafico.destroy();
+    if (grafico1) {
+        grafico1.destroy();
     }
     
-    grafico = new Chart(ctx, {
-        type: 'bar', 
+    grafico1 = new Chart(ctx, {
+        type: 'bar', // Define o tipo de gráfico como "bar" (barras)
         data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [
             {
-                label: 'Roubos em 2023',
-                data: dados.geral[2023],
-                backgroundColor: 'rgba(128, 128, 128, 0.5)', 
-                borderColor: 'rgba(128, 128, 128, 1)', 
+                label: 'Roubos em 2023', // Primeiro conjunto de dados
+                data: roubos2023,
+                backgroundColor: 'rgba(128, 128, 128, 0.5)', // Cor das barras
+                borderColor: 'rgba(128, 128, 128, 1)', // Cor da borda
                 borderWidth: 1
             },
             {
-                label: 'Roubos em 2024', 
-                data: dados.geral[2024],
-                backgroundColor: 'rgba(0, 0, 0, 0.5)', 
-                borderColor: 'rgba(0, 0, 0, 1)',
+                label: 'Roubos em 2024', // Segundo conjunto de dados
+                data: roubos2024,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cor das barras
+                borderColor: 'rgba(0, 0, 0, 1)', // Cor da borda
                 borderWidth: 1
             }
         ]
@@ -148,13 +184,13 @@ function atualizarDash(regiao) {
     options: {
         scales: {
             y: {
-                beginAtZero: true 
+                beginAtZero: true // Faz o eixo Y começar em zero
             }
         },
-        responsive: true, 
+        responsive: true, // Faz o gráfico ser responsivo
         plugins: {
             legend: {
-                position: 'top' 
+                position: 'top' // Define a posição da legenda (topo)
             },
             title: {
                 display: true,
@@ -167,10 +203,7 @@ function atualizarDash(regiao) {
 
 regiaoSelecionada.addEventListener('change', (e) => {
     const regiaoSelecionada = e.target.value;
-    atualizarDash(regiaoSelecionada);
-    grafico.data.datasets[0].data = dados[regiaoSelecionada][2023];
-    grafico.data.datasets[1].data = dados[regiaoSelecionada][2024];
-    grafico.update();
+    criarGrafico(regiaoSelecionada);
 })
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
@@ -190,4 +223,4 @@ rouboSelecionado.addEventListener('change', (e) => {
 });
 
 
-atualizarDash('geral')
+criarGrafico('geral')

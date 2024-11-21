@@ -53,6 +53,58 @@ function roubosAnoVeiculo() {
   
 }
 
+var regiaoVeiculo
+function regiaoVeiculo() {
+    fetch(`/dashboardRouter/regiaoVeiculo`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO regiaoVeiculo()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(regiaoVeiculo = json.regiaoVeiculo)
+  
+          regiaoVeiculo = json.regiaoVeiculo;
+          dadosKPI3.innerHTML = regiaoVeiculo
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
+var roubos2023 = []
+var roubos2024 = []
+
+function graficoVeiculo() {
+  fetch(`/dashboardRouter/graficoVeiculo`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      }
+  }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO graficoVeiculo()!");
+      if (resposta.ok) {
+          resposta.json().then((json) => {
+              roubos2023 = json.map((item) => item.roubos_2023);
+              roubos2024 = json.map((item) => item.roubos_2024);
+
+              // Criar o gráfico após os dados serem carregados
+              criarGrafico();
+          });
+      } else {
+          console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+  });
+}
+
+
 const dados = {
 
 geral: {
@@ -100,70 +152,65 @@ const regiaoPerigo = document.getElementById('dadosKPI3');
 const regiaoSelecionada = document.getElementById('regiao');
 const ctx = document.getElementById('myChart').getContext('2d');
 
-let grafico;
+let grafico1;
 
-function atualizarDash(regiao) {
-    const regiaoDados = dados[regiao];
+function criarGrafico() {
 
-    roubosMes.textContent = regiaoDados.dado_mes;
-    roubosAno.textContent = regiaoDados.dado_ano;
-    regiaoPerigo.textContent = regiaoDados.dado_perigo;
-
-    if (grafico) {
-        grafico.destroy();
+    if (grafico1) {
+        grafico1.destroy();
     }
-
-    grafico = new Chart(ctx, {
-        type: 'bar',
+    
+    grafico1 = new Chart(ctx, {
+        type: 'bar', // Define o tipo de gráfico como "bar" (barras)
         data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-            datasets: [
-                {
-                    label: 'Roubos em 2023', 
-                    data: [1213, 1144, 1495, 1259, 1201, 1146, 1136, 1131, 1174, 1315, 1349, 1420],
-                    backgroundColor: 'rgba(128, 128, 128, 0.5)', 
-                    borderColor: 'rgba(128, 128, 128, 1)', 
-                    borderWidth: 1
-                },
-                {
-                    label: 'Roubos em 2024', 
-                    data: [940, 990, 1030, 1043, 1113, 1051, 1015, 967, 952, 1017],
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
-                    borderColor: 'rgba(0, 0, 0, 1)', 
-                    borderWidth: 1
-                }
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true 
-                }
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [
+            {
+                label: 'Roubos em 2023', // Primeiro conjunto de dados
+                data: roubos2023,
+                backgroundColor: 'rgba(128, 128, 128, 0.5)', // Cor das barras
+                borderColor: 'rgba(128, 128, 128, 1)', // Cor da borda
+                borderWidth: 1
             },
-            responsive: true, 
-            plugins: {
-                legend: {
-                    position: 'top' 
-                },
-                title: {
-                    display: true,
-                    text: 'Comparação de roubos por mês anos de 2023 e 2024'
-                }
+            {
+                label: 'Roubos em 2024', // Segundo conjunto de dados
+                data: roubos2024,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cor das barras
+                borderColor: 'rgba(0, 0, 0, 1)', // Cor da borda
+                borderWidth: 1
+            }
+        ]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true // Faz o eixo Y começar em zero
+            }
+        },
+        responsive: true, // Faz o gráfico ser responsivo
+        plugins: {
+            legend: {
+                position: 'top' // Define a posição da legenda (topo)
+            },
+            title: {
+                display: true,
+                text: 'Comparação de roubos por mês anos de 2023 e 2024'
             }
         }
-    });
+    }
+});
 }
 
 regiaoSelecionada.addEventListener('change', (e) => {
     const regiaoSelecionada = e.target.value;
-    atualizarDash(regiaoSelecionada);
+    criarGrafico(regiaoSelecionada);
 })
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
 
 rouboSelecionado.addEventListener('change', (e) => {
     const rouboSelecionado = e.target.value;
-
+    
     if (rouboSelecionado == 'outros') {
         window.location.href = 'dashboardOutros.html';
     } else if (rouboSelecionado == 'veiculo') {
@@ -176,4 +223,4 @@ rouboSelecionado.addEventListener('change', (e) => {
 });
 
 
-atualizarDash('geral')
+criarGrafico('geral')
