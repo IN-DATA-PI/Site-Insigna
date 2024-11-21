@@ -1,6 +1,58 @@
 
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
 
+var roubosMesVeiculoNum
+function roubosMesVeiculo() {
+    fetch(`/dashboardRouter/roubosMesVeiculo`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO roubosMesVeiculo()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(roubosMesVeiculoNum = json.roubosMesVeiculoNum)
+  
+          roubosMesVeiculoNum = json.roubosMesVeiculoNum;
+          dadosKPI1.innerHTML = roubosMesVeiculoNum
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
+var roubosAnoVeiculoNum
+function roubosAnoVeiculo() {
+    fetch(`/dashboardRouter/roubosAnoVeiculo`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO roubosAnoVeiculo()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(roubosAnoVeiculoNum = json.roubosAnoVeiculoNum)
+  
+          roubosAnoVeiculoNum = json.roubosAnoVeiculoNum;
+          dadosKPI2.innerHTML = roubosAnoVeiculoNum
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
 const dados = {
 
 geral: {

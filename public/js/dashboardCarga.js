@@ -1,12 +1,117 @@
 
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
 
+var roubosMesCargaNum
+function roubosMesCarga() {
+    fetch(`/dashboardRouter/roubosMesCarga`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO roubosMesCarga()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(roubosMesCargaNum = json.roubosMesCargaNum)
+  
+          roubosMesCargaNum = json.roubosMesCargaNum;
+          dadosKPI1.innerHTML = roubosMesCargaNum
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
+var roubosAnoCargaNum
+function roubosAnoCarga() {
+    fetch(`/dashboardRouter/roubosAnoCarga`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO roubosAnoCarga()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(roubosAnoCargaNum = json.roubosAnoCargaNum)
+  
+          roubosAnoCargaNum = json.roubosAnoCargaNum;
+          dadosKPI2.innerHTML = roubosAnoCargaNum
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
+var regiao
+function regiao() {
+    fetch(`/dashboardRouter/regiao`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO regiao()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(regiao = json.regiao)
+  
+          regiao = json.regiao;
+          dadosKPI3.innerHTML = regiao
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
+var roubos2023 = []
+var roubos2024 = []
+
+function grafico() {
+  fetch(`/dashboardRouter/grafico`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      }
+  }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO grafico()!");
+      if (resposta.ok) {
+          resposta.json().then((json) => {
+              roubos2023 = json.map((item) => item.roubos_2023);
+              roubos2024 = json.map((item) => item.roubos_2024);
+
+              // Criar o gráfico após os dados serem carregados
+              criarGrafico();
+          });
+      } else {
+          console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+  });
+}
+
+
+
 const dados = {
 
 geral: {
-    dado_mes: 350,
-    dado_ano: 4200,
-    dado_perigo: "Leste"
+    
+    
+    
 },
 
 centro: {
@@ -46,34 +151,29 @@ const regiaoPerigo = document.getElementById('dadosKPI3');
 const regiaoSelecionada = document.getElementById('regiao');
 const ctx = document.getElementById('myChart').getContext('2d');
 
-let grafico;
+let grafico1;
 
-function atualizarDash(regiao) {
-    const regiaoDados = dados[regiao];
+function criarGrafico() {
 
-    roubosMes.textContent = regiaoDados.dado_mes;
-    roubosAno.textContent = regiaoDados.dado_ano;
-    regiaoPerigo.textContent = regiaoDados.dado_perigo;
-
-    if (grafico) {
-        grafico.destroy();
+    if (grafico1) {
+        grafico1.destroy();
     }
     
-    grafico = new Chart(ctx, {
+    grafico1 = new Chart(ctx, {
         type: 'bar', // Define o tipo de gráfico como "bar" (barras)
         data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [
             {
                 label: 'Roubos em 2023', // Primeiro conjunto de dados
-                data: [30, 50, 70, 40, 60, 80, 90, 75, 75, 80, 85, 90, 100],
+                data: roubos2023,
                 backgroundColor: 'rgba(128, 128, 128, 0.5)', // Cor das barras
                 borderColor: 'rgba(128, 128, 128, 1)', // Cor da borda
                 borderWidth: 1
             },
             {
                 label: 'Roubos em 2024', // Segundo conjunto de dados
-                data: [40, 60, 50, 80, 70, 90, 95, 80, 85, 75, 80, 80],
+                data: roubos2024,
                 backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cor das barras
                 borderColor: 'rgba(0, 0, 0, 1)', // Cor da borda
                 borderWidth: 1
@@ -102,7 +202,7 @@ function atualizarDash(regiao) {
 
 regiaoSelecionada.addEventListener('change', (e) => {
     const regiaoSelecionada = e.target.value;
-    atualizarDash(regiaoSelecionada);
+    criarGrafico(regiaoSelecionada);
 })
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
@@ -122,4 +222,4 @@ rouboSelecionado.addEventListener('change', (e) => {
 });
 
 
-atualizarDash('geral')
+criarGrafico('geral')

@@ -1,6 +1,58 @@
 
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
 
+var roubosMesOutrosNum
+function roubosMesOutros() {
+    fetch(`/dashboardRouter/roubosMesOutros`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO roubosMesOutros()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(roubosMesOutrosNum = json.roubosMesOutrosNum)
+  
+          roubosMesOutrosNum = json.roubosMesOutrosNum;
+          dadosKPI1.innerHTML = roubosMesOutrosNum
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
+var roubosAnoOutrosNum
+function roubosAnoOutros() {
+    fetch(`/dashboardRouter/roubosAnoOutros`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO roubosAnoOutros()!")
+  
+      if (resposta.ok) {
+        console.log(resposta);
+        resposta.json().then((json) => {
+          console.log(roubosAnoOutrosNum = json.roubosAnoOutrosNum)
+  
+          roubosAnoOutrosNum = json.roubosAnoOutrosNum;
+          dadosKPI2.innerHTML = roubosAnoOutrosNum
+  
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar a requisição!");
+      }
+    });
+  
+}
+
 const dados = {
 
     geral: {
