@@ -47,6 +47,16 @@ novembro int,
 dezembro int,
 total int );
 
+create table DepartamentoPolicia(
+idDepartamentoPolicia int auto_increment primary key,
+nome varchar(45),
+cep char(8),
+logradouro varchar(45),
+numero int,
+bairro varchar(45)
+cidade varchar(45));
+
 select * from usuario;
 select * from operacoes;
 select * from dados;
+select * from DepartamentoPolicia;
