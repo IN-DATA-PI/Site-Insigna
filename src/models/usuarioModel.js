@@ -38,6 +38,15 @@ function cadastrarDep(nome, cep, logradouro, numero, bairro, cidade) {
     return database.executar(instrucaoSql);
 }
 
+function listarTodos(nome, distritoPolicial, email, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarTodos():", nome, distritoPolicial, email, senha);
+    var instrucaoSql = `
+        SELECT id, nome, distritoPolicial, email, senha FROM usuario;
+    `
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function cadastrarOp(nomeOp, qtdPoliciais, local, dataOp, desc) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarOp():", nomeOp, qtdPoliciais, local, dataOp, desc);
     
@@ -116,6 +125,7 @@ module.exports = {
     autenticar,
     cadastrar,
     cadastrarDep,
+    listarTodos,
     cadastrarOp,
     cadastrarIv,
     editarUsuario,

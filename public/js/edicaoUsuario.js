@@ -1,6 +1,6 @@
 function editarUsuario() {
 
-    let nome ="dl_" + ipt_nomeAtualizado.value;
+    let nome = ipt_nomeAtualizado.value;
     let distritoPolicial = ipt_departamentoAtualizado.value;
     let email = ipt_emailAtualizado.value;
     let senha = ipt_senhaAtualizado.value;
@@ -27,7 +27,7 @@ function editarUsuario() {
 
         if (resposta.ok) {
             window.alert("Usuário atualizado com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-            window.location = "/dash/conta.html"
+            window.location = "/dash/usuarios.html"
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
         } else {
