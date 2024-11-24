@@ -76,6 +76,21 @@ function cadastrar(req, res) {
     }
 }
 
+function listarTodos(req, res) {
+    usuarioModel.listarTodos()
+        .then(
+            function (resultado) {
+                res.json(resultado)
+            }
+        ).catch(
+            function(erro) {
+                console.log(erro);
+                console.log("\n Houve um erro ao listar os usuários! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage)
+            }
+        );
+}
+
 function cadastrarOp(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomeOp = req.body.nomeOpServer;
@@ -157,11 +172,11 @@ function cadastrarIv(req, res) {
 function editarUsuario(req, res) {
     var nomeAtualizado = req.body.nome;
     var emailAtualizado = req.body.email;
-    var departamentoAtualizado = req.body.departamento;
-    var senhaAtualizada = req.body.senha;
-    var usuario = req.params.idUsuario;
+    var departamentoAtualizado = req.body.distritoPolicial;
+    var senhaAtualizado = req.body.senha;
+    var usuario = req.params.id;
 
-    avisoModel.editarUsuario(nomeAtualizado, emailAtualizado, departamentoAtualizado, senhaAtualizada, usuario)
+    usuarioModel.editarUsuario(nomeAtualizado, emailAtualizado, departamentoAtualizado, senhaAtualizado, usuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -198,6 +213,7 @@ function deletarUsuario(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
+    listarTodos,
     cadastrarOp,
     cadastrarIv,
     editarUsuario,
