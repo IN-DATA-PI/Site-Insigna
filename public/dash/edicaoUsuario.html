@@ -1,18 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/edicaoUsuario.css">
     <title>Edição de Usuário - INSIGNA</title>
 </head>
-<body>
-    Nome: <input type="text" id="ipt_nomeAtualizado">
-    Departamento: <input type="text" id="ipt_departamentoAtualizado">
-    Email: <input type="text" id="ipt_emailAtualizado">
-    Senha: <input type="text" id="ipt_senhaAtualizado">
 
-    <button onclick="editarUsuario()">Atualizar</button>
+<body>
+    <div class="menu-lateral">
+        <div class="container-menu">
+            <div class="logo">
+                <img src="../assets/insignaLogoBoaQualidade.png" />
+            </div>
+            <br />
+
+            <div class="menu">
+                <h4>MENU</h4>
+                <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png" />Dashboard</a>
+                <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png" />Cadastro de Operações</a>
+                <a href="cadastroInvestigadores.html"><img src="../assets/user-icon.png" />Cadastro de Investigador</a>
+                <a><img src="../assets/aceitarOp.png" />Operações</a>
+            </div>
+            <br />
+            <br />
+            <div class="outros">
+                <h4>OUTROS</h4>
+                <a href="/dash/usuarios.html"><img src="../assets/conta-icon.png">Usuários</a>
+                <a href="../index.html"><img src="../assets/home.png" />Home</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="painel">
+        <div class="container-painel">
+            <div class="header-painel">
+                <div class="usuario">
+                    <p id="nome_usuario"></p>
+                </div>
+
+                <div class="notificacoes">
+                    <img src="../assets/notificacao.png" />
+                </div>
+            </div>
+
+            <div class="linha-horizontal"></div>
+
+            <div class="painel-conta">
+
+                <div class="cabecalho">
+                    <h1>Edição de Usuário</h1>
+                </div>
+
+                <div class="conteudo-painel">
+
+                    <div class="form">
+
+                        <div class="titulo">
+                            <h2>Preencha o(s) campo(s) que deseja atualizar:</h2>
+                        </div>
+
+                        <div class="inputs">
+
+                            Nome: <input type="text" id="ipt_nomeAtualizado">
+                            Departamento: <input type="text" id="ipt_departamentoAtualizado">
+                            Email: <input type="text" id="ipt_emailAtualizado">
+                            Senha: <input type="text" id="ipt_senhaAtualizado">
+                            
+                        </div>
+
+                        <button onclick="editarUsuario()" class="btn">Atualizar</button>
+                    
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="../js/edicaoUsuario.js"></script>
 </body>
+
 </html>

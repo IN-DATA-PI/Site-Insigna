@@ -51,7 +51,7 @@ function deletarUsuario(id) {
 
         if (resposta.ok) {
             window.alert("Usuário deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-            window.location = "/dash/conta.html"
+            window.location = "/dash/usuarios.html"
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
         } else {

@@ -1,3 +1,5 @@
+nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.USUARIO_NOME; 
+
 function editarUsuario() {
 
     let nome = ipt_nomeAtualizado.value;
