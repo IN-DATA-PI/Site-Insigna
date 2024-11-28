@@ -25,8 +25,11 @@ codigoOp int auto_increment primary key,
 nomeOp varchar(45),
 qtdPoliciais int,
 localOp varchar(45),
-dataOp date,
-descricaoOp varchar(500));
+dataOp varchar(45),
+descricaoOp varchar(500)
+statusOp varchar(45),
+fkUsuario int,
+foreign key (fkUsuario) references usuario (id));
 
 create table dados(
 id int primary key auto_increment,
@@ -55,6 +58,10 @@ logradouro varchar(45),
 numero int,
 bairro varchar(45)
 cidade varchar(45));
+
+create table ia (
+idIa int primary key not null auto_increment,
+recomendacoes longtext not null);
 
 select * from usuario;
 select * from operacoes;

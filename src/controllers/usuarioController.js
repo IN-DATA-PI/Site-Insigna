@@ -48,13 +48,13 @@ function cadastrar(req, res) {
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (distritoPolicial == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        res.status(400).send("Seu dp está undefined!");
     } else if (email == undefined) {
-        res.status(400).send("Sua idade está undefined!");
+        res.status(400).send("Seu e-mail está undefined!");
     } else if (matricula == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+        res.status(400).send("Sua matrícula está undefined!");
     } else if (senha == undefined) {
-        res.status(400).send("Seu estadio está undefined!");
+        res.status(400).send("Seu senha está undefined!");
     }else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
@@ -85,8 +85,6 @@ function cadastrarDep(req, res) {
     var cep = req.body.cepServer;
     var bairro = req.body.bairroServer;
 
-
-
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -104,7 +102,7 @@ function cadastrarDep(req, res) {
     else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, cep, logradouro, numero, bairro, cidade)
+        usuarioModel.cadastrarDep(nome, cep, logradouro, numero, bairro, cidade)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -144,6 +142,8 @@ function cadastrarOp(req, res) {
     var local = req.body.localServer;
     var dataOp = req.body.dataOpServer;
     var desc = req.body.descServer;
+    var statusOp = req.body.statusOpServer;
+    var id = req.body.idServer;
 
     // Faça as validações dos valores
     if (nomeOp == undefined) {
@@ -156,10 +156,12 @@ function cadastrarOp(req, res) {
         res.status(400).send("Sua desc está undefined!");
     } else if (dataOp == undefined) {
         res.status(400).send("Sua data está undefined!");
-    }else {
+    } else if (statusOp == undefined) {
+        res.status(400).send("Seu status está undefined!")
+    } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarOp(nomeOp, qtdPoliciais, local, dataOp, desc)
+        usuarioModel.cadastrarOp(nomeOp, qtdPoliciais, local, dataOp, desc, statusOp, id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -256,6 +258,56 @@ function deletarUsuario(req, res) {
         );
 }
 
+function listarTodas(req, res) {
+    usuarioModel.listarTodas().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function aceitarOp(req, res) {
+    const codOperacao = req.params.codOperacao; // ou req.params.codOperacao
+
+    usuarioModel.aceitarOp(codOperacao)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function recusarOp(req, res) {
+    const codOperacao = req.params.codOperacao; // ou req.params.codOperacao
+
+    usuarioModel.recusarOp(codOperacao)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -264,5 +316,8 @@ module.exports = {
     cadastrarOp,
     cadastrarIv,
     editarUsuario,
-    deletarUsuario
+    deletarUsuario,
+    listarTodas,
+    aceitarOp,
+    recusarOp
 }

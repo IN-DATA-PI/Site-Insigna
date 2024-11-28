@@ -7,13 +7,16 @@ function cadastrarOp() {
     var localVar = ipt_local.value;
     var dataOpVar = ipt_dataOp.value;
     var descVar = ipt_desc.value;
+    var statusOpVar = "PENDENTE";
+    let id = sessionStorage.ID_USUARIO;
 
     if (
         nomeOpVar == "" ||
         qtdPoliciaisVar == "" ||
         localVar == "" ||
         dataOpVar == "" ||
-        descVar == ""
+        descVar == "" ||
+        statusOpVar == ""
     ) {
         alert("Mensagem de erro para todos os campos em branco");
         return false;
@@ -32,6 +35,8 @@ function cadastrarOp() {
             localServer: localVar,
             descServer: descVar,
             dataOpServer: dataOpVar,
+            statusOpServer: statusOpVar,
+            idServer: id
         }),
     })
         .then(function (resposta) {
@@ -40,7 +45,7 @@ function cadastrarOp() {
             if (resposta.ok) {
                 alert("Cadastrado com sucesso!");
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "../dash/operacoes.html";
                 }, "1000");
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";

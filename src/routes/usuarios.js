@@ -9,7 +9,7 @@ router.post("/cadastrar", function (req, res) {
 });
 
 router.post("/cadastrarDep", function (req, res) {
-    usuarioController.cadastrar(req, res);
+    usuarioController.cadastrarDep(req, res);
 });
 
 router.post("/autenticar", function (req, res) {
@@ -38,6 +38,18 @@ router.delete("/deletarUsuario/:id", function (req, res) {
 
 router.get("/listarUsuarios", function (req, res) {
     usuarioController.listarTodos(req, res);
+});
+
+router.get("/listarTodas", function (req, res) {
+    usuarioController.listarTodas(req, res);
+});
+
+router.put("/aceitarOp/:codOperacao", function (req, res) {
+    usuarioController.aceitarOp(req, res);
+});
+
+router.put("/recusarOp/:codOperacao", function (req, res) {
+    usuarioController.aceitarOp(req, res);
 });
 
 module.exports = router;

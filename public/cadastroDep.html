@@ -32,18 +32,17 @@
                     </div>
 
                     <div class="formulario">
+
                         <div class="form1">
-
                             <input type="text" placeholder="Nome Do Departamento" id="ipt_nome" />
-
-                            <input type="text" placeholder="Logradouro" id="ipt_departamento" />
+                            <input type="text" placeholder="Logradouro" id="ipt_logradouro" />
                             <input type="text" placeholder="Cidade" id="ipt_cidade" />
                         </div>
 
                         <div class="form2">
                             <input type="text" placeholder="CEP" id="ipt_cep" />
-                            <input type="password" placeholder="Número" id="ipt_numero" />
-                            <input type="password" placeholder="Bairro" id="ipt_confirmarSenha" />
+                            <input type="text" placeholder="Número" id="ipt_numero" />
+                            <input type="text" placeholder="Bairro" id="ipt_bairro" />
                         </div>
                     </div>
 
@@ -69,7 +68,7 @@
       var nomeVar = ipt_nome.value;
       var logradouroVar = ipt_logradouro.value;
       var cidadeVar = ipt_cidade.value;
-      var numeroVar = Number(ipt_matricula.value);
+      var numeroVar = Number(ipt_numero.value);
       var cepVar = ipt_cep.value;
       var bairroVar = ipt_bairro.value;
   
@@ -86,7 +85,7 @@
       } 
   
       // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
+      fetch("/usuarios/cadastrarDep", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
