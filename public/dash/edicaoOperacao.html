@@ -64,15 +64,14 @@
                         <div class="inputs">
 
                             Nome: <input type="text" id="ipt_nomeOpAtualizado">
-                            Logradouro: <input type="text" id="ipt_logradouroAtualizado">
-                            Cidade: <input type="text" id="ipt_cidadeAtualizado">
-                            Número: <input type="number" id="ipt_numeroAtualizado">
-                            CEP: <input type="text" id="ipt_cepAtualizado">
-                            Bairro: <input type="text" id="ipt_bairroAtualizado">
+                            Quantidade de Policiais: <input type="number" id="ipt_qtdPoliciaisAtualizado">
+                            Local: <input type="text" id="ipt_localAtualizado">
+                            Data: <input type="date" id="ipt_dataAtualizado">
+                            Descrição: <textarea id="ipt_descricaoAtualizado"></textarea>
 
                         </div>
 
-                        <button onclick="editarOperacao()" class="btn">Atualizar</button>
+                        <button onclick="editarOp(sessionStorage.getItem('COD_OPERACAO'))" class="btn">Atualizar</button>
                     
                     </div>
 
@@ -83,7 +82,7 @@
     </div>
 
 
-    <script src="../js/edicaoUsuario.js"></script>
+    <script src="../js/edicaoOperacao.js"></script>
 </body>
 
 </html>

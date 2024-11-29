@@ -52,4 +52,12 @@ router.put("/recusarOp/:codOperacao", function (req, res) {
     usuarioController.aceitarOp(req, res);
 });
 
+router.put("/editarOp/:codOperacao", function (req, res) {
+    usuarioController.editarOp(req, res);
+});
+
+router.delete("/deletarOp/:codOperacao", function (req, res) {
+    usuarioController.deletarOp(req, res);
+});
+
 module.exports = router;

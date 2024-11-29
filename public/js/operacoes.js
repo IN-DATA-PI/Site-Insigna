@@ -127,9 +127,32 @@ function listarTodas() {
 }
 
 function editarOp(codOperacao) {
+    sessionStorage.COD_OPERACAO = codOperacao;
     console.log("cliquei em editar - " + codOperacao);
     window.alert("Você será redirecionado à página de edição do aviso de id número: " + codOperacao);
     window.location = "/dash/edicaoOperacao.html"
+}
+
+function deletarOp(codOperacao) {
+    console.log("Criar função de apagar operação escolhida - CÓDIGO" + codOperacao);
+    fetch(`/usuarios/deletarOp/${codOperacao}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            window.alert("Operação deletada com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+            window.location = "/dash/operacoes.html"
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar deletar a operação ! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 }
 
 function aceitarOp(codOperacao) {

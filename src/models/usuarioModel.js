@@ -163,6 +163,56 @@ function recusarOp(codOperacao) {
     return database.executar(instrucaoSql);
 }
 
+function editarOp(nomeOp, qtdPoliciaisAtualizado, localAtualizado, dataAtualizado, descricaoAtualizado, codOperacao) {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+
+
+    // Array para armazenar as alterações a serem feitas
+    let campos = [];
+
+    // Verificar cada parâmetro e adicionar à query somente se for válido
+    if (nomeOp) {
+        campos.push(`nomeOp = '${nomeOp}'`);
+    }
+    if (qtdPoliciaisAtualizado) {
+        campos.push(`qtdPoliciais = '${qtdPoliciaisAtualizado}'`);
+    }
+    if (localAtualizado) {
+        campos.push(`localOp = '${localAtualizado}'`);
+    }
+    if (dataAtualizado) {
+        campos.push(`dataOp = '${dataAtualizado}'`);
+    }
+    if (descricaoAtualizado) {
+        campos.push(`descricaoOp = '${descricaoAtualizado}'`);
+    }
+
+    // Caso não haja campos a serem atualizados
+    if (campos.length === 0) {
+        console.log("Nenhum dado para atualizar.");
+        return Promise.reject("Nenhum campo válido foi enviado para atualização.");
+    }
+
+    // Montar a instrução SQL dinamicamente
+    const instrucaoSql = `
+        UPDATE operacoes 
+        SET ${campos.join(", ")} 
+        WHERE codigoOp = ${codOperacao};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function deletarOp(codOperacao) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", codOperacao);
+    var instrucaoSql = `
+        DELETE FROM operacoes WHERE codigoOp = ${codOperacao};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -174,5 +224,7 @@ module.exports = {
     deletarUsuario,
     listarTodas,
     aceitarOp,
-    recusarOp
+    recusarOp,
+    editarOp,
+    deletarOp
 };

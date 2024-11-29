@@ -308,6 +308,47 @@ function recusarOp(req, res) {
         );
 }
 
+function editarOp(req, res) {
+    var nomeOp = req.body.nomeOp;
+    var qtdPoliciaisAtualizado = req.body.qtdPoliciais;
+    var localAtualizado = req.body.local;
+    var descricaoAtualizado = req.body.descricao;
+    var dataAtualizado = req.params.data;
+    var codOperacao = req.params.codOperacao;
+
+    usuarioModel.editarOp(nomeOp, qtdPoliciaisAtualizado, localAtualizado, descricaoAtualizado, dataAtualizado, codOperacao)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function deletarOp(req, res) {
+    var codOperacao = req.params.codOperacao;
+
+    usuarioModel.deletarOp(codOperacao)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar a operação: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
     cadastrar,
@@ -319,5 +360,7 @@ module.exports = {
     deletarUsuario,
     listarTodas,
     aceitarOp,
-    recusarOp
+    recusarOp,
+    editarOp,
+    deletarOp
 }

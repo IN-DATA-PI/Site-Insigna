@@ -1,42 +1,47 @@
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.USUARIO_NOME; 
 
-function editarUsuario() {
+function editarOp() {
 
     let nomeOp = ipt_nomeOpAtualizado.value;
-    let logradouro = ipt_logradouroAtualizado.value;
-    let cidade = ipt_cidadeAtualizado.value;
-    let numero = Number(ipt_numeroAtualizado.value);
-    let cep = ipt_cepAtualizado.value;
-    let bairro = ipt_bairroAtualizado.value;
-
+    let qtdPoliciais = Number(ipt_qtdPoliciaisAtualizado.value);
+    let local = ipt_localAtualizado.value;
+    let descricao = ipt_descricaoAtualizado.value;
+    let data = ipt_dataAtualizado.value;
 
     console.log(JSON.stringify({
         nomeOp: ipt_nomeOpAtualizado.value,
-        logradouro: ipt_logradouroAtualizado.value,
-        cidade: ipt_cidadeAtualizado.value,
-        numero: Number(ipt_numeroAtualizado.value),
-        cep: ipt_cepAtualizado.value,
-        bairro: ipt_bairroAtualizado.value,
+        qtdPoliciais: ipt_qtdPoliciaisAtualizado.value,
+        local: ipt_localAtualizado.value,
+        descricao: ipt_descricaoAtualizado.value,
+        data: ipt_dataAtualizado.value,
     }));
 
-    fetch(`/usuarios/editarUsuario/${sessionStorage.getItem("ID_USUARIO")}`, {
+    fetch(`/usuarios/editarOp/${sessionStorage.getItem("COD_OPERACAO")}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeOp: nome,
-            logradouro: logradouro,
-            cidade: cidade,
-            numero: numero,
-            cep: cep,
-            bairro: bairro
+            nomeOp: nomeOp,
+            qtdPoliciais: qtdPoliciais,
+            local: local,
+            descricao: descricao,
+            data: data
         })
     }).then(function (resposta) {
 
         if (resposta.ok) {
-            window.alert("Usuário atualizado com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+            console.log(resposta);
+
+            resposta.json().then((json) => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.COD_OPERACAO = json.codigoOp;
+                sessionStorage.NOME_OPERACAO = json.nomeOp;
+
+            window.alert("Operação atualizada com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
             window.location = "/dash/operacoes.html"
+        });
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
         } else {
