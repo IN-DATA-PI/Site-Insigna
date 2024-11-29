@@ -34,7 +34,6 @@ function autenticar(req, res) {
     }   
 }
 
-
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
@@ -42,7 +41,6 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var matricula = req.body.matriculaServer;
     var senha = req.body.senhaServer;
-
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -135,50 +133,6 @@ function listarTodos(req, res) {
         );
 }
 
-function cadastrarOp(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nomeOp = req.body.nomeOpServer;
-    var qtdPoliciais = req.body.qtdPoliciaisServer;
-    var local = req.body.localServer;
-    var dataOp = req.body.dataOpServer;
-    var desc = req.body.descServer;
-    var statusOp = req.body.statusOpServer;
-    var id = req.body.idServer;
-
-    // Faça as validações dos valores
-    if (nomeOp == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (qtdPoliciais == undefined) {
-        res.status(400).send("A qtd policiais está undefined!");
-    } else if (local == undefined) {
-        res.status(400).send("Seu local está undefined!");
-    } else if (desc == undefined) {
-        res.status(400).send("Sua desc está undefined!");
-    } else if (dataOp == undefined) {
-        res.status(400).send("Sua data está undefined!");
-    } else if (statusOp == undefined) {
-        res.status(400).send("Seu status está undefined!")
-    } else {
-
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarOp(nomeOp, qtdPoliciais, local, dataOp, desc, statusOp, id)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
 function cadastrarIv(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nomeIv = req.body.nomeIvServer;
@@ -237,7 +191,6 @@ function editarUsuario(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
-
 }
 
 function deletarUsuario(req, res) {
@@ -258,109 +211,12 @@ function deletarUsuario(req, res) {
         );
 }
 
-function listarTodas(req, res) {
-    usuarioModel.listarTodas().then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
-
-function aceitarOp(req, res) {
-    const codOperacao = req.params.codOperacao; // ou req.params.codOperacao
-
-    usuarioModel.aceitarOp(codOperacao)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function recusarOp(req, res) {
-    const codOperacao = req.params.codOperacao; // ou req.params.codOperacao
-
-    usuarioModel.recusarOp(codOperacao)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function editarOp(req, res) {
-    var nomeOp = req.body.nomeOp;
-    var qtdPoliciaisAtualizado = req.body.qtdPoliciais;
-    var localAtualizado = req.body.local;
-    var descricaoAtualizado = req.body.descricao;
-    var dataAtualizado = req.params.data;
-    var codOperacao = req.params.codOperacao;
-
-    usuarioModel.editarOp(nomeOp, qtdPoliciaisAtualizado, localAtualizado, descricaoAtualizado, dataAtualizado, codOperacao)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
-function deletarOp(req, res) {
-    var codOperacao = req.params.codOperacao;
-
-    usuarioModel.deletarOp(codOperacao)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao deletar a operação: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
 module.exports = {
     autenticar,
     cadastrar,
     cadastrarDep,
     listarTodos,
-    cadastrarOp,
     cadastrarIv,
     editarUsuario,
-    deletarUsuario,
-    listarTodas,
-    aceitarOp,
-    recusarOp,
-    editarOp,
-    deletarOp
+    deletarUsuario,   
 }

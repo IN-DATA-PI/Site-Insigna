@@ -2,7 +2,7 @@ nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_operacao;
 
 function listarTodas() {
 
-    fetch("/usuarios/listarTodas").then(function (resposta) {
+    fetch("/operacoes/listarTodas").then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
                 var feed = document.getElementById("feed_op");
@@ -135,7 +135,7 @@ function editarOp(codOperacao) {
 
 function deletarOp(codOperacao) {
     console.log("Criar função de apagar operação escolhida - CÓDIGO" + codOperacao);
-    fetch(`/usuarios/deletarOp/${codOperacao}`, {
+    fetch(`/operacoes/deletarOp/${codOperacao}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -157,7 +157,7 @@ function deletarOp(codOperacao) {
 
 function aceitarOp(codOperacao) {
 
-    fetch(`/usuarios/aceitarOp/${codOperacao}`, {
+    fetch(`/operacoes/aceitarOp/${codOperacao}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -179,7 +179,7 @@ function aceitarOp(codOperacao) {
 
 function recusarOp(codOperacao) {
 
-    fetch(`/usuarios/recusarOp/${codOperacao}`, {
+    fetch(`/operacoes/recusarOp/${codOperacao}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

@@ -22,7 +22,7 @@ function cadastrarOp() {
         return false;
     }
     // Enviando o valor da nova input
-    fetch("../usuarios/cadastrarOp", {
+    fetch("../operacoes/cadastrarOp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -16,7 +16,7 @@ function editarOp() {
         data: ipt_dataAtualizado.value,
     }));
 
-    fetch(`/usuarios/editarOp/${sessionStorage.getItem("COD_OPERACAO")}`, {
+    fetch(`/operacoes/editarOp/${sessionStorage.getItem("COD_OPERACAO")}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

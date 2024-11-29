@@ -20,10 +20,6 @@ router.post("/autenticarDep", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-router.post("/cadastrarOp", function (req, res) {
-    usuarioController.cadastrarOp(req, res);
-});
-
 router.post("/cadastrarIv", function (req, res) {
     usuarioController.cadastrarIv(req, res);
 });
@@ -38,26 +34,6 @@ router.delete("/deletarUsuario/:id", function (req, res) {
 
 router.get("/listarUsuarios", function (req, res) {
     usuarioController.listarTodos(req, res);
-});
-
-router.get("/listarTodas", function (req, res) {
-    usuarioController.listarTodas(req, res);
-});
-
-router.put("/aceitarOp/:codOperacao", function (req, res) {
-    usuarioController.aceitarOp(req, res);
-});
-
-router.put("/recusarOp/:codOperacao", function (req, res) {
-    usuarioController.aceitarOp(req, res);
-});
-
-router.put("/editarOp/:codOperacao", function (req, res) {
-    usuarioController.editarOp(req, res);
-});
-
-router.delete("/deletarOp/:codOperacao", function (req, res) {
-    usuarioController.deletarOp(req, res);
 });
 
 module.exports = router;

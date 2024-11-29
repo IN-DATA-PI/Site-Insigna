@@ -18,6 +18,7 @@ var app = express();
 
 var usuarioRouter = require("./src/routes/usuarios");
 var dashboardRouter = require("./src/routes/dashboardRouter")
+var operacoesRouter = require("./src/routes/operacoes")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -27,6 +28,7 @@ app.use(cors());
 
 app.use("/usuarios", usuarioRouter);
 app.use("/dashboardRouter", dashboardRouter)
+app.use("/operacoes", operacoesRouter)
 
 
 
