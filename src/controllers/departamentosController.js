@@ -25,7 +25,6 @@ function cadastrarDep(req, res) {
     }
     else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         departamentosModel.cadastrarDep(nome, cep, logradouro, numero, bairro, cidade)
             .then(
                 function (resultado) {
@@ -44,6 +43,69 @@ function cadastrarDep(req, res) {
     }
 }
 
+function listarDep(req, res) {
+    departamentosModel.listarDep()
+        .then(
+            function (resultado) {
+                res.json(resultado)
+            }
+        ).catch(
+            function(erro) {
+                console.log(erro);
+                console.log("\n Houve um erro ao listar os departamentos! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage)
+            }
+        );
+}
+
+
+function editarDep(req, res) {
+    var nomeAtualizado = req.body.nome;
+    var cepAtualizado = req.body.cep;
+    var logradouroAtualizado = req.body.logradouro;
+    var numeroAtualizado = req.body.numero;
+    var bairroAtualizado = req.body.bairro;
+    var cidadeAtualizado = req.body.cidade;
+    var idDepartamentoPolicia = req.params.idDepartamentoPolicia;
+
+    departamentosModel.editarDep(nomeAtualizado, cepAtualizado, logradouroAtualizado, numeroAtualizado, bairroAtualizado, cidadeAtualizado, idDepartamentoPolicia)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+                console.log(nomeAtualizado, cepAtualizado, logradouroAtualizado, numeroAtualizado, bairroAtualizado, cidadeAtualizado, idDepartamentoPolicia)
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function deletarDep(req, res) {
+    var id = req.params.idDepartamentoPolicia;
+
+    departamentosModel.deletarDep(id)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o departamento: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
 module.exports = {
-    cadastrarDep
+    cadastrarDep,
+    listarDep,
+    editarDep,
+    deletarDep
 }

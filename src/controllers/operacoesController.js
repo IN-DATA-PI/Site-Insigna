@@ -100,7 +100,7 @@ function editarOp(req, res) {
     var qtdPoliciaisAtualizado = req.body.qtdPoliciais;
     var localAtualizado = req.body.local;
     var descricaoAtualizado = req.body.descricao;
-    var dataAtualizado = req.params.data;
+    var dataAtualizado = req.body.data;
     var codOperacao = req.params.codOperacao;
 
     operacoesModel.editarOp(nomeOp, qtdPoliciaisAtualizado, localAtualizado, descricaoAtualizado, dataAtualizado, codOperacao)

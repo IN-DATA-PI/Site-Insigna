@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/operacoes.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <title>Operações - INSIGNA</title>
+    <link rel="stylesheet" href="../css/edicaoUsuario.css">
+    <title>Departamentos - INSIGNA</title>
 </head>
 <body>
-
     <div class="menu-lateral">
         <div class="container-menu">
             <div class="logo">
@@ -50,41 +48,41 @@
 
             <div class="painel-conta">
 
+                <div class="cabecalho">
+                    <h1>Edição de Departamento</h1>
+                </div>
 
-                    <div class="cabecalho">
-                        
-                        <div class="titulo_cabecalho">
-                            <h1>Lista de Operações</h1>
+                <div class="conteudo-painel">
+
+                    <div class="form">
+
+                        <div class="titulo">
+                            <h2>Preencha o(s) campo(s) que deseja atualizar:</h2>
                         </div>
 
-                        <div class="div_filtro">
-                            Status da solicitação de operação:
-                            
-                            
-                            <select class="filtro" id="filtro">
-                                <option value="pendente">Pendente</option>
-                                <option value="aceito">Aceito</option>
-                                <option value="negado">Negado</option>
-                            </select>
-                            
+                        <div class="inputs">
+
+                            Nome: <input type="text" id="ipt_nomeAtualizado">
+                            CEP: <input type="number" id="ipt_cepAtualizado">
+                            Logradouro: <input type="text" id="ipt_logradouroAtualizado">
+                            Número: <input type="date" id="ipt_numeroAtualizado">
+                            Bairro: <textarea id="ipt_bairroAtualizado"></textarea>
+                            Cidade: <textarea id="ipt_cidadeAtualizado"></textarea>
+
                         </div>
-                            
+
+                        <button onclick="editarDep(sessionStorage.getItem('ID_DEP'))" class="btn">Atualizar</button>
+                    
                     </div>
 
-                    <div class="conteudo-painel">
-
-                            <div id="feed_op" class="feed_op">
-                                
-                            </div>
-
-                    </div>
-
-
+                    
+                </div>
             </div>
-
         </div>
     </div>
 
-    <script src="../js/operacoes.js"></script>
+
+    <script src="../js/edicaoDepartamento.js"></script>
 </body>
+
 </html>

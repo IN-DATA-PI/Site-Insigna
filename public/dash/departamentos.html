@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/operacoes.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <title>Operações - INSIGNA</title>
+    <link rel="stylesheet" href="../css/departamentos.css" />
+    <title>Departamentos - INSIGNA</title>
 </head>
 <body>
-
     <div class="menu-lateral">
         <div class="container-menu">
             <div class="logo">
@@ -52,30 +51,32 @@
 
 
                     <div class="cabecalho">
-                        
-                        <div class="titulo_cabecalho">
-                            <h1>Lista de Operações</h1>
-                        </div>
-
-                        <div class="div_filtro">
-                            Status da solicitação de operação:
-                            
-                            
-                            <select class="filtro" id="filtro">
-                                <option value="pendente">Pendente</option>
-                                <option value="aceito">Aceito</option>
-                                <option value="negado">Negado</option>
-                            </select>
-                            
-                        </div>
-                            
+                        <h2>Lista de Departamentos</h2>
                     </div>
 
                     <div class="conteudo-painel">
 
-                            <div id="feed_op" class="feed_op">
-                                
-                            </div>
+                        <table id="tabela" class="tabela">
+                            
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NomeDP</th>
+                                    <th>CEP</th>
+                                    <th>Logradouro</th>
+                                    <th width="6%">Número</th>
+                                    <th>Cidade</th>
+                                    <th>Bairro</th>
+                                    <th width="7%">Editar</th>
+                                    <th width="7%">Remover</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+
+                            </tbody>
+                        
+                        </table>
 
                     </div>
 
@@ -85,6 +86,8 @@
         </div>
     </div>
 
-    <script src="../js/operacoes.js"></script>
+    <script src="../js/departamentos.js"></script>
+
 </body>
+
 </html>
