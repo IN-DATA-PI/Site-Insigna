@@ -1,9 +1,25 @@
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.USUARIO_NOME; 
 
+let linksMenu = document.querySelectorAll(".btn-dl");
+
+if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+
+    linksMenu.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
+
 function editarDep() {
 
     let nome = ipt_nomeAtualizado.value;
-    let cep = ipt_cepAtualizado.value;
+    let cep = Number(ipt_cepAtualizado.value);
     let logradouro = ipt_logradouroAtualizado.value;
     let numero = Number(ipt_numeroAtualizado.value);
     let bairro = ipt_bairroAtualizado.value;

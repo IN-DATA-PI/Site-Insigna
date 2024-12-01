@@ -1,4 +1,21 @@
-nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_operacao;
+nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
+
+let linksMenu = document.querySelectorAll(".btn-dl");
+
+if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+
+    linksMenu.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
+
 
 function listarTodas() {
 
@@ -44,7 +61,7 @@ function listarTodas() {
                     spanID.innerHTML = "Código: " + operacao.codOperacao;
                     spanNome.innerHTML = "Nome: " + operacao.nomeOp;
                     spanUsuario.innerHTML = "Cadastrada por: " + operacao.nome;
-                    spanQtdPolicia.innerHTML = "Quantidade de Policiais: " + operacao.qtdPolicias;
+                    spanQtdPolicia.innerHTML = "Quantidade de Policiais: " + operacao.qtdPoliciais;
                     spanlocalOp.innerHTML = "Local da Operação: " + operacao.localOp;
                     spandataOp.innerHTML = "Data: " + operacao.dataFormatada;
                     divDescricao.innerHTML = "Descrição: " + operacao.descricaoOp;
@@ -54,7 +71,6 @@ function listarTodas() {
                     div2.className = "div2"
                     div3.className = "div3"
                     div4.className = "div4"
-                    spanNome.id = "inputNumero" + operacao.idAviso;
                     spanNome.className = "span";
                     spanUsuario.className = "span";
                     divStatus.className = "divStatus pendente";
@@ -198,5 +214,121 @@ function recusarOp(codOperacao) {
         console.log(`#ERRO: ${resposta}`);
     });
 }
+
+function listarPorStatus() {
+    const statusOp = document.getElementById("filtro_status").value;
+    const feed = document.getElementById("feed_op"); 
+    feed.innerHTML = "";
+
+    console.log(statusOp);
+
+    fetch(`/operacoes/listarPorStatus/${statusOp}`).then(function (resposta) {
+        if (resposta.ok) {
+            if (resposta.status == 204) {
+
+                const mensagem = document.createElement("span");
+                mensagem.innerHTML = "Nenhum resultado encontrado.";
+                feed.appendChild(mensagem);
+                throw "Nenhum resultado encontrado!!";
+            }
+
+            resposta.json().then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                resposta.forEach(operacao => {
+                    const divOperacao = document.createElement("div");
+                    const div1 = document.createElement("div");
+                    const div2 = document.createElement("div");
+                    const div3 = document.createElement("div");
+                    const div4 = document.createElement("div");
+                    const spanID = document.createElement("span");
+                    const spanNome = document.createElement("span");
+                    const spanUsuario = document.createElement("span");
+                    const divStatus = document.createElement("div");
+                    const spanQtdPolicia = document.createElement("span");
+                    const spanLocalOp = document.createElement("span");
+                    const spanDataOp = document.createElement("span");
+                    const divDescricao = document.createElement("div");
+                    const divButtons = document.createElement("div");
+                    const divButtons2 = document.createElement("div");
+                    const editar = document.createElement("i");
+                    const deletar = document.createElement("i");
+                    const aceitar = document.createElement("i");
+                    const recusar = document.createElement("i");
+
+                    spanID.innerHTML = "Código: " + operacao.codOperacao;
+                    spanNome.innerHTML = "Nome: " + operacao.nomeOp;
+                    spanUsuario.innerHTML = "Cadastrada por: " + operacao.nome;
+                    spanQtdPolicia.innerHTML = "Quantidade de Policiais: " + operacao.qtdPoliciais;
+                    spanLocalOp.innerHTML = "Local da Operação: " + operacao.localOp;
+                    spanDataOp.innerHTML = "Data: " + operacao.dataFormatada;
+                    divDescricao.innerHTML = "Descrição: " + operacao.descricaoOp;
+
+                    divOperacao.className = "operacao";
+                    div1.className = "div1";
+                    div2.className = "div2";
+                    div3.className = "div3";
+                    div4.className = "div4";
+                    divStatus.className = `divStatus ${operacao.statusOp.toLowerCase()}`;
+                    divDescricao.className = "descricao";
+
+                    divButtons.className = "div-buttons";
+                    divButtons2.className = "div-buttons";
+
+                    editar.className = "fa-solid fa-pen icon";
+                    editar.id = "btnEditar" + operacao.codOperacao;
+                    editar.setAttribute("onclick", `editarOp(${operacao.codOperacao})`);
+
+                    deletar.className = "fa-solid fa-trash-can icon";
+                    deletar.id = "btnDeletar" + operacao.codOperacao;
+                    deletar.setAttribute("onclick", `deletarOp(${operacao.codOperacao})`);
+
+                    aceitar.className = "fa-solid fa-square-check";
+                    aceitar.id = "bntAceitar" + operacao.codOperacao;
+                    aceitar.setAttribute("onclick", `aceitarOp(${operacao.codOperacao})`);
+
+                    recusar.className = "fa-solid fa-square-xmark";
+                    recusar.id = "bntRecusar" + operacao.codOperacao;
+                    recusar.setAttribute("onclick", `recusarOp(${operacao.codOperacao})`);
+
+                    if (operacao.statusOp === "ACEITA" || operacao.statusOp === "RECUSADA") {
+                        divButtons2.style.display = "none";
+                    }
+
+                    div1.appendChild(spanID);
+                    div1.appendChild(spanNome);
+                    div1.appendChild(spanUsuario);
+                    div1.appendChild(divStatus);
+
+                    div2.appendChild(spanQtdPolicia);
+                    div2.appendChild(spanLocalOp);
+                    div2.appendChild(spanDataOp);
+
+                    div3.appendChild(divDescricao);
+
+                    div4.appendChild(divButtons);
+                    div4.appendChild(divButtons2);
+
+                    divButtons.appendChild(editar);
+                    divButtons.appendChild(deletar);
+                    divButtons2.appendChild(aceitar);
+                    divButtons2.appendChild(recusar);
+
+                    divOperacao.appendChild(div1);
+                    divOperacao.appendChild(div2);
+                    divOperacao.appendChild(div3);
+                    divOperacao.appendChild(div4);
+
+                    feed.appendChild(divOperacao);
+                });
+            });
+        } else {
+            throw "Houve um erro na API!";
+        }
+    }).catch(function (erro) {
+        console.error(erro);
+    });
+}
+
 
 listarTodas();

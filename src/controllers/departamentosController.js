@@ -102,7 +102,6 @@ function deletarDep(req, res) {
         );
 }
 
-
 module.exports = {
     cadastrarDep,
     listarDep,

@@ -40,7 +40,7 @@ function cadastrarIv() {
             if (resposta.ok) {
                 alert("Cadastrado com sucesso!");
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "../login.html";
                 }, "1000");
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";

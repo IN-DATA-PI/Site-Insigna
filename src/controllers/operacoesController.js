@@ -136,11 +136,29 @@ function deletarOp(req, res) {
         );
 }
 
+function listarPorStatus(req, res) {
+    const status = req.params.status; // Pega o parâmetro status
+
+    operacoesModel.listarPorStatus(status).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado para este status!");
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as operações: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 module.exports = {
     cadastrarOp,
     listarTodas,
     aceitarOp,
     recusarOp,
     editarOp,
-    deletarOp
+    deletarOp,
+    listarPorStatus
 }

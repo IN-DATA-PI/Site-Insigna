@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/operacoes.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/assets/LogoSoDistintivo.png" />
     <title>Operações - INSIGNA</title>
 </head>
 <body>
@@ -41,9 +42,6 @@
                     <p id="nome_usuario"></p>
                 </div>
 
-                <div class="notificacoes">
-                    <img src="../assets/notificacao.png" />
-                </div>
             </div>
 
             <div class="linha-horizontal"></div>
@@ -58,13 +56,11 @@
                         </div>
 
                         <div class="div_filtro">
-                            Status da solicitação de operação:
-                            
-                            
-                            <select class="filtro" id="filtro">
-                                <option value="pendente">Pendente</option>
-                                <option value="aceito">Aceito</option>
-                                <option value="negado">Negado</option>
+                            Status de operação:
+                            <select class="filtro" id="filtro_status" onchange="listarPorStatus()">
+                                <option value="PENDENTE">Pendente</option>
+                                <option value="ACEITA">Aceito</option>
+                                <option value="RECUSADA">Negado</option>
                             </select>
                             
                         </div>
