@@ -1,5 +1,22 @@
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
 
+let linksMenu = document.querySelectorAll(".btn-dl");
+
+if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+
+    linksMenu.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
+
+
 function listarTodas() {
 
     fetch("/operacoes/listarTodas").then(function (resposta) {
@@ -199,16 +216,16 @@ function recusarOp(codOperacao) {
 }
 
 function listarPorStatus() {
-    const statusOp = document.getElementById("filtro_status").value; // Captura o valor selecionado no filtro
-    const feed = document.getElementById("feed_op"); // Contêiner das operações
-    feed.innerHTML = ""; // Limpa o conteúdo anterior do contêiner
+    const statusOp = document.getElementById("filtro_status").value;
+    const feed = document.getElementById("feed_op"); 
+    feed.innerHTML = "";
 
     console.log(statusOp);
 
     fetch(`/operacoes/listarPorStatus/${statusOp}`).then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
-                // Se não houver resultados, exibe mensagem
+
                 const mensagem = document.createElement("span");
                 mensagem.innerHTML = "Nenhum resultado encontrado.";
                 feed.appendChild(mensagem);
@@ -218,7 +235,6 @@ function listarPorStatus() {
             resposta.json().then(function (resposta) {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                // Loop para criar e exibir as operações recebidas
                 resposta.forEach(operacao => {
                     const divOperacao = document.createElement("div");
                     const div1 = document.createElement("div");
@@ -240,7 +256,6 @@ function listarPorStatus() {
                     const aceitar = document.createElement("i");
                     const recusar = document.createElement("i");
 
-                    // Preenchendo os elementos
                     spanID.innerHTML = "Código: " + operacao.codOperacao;
                     spanNome.innerHTML = "Nome: " + operacao.nomeOp;
                     spanUsuario.innerHTML = "Cadastrada por: " + operacao.nome;
@@ -249,7 +264,6 @@ function listarPorStatus() {
                     spanDataOp.innerHTML = "Data: " + operacao.dataFormatada;
                     divDescricao.innerHTML = "Descrição: " + operacao.descricaoOp;
 
-                    // Adicionando classes
                     divOperacao.className = "operacao";
                     div1.className = "div1";
                     div2.className = "div2";
@@ -261,7 +275,6 @@ function listarPorStatus() {
                     divButtons.className = "div-buttons";
                     divButtons2.className = "div-buttons";
 
-                    // Configurando botões
                     editar.className = "fa-solid fa-pen icon";
                     editar.id = "btnEditar" + operacao.codOperacao;
                     editar.setAttribute("onclick", `editarOp(${operacao.codOperacao})`);
@@ -278,12 +291,10 @@ function listarPorStatus() {
                     recusar.id = "bntRecusar" + operacao.codOperacao;
                     recusar.setAttribute("onclick", `recusarOp(${operacao.codOperacao})`);
 
-                    // Adiciona os botões de acordo com o status
                     if (operacao.statusOp === "ACEITA" || operacao.statusOp === "RECUSADA") {
                         divButtons2.style.display = "none";
                     }
 
-                    // Construção do elemento
                     div1.appendChild(spanID);
                     div1.appendChild(spanNome);
                     div1.appendChild(spanUsuario);

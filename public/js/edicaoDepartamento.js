@@ -1,5 +1,21 @@
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.USUARIO_NOME; 
 
+let linksMenu = document.querySelectorAll(".btn-dl");
+
+if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+
+    linksMenu.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
+
 function editarDep() {
 
     let nome = ipt_nomeAtualizado.value;
