@@ -105,11 +105,38 @@ function deletarOp(codOperacao) {
     return database.executar(instrucaoSql);
 }
 
+function listarPorStatus(status) {
+    console.log("Filtrando operações com status:", status);
+    const instrucaoSql = `
+    SELECT 
+        op.codigoOp AS codOperacao,
+        op.nomeOp,
+        op.qtdPoliciais,
+        op.localOp,
+        DATE_FORMAT(op.dataOp, '%d/%m/%Y') AS dataFormatada,
+        op.descricaoOp,
+        op.statusOp,
+        op.fkUsuario,
+        u.id AS idUsuario,
+        u.nome,
+        u.email,
+        u.senha
+    FROM operacoes op
+    INNER JOIN usuario u
+        ON op.fkUsuario = u.id
+    WHERE op.statusOp = '${status}';`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     cadastrarOp,
     listarTodas,
     aceitarOp,
     recusarOp,
     editarOp,
-    deletarOp
+    deletarOp,
+    listarPorStatus
 }

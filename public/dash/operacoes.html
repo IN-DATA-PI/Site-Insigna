@@ -41,9 +41,6 @@
                     <p id="nome_usuario"></p>
                 </div>
 
-                <div class="notificacoes">
-                    <img src="../assets/notificacao.png" />
-                </div>
             </div>
 
             <div class="linha-horizontal"></div>
@@ -58,13 +55,11 @@
                         </div>
 
                         <div class="div_filtro">
-                            Status da solicitação de operação:
-                            
-                            
-                            <select class="filtro" id="filtro">
-                                <option value="pendente">Pendente</option>
-                                <option value="aceito">Aceito</option>
-                                <option value="negado">Negado</option>
+                            Status de operação:
+                            <select class="filtro" id="filtro_status" onchange="listarPorStatus()">
+                                <option value="PENDENTE">Pendente</option>
+                                <option value="ACEITA">Aceito</option>
+                                <option value="RECUSADA">Negado</option>
                             </select>
                             
                         </div>

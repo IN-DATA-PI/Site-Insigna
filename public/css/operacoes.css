@@ -111,21 +111,6 @@
     width: 20%;
   }
   
-  .notificacoes {
-    width: 10%;
-    height: 25px;
-  }
-  
-  .notificacoes img {
-    height: 20px;
-  }
-  
-  .notificacoes:hover {
-    cursor: pointer;
-    border-radius: 90px;
-    background-color: #969ba3;
-  }
-
   .linha-horizontal {
     width: 100%;
     border: solid 1px #D3D3D3;
@@ -148,6 +133,7 @@
     height: 10%;
     width: 100%;
     padding: 15px;
+    gap: 40%;
   }
 
   .cabecalho .titulo_cabecalho {
@@ -155,10 +141,11 @@
   }
 
   .cabecalho .div_filtro {
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-direction: row;
-    text-align: center;
+    align-items: center;
+    gap: 10px;    
   }
 
   .cabecalho .filtro {
@@ -194,11 +181,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 35%;
+    max-height: 50%;
     width: 100%;
     padding: 10px;
     border: transparent;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #969ba3;
   }
 

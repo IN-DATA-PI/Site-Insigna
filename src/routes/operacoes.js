@@ -16,7 +16,7 @@ router.put("/aceitarOp/:codOperacao", function (req, res) {
 });
 
 router.put("/recusarOp/:codOperacao", function (req, res) {
-    operacoesController.aceitarOp(req, res);
+    operacoesController.recusarOp(req, res);
 });
 
 router.put("/editarOp/:codOperacao", function (req, res) {
@@ -26,5 +26,10 @@ router.put("/editarOp/:codOperacao", function (req, res) {
 router.delete("/deletarOp/:codOperacao", function (req, res) {
     operacoesController.deletarOp(req, res);
 });
+
+router.get("/listarPorStatus/:status", function (req, res) {
+    operacoesController.listarPorStatus(req, res);
+});
+
 
 module.exports = router;
