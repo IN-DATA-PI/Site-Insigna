@@ -10,7 +10,7 @@
     <title>Dashboard - INSIGNA</title>
 </head>
 
-<body onload="roubosMesCarga(), roubosAnoCarga(), regiao(), grafico()">
+<body onload="roubosMesVeiculoOeste(), roubosAnoVeiculoOeste(), regiaoVeiculo(), graficoVeiculoOeste()">
 
     <div class="menu-lateral">
         <div class="container-menu">
@@ -60,26 +60,26 @@
             <div class="conteudo-painel">
 
                 <div class="cabecalho">
-                    <h1>Dashboard (Carga)</h1>
+                    <h1>Dashboard (Roubos - outros)</h1>
 
                     <div class="filtro">
 
                         <div class="selecionar">
                             <select class="select_filtro" id="tipo_roubo">
-                                <option value="carga">Carga</option>
                                 <option value="outros">Outros</option>
                                 <option value="veiculo">Veículo</option>
+                                <option value="carga">Carga</option>
                             </select>
                         </div>
 
                         <div class="selecionar">
                             <select class="select_filtro" id="regiao" onchange="trocarRegiao()">
+                                <option value="oeste">Zona Oeste</option>
                                 <option value="geral">Geral</option>
                                 <option value="centro">Centro</option>
                                 <option value="norte">Zona Norte</option>
                                 <option value="leste">Zona Leste</option>
                                 <option value="sul">Zona Sul</option>
-                                <option value="oeste">Zona Oeste</option>
                             </select>
                         </div>
 
@@ -113,7 +113,7 @@
                     <div class="linha"></div>
 
                     <div class="secao_kpi_geral">
-                        <h3 id="tituloKPI3">Região com mais Roubos de Carga</h3>
+                        <h3 id="tituloKPI3">Região mais perigosa atualmente</h3>
                         <div class="caixa_geral">
                             <div class="kpi_geral">
                                 <p id="dadosKPI3"></p>
@@ -127,7 +127,7 @@
 
                 <div class="grafico">
 
-                    <h3>Roubos em São Paulo por mês</h3>
+                    <h3>Região com mais Roubos de Outros</h3>
 
                     <div class="conteudo-grafico">
 
@@ -143,7 +143,9 @@
 
 
     </div>
-    <script src="../js/dashboardCarga.js"></script>
+
+    <script src="../js/dashboardVeiculoOeste.js"></script>
 </body>
 
 </html>
+

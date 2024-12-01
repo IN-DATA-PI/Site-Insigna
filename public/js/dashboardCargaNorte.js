@@ -16,23 +16,23 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
     });
 }
 
-var roubosMesOutrosNum
-function roubosMesOutros() {
-    fetch(`/dashboardRouter/roubosMesOutros`, {
+var roubosMesCargaNum
+function roubosMesCargaNorte() {
+    fetch(`/dashboardCargaRouter/roubosMesCargaNorte`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosMesOutros()!")
+      console.log("ESTOU NO THEN DO roubosMesCargaNorte()!")
   
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then((json) => {
-          console.log(roubosMesOutrosNum = json.roubosMesOutrosNum)
+          console.log(roubosMesCargaNum = json.roubosMesCargaNum)
   
-          roubosMesOutrosNum = json.roubosMesOutrosNum;
-          dadosKPI1.innerHTML = roubosMesOutrosNum
+          roubosMesCargaNum = json.roubosMesCargaNum;
+          dadosKPI1.innerHTML = roubosMesCargaNum
   
         });
       } else {
@@ -42,23 +42,23 @@ function roubosMesOutros() {
   
 }
 
-var roubosAnoOutrosNum
-function roubosAnoOutros() {
-    fetch(`/dashboardRouter/roubosAnoOutros`, {
+var roubosAnoCargaNum
+function roubosAnoCargaNorte() {
+    fetch(`/dashboardCargaRouter/roubosAnoCargaNorte`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosAnoOutros()!")
+      console.log("ESTOU NO THEN DO roubosAnoCargaNorte()!")
   
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then((json) => {
-          console.log(roubosAnoOutrosNum = json.roubosAnoOutrosNum)
+          console.log(roubosAnoCargaNum = json.roubosAnoCargaNum)
   
-          roubosAnoOutrosNum = json.roubosAnoOutrosNum;
-          dadosKPI2.innerHTML = roubosAnoOutrosNum
+          roubosAnoCargaNum = json.roubosAnoCargaNum;
+          dadosKPI2.innerHTML = roubosAnoCargaNum
   
         });
       } else {
@@ -68,23 +68,23 @@ function roubosAnoOutros() {
   
 }
 
-var regiaoOutros
-function regiaoOutros() {
-    fetch(`/dashboardRouter/regiaoOutros`, {
+var regiao
+function regiao() {
+    fetch(`/dashboardCargaRouter/regiao`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO regiaoOutros()!")
+      console.log("ESTOU NO THEN DO regiao()!")
   
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then((json) => {
-          console.log(regiaoOutros = json.regiaoOutros)
+          console.log(regiao = json.regiao)
   
-          regiaoOutros = json.regiaoOutros;
-          dadosKPI3.innerHTML = regiaoOutros
+          regiao = json.regiao;
+          dadosKPI3.innerHTML = regiao
   
         });
       } else {
@@ -97,14 +97,14 @@ function regiaoOutros() {
 var roubos2023 = []
 var roubos2024 = []
 
-function graficoOutros() {
-  fetch(`/dashboardRouter/graficoOutros`, {
+function graficoNorte() {
+  fetch(`/dashboardCargaRouter/graficoNorte`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
       }
   }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO graficoOutros()!");
+      console.log("ESTOU NO THEN DO graficoNorte()!");
       if (resposta.ok) {
           resposta.json().then((json) => {
               roubos2023 = json.map((item) => item.roubos_2023);
@@ -122,7 +122,6 @@ function graficoOutros() {
 const roubosMes = document.getElementById('dadosKPI1');
 const roubosAno = document.getElementById('dadosKPI2');
 const regiaoPerigo = document.getElementById('dadosKPI3');
-const regiaoSelecionada = document.getElementById('regiao');
 const ctx = document.getElementById('myChart').getContext('2d');
 
 let grafico1;
@@ -174,11 +173,6 @@ function criarGrafico() {
 });
 }
 
-regiaoSelecionada.addEventListener('change', (e) => {
-    const regiaoSelecionada = e.target.value;
-    criarGrafico(regiaoSelecionada);
-})
-
 const rouboSelecionado = document.getElementById('tipo_roubo')
 
 rouboSelecionado.addEventListener('change', (e) => {
@@ -195,24 +189,21 @@ rouboSelecionado.addEventListener('change', (e) => {
     }
 });
 
-const regiaoSelecionado = document.getElementById('regiao');
-
 function trocarRegiao() {
-  const regiao = document.getElementById("regiao").value;
-
-  const paginas = {
-    geral: "dashboardOutros.html",
-    centro: "dashboardOutrosCentro.html",
-    norte: "dashboardOutrosNorte.html",
-    leste: "dashboardOutrosLeste.html",
-    sul: "dashboardOutrosSul.html",
-    oeste: "dashboardOutrosOeste.html"
-};
-
-  if (paginas[regiao]) {
-      window.location.href = paginas[regiao];
+    const regiao = document.getElementById("regiao").value;
+  
+    const paginas = {
+      geral: "dashboardCarga.html",
+      centro: "dashboardCargaCentro.html",
+      norte: "dashboardCargaNorte.html",
+      leste: "dashboardCargaLeste.html",
+      sul: "dashboardCargaSul.html",
+      oeste: "dashboardCargaOeste.html"
+  };
+  
+    if (paginas[regiao]) {
+        window.location.href = paginas[regiao];
+    }
   }
-}
-
 
 criarGrafico('geral')

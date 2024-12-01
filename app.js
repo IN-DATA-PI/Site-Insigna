@@ -18,6 +18,8 @@ var app = express();
 
 var usuarioRouter = require("./src/routes/usuarios");
 var dashboardRouter = require("./src/routes/dashboardRouter");
+var dashboardCargaRouter = require("./src/routes/dashboardCargaRouter");
+var dashboardVeiculoRouter = require("./src/routes/dashboardVeiculoRouter");
 var operacoesRouter = require("./src/routes/operacoes");
 var departamentosRouter = require("./src/routes/departamentos");
 
@@ -29,6 +31,8 @@ app.use(cors());
 
 app.use("/usuarios", usuarioRouter);
 app.use("/dashboardRouter", dashboardRouter);
+app.use("/dashboardCargaRouter", dashboardCargaRouter);
+app.use("/dashboardVeiculoRouter", dashboardVeiculoRouter);
 app.use("/operacoes", operacoesRouter);
 app.use("/departamentos", departamentosRouter);
 

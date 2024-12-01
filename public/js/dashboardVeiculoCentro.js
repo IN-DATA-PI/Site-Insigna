@@ -16,23 +16,23 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
     });
 }
 
-var roubosMesOutrosNum
-function roubosMesOutros() {
-    fetch(`/dashboardRouter/roubosMesOutros`, {
+var roubosMesVeiculoNum
+function roubosMesVeiculo() {
+    fetch(`/dashboardVeiculoRouter/roubosMesVeiculo`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosMesOutros()!")
+      console.log("ESTOU NO THEN DO roubosMesVeiculo()!")
   
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then((json) => {
-          console.log(roubosMesOutrosNum = json.roubosMesOutrosNum)
+          console.log(roubosMesVeiculoNum = json.roubosMesVeiculoNum)
   
-          roubosMesOutrosNum = json.roubosMesOutrosNum;
-          dadosKPI1.innerHTML = roubosMesOutrosNum
+          roubosMesVeiculoNum = json.roubosMesVeiculoNum;
+          dadosKPI1.innerHTML = roubosMesVeiculoNum
   
         });
       } else {
@@ -42,23 +42,23 @@ function roubosMesOutros() {
   
 }
 
-var roubosAnoOutrosNum
-function roubosAnoOutros() {
-    fetch(`/dashboardRouter/roubosAnoOutros`, {
+var roubosAnoVeiculoNum
+function roubosAnoVeiculo() {
+    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculo`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosAnoOutros()!")
+      console.log("ESTOU NO THEN DO roubosAnoVeiculo()!")
   
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then((json) => {
-          console.log(roubosAnoOutrosNum = json.roubosAnoOutrosNum)
+          console.log(roubosAnoVeiculoNum = json.roubosAnoVeiculoNum)
   
-          roubosAnoOutrosNum = json.roubosAnoOutrosNum;
-          dadosKPI2.innerHTML = roubosAnoOutrosNum
+          roubosAnoVeiculoNum = json.roubosAnoVeiculoNum;
+          dadosKPI2.innerHTML = roubosAnoVeiculoNum
   
         });
       } else {
@@ -68,23 +68,23 @@ function roubosAnoOutros() {
   
 }
 
-var regiaoOutros
-function regiaoOutros() {
-    fetch(`/dashboardRouter/regiaoOutros`, {
+var regiaoVeiculo
+function regiaoVeiculo() {
+    fetch(`/dashboardVeiculoRouter/regiaoVeiculo`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO regiaoOutros()!")
+      console.log("ESTOU NO THEN DO regiaoVeiculo()!")
   
       if (resposta.ok) {
         console.log(resposta);
         resposta.json().then((json) => {
-          console.log(regiaoOutros = json.regiaoOutros)
+          console.log(regiaoVeiculo = json.regiaoVeiculo)
   
-          regiaoOutros = json.regiaoOutros;
-          dadosKPI3.innerHTML = regiaoOutros
+          regiaoVeiculo = json.regiaoVeiculo;
+          dadosKPI3.innerHTML = regiaoVeiculo
   
         });
       } else {
@@ -97,14 +97,14 @@ function regiaoOutros() {
 var roubos2023 = []
 var roubos2024 = []
 
-function graficoOutros() {
-  fetch(`/dashboardRouter/graficoOutros`, {
+function graficoVeiculo() {
+  fetch(`/dashboardVeiculoRouter/graficoVeiculo`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
       }
   }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO graficoOutros()!");
+      console.log("ESTOU NO THEN DO graficoVeiculo()!");
       if (resposta.ok) {
           resposta.json().then((json) => {
               roubos2023 = json.map((item) => item.roubos_2023);
@@ -198,21 +198,21 @@ rouboSelecionado.addEventListener('change', (e) => {
 const regiaoSelecionado = document.getElementById('regiao');
 
 function trocarRegiao() {
-  const regiao = document.getElementById("regiao").value;
-
-  const paginas = {
-    geral: "dashboardOutros.html",
-    centro: "dashboardOutrosCentro.html",
-    norte: "dashboardOutrosNorte.html",
-    leste: "dashboardOutrosLeste.html",
-    sul: "dashboardOutrosSul.html",
-    oeste: "dashboardOutrosOeste.html"
-};
-
-  if (paginas[regiao]) {
-      window.location.href = paginas[regiao];
+    const regiao = document.getElementById("regiao").value;
+  
+    const paginas = {
+      geral: "dashboardVeiculo.html",
+      centro: "dashboardVeiculoCentro.html",
+      norte: "dashboardVeiculoNorte.html",
+      leste: "dashboardVeiculoLeste.html",
+      sul: "dashboardVeiculoSul.html",
+      oeste: "dashboardVeiculoOeste.html"
+  };
+  
+    if (paginas[regiao]) {
+        window.location.href = paginas[regiao];
+    }
   }
-}
 
 
 criarGrafico('geral')

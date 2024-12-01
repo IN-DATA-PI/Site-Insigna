@@ -1,10 +1,10 @@
-var dashboardModel = require("../models/dashboardModel");
+var dashboardVeiculoModel = require("../models/dashboardVeiculoModel");
 
-function roubosMesOutros(req, res) {
-    dashboardModel.roubosMesOutros()
-      .then(function (resultadoroubosMesOutrosNum) {
+function roubosMesVeiculo(req, res) {
+    dashboardVeiculoModel.roubosMesVeiculo()
+      .then(function (resultadoroubosMesVeiculoNum) {
         res.json({
-            roubosMesOutrosNum: resultadoroubosMesOutrosNum[0].roubosMesOutrosNum
+            roubosMesVeiculoNum: resultadoroubosMesVeiculoNum[0].roubosMesVeiculoNum
         });
       })
       .catch(function (erro) {
@@ -14,11 +14,11 @@ function roubosMesOutros(req, res) {
       });
 }
 
-function roubosAnoOutros(req, res) {
-    dashboardModel.roubosAnoOutros()
-      .then(function (resultadoRoubosAnoOutrosNum) {
+function roubosAnoVeiculo(req, res) {
+    dashboardVeiculoModel.roubosAnoVeiculo()
+      .then(function (resultadoRoubosAnoVeiculoNum) {
         res.json({
-            roubosAnoOutrosNum: resultadoRoubosAnoOutrosNum[0].roubosAnoOutrosNum
+            roubosAnoVeiculoNum: resultadoRoubosAnoVeiculoNum[0].roubosAnoVeiculoNum
         });
       })
       .catch(function (erro) {
@@ -28,11 +28,11 @@ function roubosAnoOutros(req, res) {
       });
 }
 
-function regiaoOutros(req, res) {
-  dashboardModel.regiaoOutros()
-    .then(function (resultadoRegiaoOuregiaoOutros) {
+function regiaoVeiculo(req, res) {
+  dashboardVeiculoModel.regiaoVeiculo()
+    .then(function (resultadoRegiaoVeiculo) {
       res.json({
-          regiaoOutros: resultadoRegiaoOuregiaoOutros[0].zona
+          regiaoVeiculo: resultadoRegiaoVeiculo[0].zona
       });
     })
     .catch(function (erro) {
@@ -42,10 +42,11 @@ function regiaoOutros(req, res) {
     });
 }
 
-function graficoOutros(req, res) {
-  dashboardModel.graficoOutros()
-    .then(function (resultadoGraficoOutros) {
-      res.json(resultadoGraficoOutros);
+
+function graficoVeiculo(req, res) {
+  dashboardVeiculoModel.graficoVeiculo()
+    .then(function (resultadoGraficoVeiculo) {
+      res.json(resultadoGraficoVeiculo);
     })
     .catch(function (erro) {
       console.error(erro);
@@ -55,8 +56,8 @@ function graficoOutros(req, res) {
 }
 
 module.exports = {
-    roubosMesOutros,
-    roubosAnoOutros,
-    regiaoOutros,
-    graficoOutros
+    roubosMesVeiculo,
+    roubosAnoVeiculo,
+    regiaoVeiculo,
+    graficoVeiculo
 }

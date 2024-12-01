@@ -22,18 +22,18 @@
 
             <div class="menu">
                 <h4>MENU</h4>
-                <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png">Dashboard</a>
-                <a href="./cadastroOperacoes.html"><img src="../assets/operacoes.png">Cadastro de Operações</a>
-                <a href="./cadastroInvestigadores.html"><img src="../assets/user-icon.png">Cadastro de Investigador</a>
+                <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png" />Dashboard</a>
+                <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png" />Cadastro de Operações</a>
+                <a href="cadastroInvestigadores.html" class="btn-dl"><img src="../assets/user-icon.png" />Cadastro de Investigador</a>
                 <a href="operacoes.html"><img src="../assets/aceitarOp.png" />Operações</a>
-                <a href="departamentos.html">Departamentos</a>
+                <a href="departamentos.html" class="btn-dl">Departamentos</a>
             </div>
-            <br>
-            <br>
+            <br />
+            <br />
             <div class="outros">
                 <h4>OUTROS</h4>
-                <a href="/dash/usuarios.html"><img src="../assets/conta-icon.png">Usuários</a>
-                <a href="../index.html"><img src="../assets/home.png">Home</a>
+                <a href="/dash/usuarios.html" class="btn-dl"><img src="../assets/conta-icon.png">Usuários</a>
+                <a href="../index.html"><img src="../assets/home.png" />Home</a>
             </div>
 
         </div>
@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="selecionar">
-                            <select class="select_filtro" id="regiao">
+                            <select class="select_filtro" id="regiao" onchange="trocarRegiao()">
                                 <option value="#">Região</option>
                                 <option value="geral">Geral</option>
                                 <option value="centro">Centro</option>

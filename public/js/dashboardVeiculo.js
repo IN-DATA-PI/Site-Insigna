@@ -1,9 +1,24 @@
-
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
+
+let linksMenu = document.querySelectorAll(".btn-dl");
+
+if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+
+    linksMenu.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
 
 var roubosMesVeiculoNum
 function roubosMesVeiculo() {
-    fetch(`/dashboardRouter/roubosMesVeiculo`, {
+    fetch(`/dashboardVeiculoRouter/roubosMesVeiculo`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -29,7 +44,7 @@ function roubosMesVeiculo() {
 
 var roubosAnoVeiculoNum
 function roubosAnoVeiculo() {
-    fetch(`/dashboardRouter/roubosAnoVeiculo`, {
+    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculo`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -55,7 +70,7 @@ function roubosAnoVeiculo() {
 
 var regiaoVeiculo
 function regiaoVeiculo() {
-    fetch(`/dashboardRouter/regiaoVeiculo`, {
+    fetch(`/dashboardVeiculoRouter/regiaoVeiculo`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -83,7 +98,7 @@ var roubos2023 = []
 var roubos2024 = []
 
 function graficoVeiculo() {
-  fetch(`/dashboardRouter/graficoVeiculo`, {
+  fetch(`/dashboardVeiculoRouter/graficoVeiculo`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
@@ -103,48 +118,6 @@ function graficoVeiculo() {
       }
   });
 }
-
-
-const dados = {
-
-geral: {
-dado_mes: 850,
-dado_ano: 10200,
-dado_perigo: "Leste"
-},
-
-centro: {
-dado_mes: 200,
-dado_ano: 2400,
-dado_perigo: "Centro"
-},
-
-norte: {
-dado_mes: 130,
-dado_ano: 1560,
-dado_perigo: "Centro"
-},
-
-leste: {
-dado_mes: 250,
-dado_ano: 3000,
-dado_perigo: "Leste"
-},
-
-sul: {
-dado_mes: 150,
-dado_ano: 1800,
-dado_perigo: "Leste"
-},
-
-oeste: {
-dado_mes: 120,
-dado_ano: 1440,
-dado_perigo: "Centro"
-}
-}
-
-
 
 const roubosMes = document.getElementById('dadosKPI1');
 const roubosAno = document.getElementById('dadosKPI2');
@@ -221,6 +194,25 @@ rouboSelecionado.addEventListener('change', (e) => {
         window.location.href = 'dashboardCarga.html';
     }
 });
+
+const regiaoSelecionado = document.getElementById('regiao');
+
+function trocarRegiao() {
+  const regiao = document.getElementById("regiao").value;
+
+  const paginas = {
+    geral: "dashboardVeiculo.html",
+    centro: "dashboardVeiculoCentro.html",
+    norte: "dashboardVeiculoNorte.html",
+    leste: "dashboardVeiculoLeste.html",
+    sul: "dashboardVeiculoSul.html",
+    oeste: "dashboardVeiculoOeste.html"
+};
+
+  if (paginas[regiao]) {
+      window.location.href = paginas[regiao];
+  }
+}
 
 
 criarGrafico('geral')

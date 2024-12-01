@@ -198,21 +198,20 @@ rouboSelecionado.addEventListener('change', (e) => {
 const regiaoSelecionado = document.getElementById('regiao');
 
 function trocarRegiao() {
-  const regiao = document.getElementById("regiao").value;
-
-  const paginas = {
-    geral: "dashboardOutros.html",
-    centro: "dashboardOutrosCentro.html",
-    norte: "dashboardOutrosNorte.html",
-    leste: "dashboardOutrosLeste.html",
-    sul: "dashboardOutrosSul.html",
-    oeste: "dashboardOutrosOeste.html"
-};
-
-  if (paginas[regiao]) {
-      window.location.href = paginas[regiao];
+    const regiao = document.getElementById("regiao").value;
+  
+    const paginas = {
+      geral: "dashboardOutros.html",
+      centro: "dashboardOutrosCentro.html",
+      norte: "dashboardOutrosNorte.html",
+      leste: "dashboardOutrosLeste.html",
+      sul: "dashboardOutrosSul.html",
+      oeste: "dashboardOutrosOeste.html"
+  };
+  
+    if (paginas[regiao]) {
+        window.location.href = paginas[regiao];
+    }
   }
-}
-
 
 criarGrafico('geral')

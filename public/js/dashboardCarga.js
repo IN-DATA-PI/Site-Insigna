@@ -1,9 +1,24 @@
-
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
+
+let linksMenu = document.querySelectorAll(".btn-dl");
+
+if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+
+    linksMenu.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
 
 var roubosMesCargaNum
 function roubosMesCarga() {
-    fetch(`/dashboardRouter/roubosMesCarga`, {
+    fetch(`/dashboardCargaRouter/roubosMesCarga`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -29,7 +44,7 @@ function roubosMesCarga() {
 
 var roubosAnoCargaNum
 function roubosAnoCarga() {
-    fetch(`/dashboardRouter/roubosAnoCarga`, {
+    fetch(`/dashboardCargaRouter/roubosAnoCarga`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -55,7 +70,7 @@ function roubosAnoCarga() {
 
 var regiao
 function regiao() {
-    fetch(`/dashboardRouter/regiao`, {
+    fetch(`/dashboardCargaRouter/regiao`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -83,7 +98,7 @@ var roubos2023 = []
 var roubos2024 = []
 
 function grafico() {
-  fetch(`/dashboardRouter/grafico`, {
+  fetch(`/dashboardCargaRouter/grafico`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
@@ -104,52 +119,12 @@ function grafico() {
   });
 }
 
-
-
-const dados = {
-
-geral: {
-    
-    
-    
-},
-
-centro: {
-    dado_mes: 60,
-    dado_ano: 720,
-    dado_perigo: "Centro"
-},
-
-norte: {
-    dado_mes: 45,
-    dado_ano: 540,
-    dado_perigo: "Leste"
-},
-
-leste: {
-    dado_mes: 160,
-    dado_ano: 1920,
-    dado_perigo: "Leste"
-},
-
-sul: {
-    dado_mes: 55,
-    dado_ano: 660,
-    dado_perigo: "Leste"
-},
-
-oeste: {
-    dado_mes: 30,
-    dado_ano: 360,
-    dado_perigo: "Centro"
-}
-}
-
 const roubosMes = document.getElementById('dadosKPI1');
 const roubosAno = document.getElementById('dadosKPI2');
 const regiaoPerigo = document.getElementById('dadosKPI3');
-const regiaoSelecionada = document.getElementById('regiao');
 const ctx = document.getElementById('myChart').getContext('2d');
+const regiaoSelecionado = document.getElementById('regiao');
+console.log("fasf" , regiaoSelecionado.value)
 
 let grafico1;
 
@@ -200,9 +175,9 @@ function criarGrafico() {
 });
 }
 
-regiaoSelecionada.addEventListener('change', (e) => {
-    const regiaoSelecionada = e.target.value;
-    criarGrafico(regiaoSelecionada);
+regiaoSelecionado.addEventListener('change', (e) => {
+    const regiaoSelecionado = e.target.value;
+    criarGrafico(regiaoSelecionado);
 })
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
@@ -220,6 +195,24 @@ rouboSelecionado.addEventListener('change', (e) => {
         window.location.href = 'dashboardCarga.html';
     }
 });
+
+
+function trocarRegiao() {
+  const regiao = document.getElementById("regiao").value;
+
+  const paginas = {
+      geral: "dashboardCarga.html",
+      centro: "dashboardCargaCentro.html",
+      norte: "dashboardCargaNorte.html",
+      leste: "dashboardCargaLeste.html",
+      sul: "dashboardCargaSul.html",
+      oeste: "dashboardCargaOeste.html"
+  };
+
+  if (paginas[regiao]) {
+      window.location.href = paginas[regiao];
+  }
+}
 
 
 criarGrafico('geral')
