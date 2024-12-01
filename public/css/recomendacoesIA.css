@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-lateral {
+    width: 20%;
+    height: 100vh;
+    background-color: #F1F2F7;
+    box-shadow:  0 0 5px #000;
+}
+
+.container-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    color: #000;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+}
+
+.logo img {
+    height: 100%;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    height: 35%;
+    width: 85%;
+    margin-left: 15%;
+
+}
+
+.outros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    height: 30%;
+    width: 85%;
+    margin-left: 15%;
+}
+
+a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    height: 35px;
+    text-decoration: none;
+    color: #000;
+
+    img {
+        height: 25px;
+        margin-right: 5px;
+    }
+}
+
+a:hover {
+    color: black;
+    background-color: #969ba3;
+    height: 35px;
+    width: 95%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.painel {
+    width: 80%;
+    height: 100vh;
+}
+
+.container-painel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.header-painel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 5%;
+    width: 100%;
+}
+
+.usuario {
+    width: 20%;
+}
+
+.notificacoes {
+    width: 10%;
+    height: 25px;
+}
+
+.notificacoes img {
+    height: 20px;
+}
+.notificacoes:hover {
+    cursor: pointer;
+    border-radius: 90px;
+    background-color: #969ba3;
+}
+
+.nome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+
+.notificacoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+
+.conteudo-painel {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 100%;
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    height: 10%;
+    width: 100%;
+}
+
+.filtro {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+}
+
+.selecionar {
+    width: 45%;
+}
+
+.select_filtro {
+    height: 110%;
+    width: 70%;
+    border: solid 2px black;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.indicadores_geral {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70%;
+    width: 100%;
+}
+
+.secao_kpi_geral {
+    width: 30%;
+
+    h3 {
+        margin-left: 20px;
+    }
+
+}
+
+.linha {
+    height: 100%;
+    border: solid 1px #D3D3D3;
+    border-radius: 25px;
+}
+
+.caixa_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+}
+
+.kpi_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 90%;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.linha-horizontal {
+    width: 100%;
+    border: solid 1px #D3D3D3;
+    width: 98%;
+    margin-left: 1%;
+}
+
+.grafico {
+    padding: 10px;
+    height: 60%;
+    width: 100%;
+}
+
+.conteudo-grafico {
+    height: 90%;
+}
+
+.resposta{
+    padding: 10px;
+    height: 60%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+}
+
+.resposta h3{
+    margin-bottom: 10px;
+}
+
+#mensagem {
+    background-color: #DCDCDC;
+    border-radius: 5px;
+    padding: 5px;
+    color: rgb(5, 5, 5);
+    width: 60%;
+    height: 30%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .kpi_geral p{
+    padding-left: 10px;
+    font-size: 18px;
+  }

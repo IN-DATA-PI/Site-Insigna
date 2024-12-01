@@ -51,5 +51,9 @@ router.get("/graficoOutros", function (req, res) {
     dashboardControler.graficoOutros(req, res);
 });
 
+router.get("/recomendacoesIa", function (req, res) {
+    dashboardControler.recomendacoesIa(req, res);
+});
+
 
 module.exports = router;

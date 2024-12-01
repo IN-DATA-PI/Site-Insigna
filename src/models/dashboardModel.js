@@ -16,6 +16,14 @@ function roubosAnoCarga() {
     return database.executar(instrucaoSql);
 }
 
+function recomendacoesIa() {
+
+    var instrucaoSql = `select recomendacoes from ia`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function regiao() {
     var instrucaoSql = `
         WITH roubos_zona AS (
@@ -655,5 +663,6 @@ module.exports = {
     roubosMesOutros,
     roubosAnoOutros,
     regiaoOutros,
-    graficoOutros
+    graficoOutros,
+    recomendacoesIa
 };
