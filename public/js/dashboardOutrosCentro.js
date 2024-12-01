@@ -17,14 +17,14 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
 }
 
 var roubosMesOutrosNum
-function roubosMesOutros() {
-    fetch(`/dashboardRouter/roubosMesOutros`, {
+function roubosMesOutrosCentro() {
+    fetch(`/dashboardRouter/roubosMesOutrosCentro`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosMesOutros()!")
+      console.log("ESTOU NO THEN DO roubosMesOutrosCentro()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -43,14 +43,14 @@ function roubosMesOutros() {
 }
 
 var roubosAnoOutrosNum
-function roubosAnoOutros() {
-    fetch(`/dashboardRouter/roubosAnoOutros`, {
+function roubosAnoOutrosCentro() {
+    fetch(`/dashboardRouter/roubosAnoOutrosCentro`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosAnoOutros()!")
+      console.log("ESTOU NO THEN DO roubosAnoOutrosCentro()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -97,14 +97,14 @@ function regiaoOutros() {
 var roubos2023 = []
 var roubos2024 = []
 
-function graficoOutros() {
-  fetch(`/dashboardRouter/graficoOutros`, {
+function graficoOutrosCentro() {
+  fetch(`/dashboardRouter/graficoOutrosCentro`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
       }
   }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO graficoOutros()!");
+      console.log("ESTOU NO THEN DO graficoOutrosCentro()!");
       if (resposta.ok) {
           resposta.json().then((json) => {
               roubos2023 = json.map((item) => item.roubos_2023);
@@ -173,11 +173,6 @@ function criarGrafico() {
     }
 });
 }
-
-regiaoSelecionada.addEventListener('change', (e) => {
-    const regiaoSelecionada = e.target.value;
-    criarGrafico(regiaoSelecionada);
-})
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
 

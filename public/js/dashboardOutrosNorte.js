@@ -17,14 +17,14 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
 }
 
 var roubosMesOutrosNum
-function roubosMesOutros() {
-    fetch(`/dashboardRouter/roubosMesOutros`, {
+function roubosMesOutrosNorte() {
+    fetch(`/dashboardRouter/roubosMesOutrosNorte`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosMesOutros()!")
+      console.log("ESTOU NO THEN DO roubosMesOutrosNorte()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -43,14 +43,14 @@ function roubosMesOutros() {
 }
 
 var roubosAnoOutrosNum
-function roubosAnoOutros() {
-    fetch(`/dashboardRouter/roubosAnoOutros`, {
+function roubosAnoOutrosNorte() {
+    fetch(`/dashboardRouter/roubosAnoOutrosNorte`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosAnoOutros()!")
+      console.log("ESTOU NO THEN DO roubosAnoOutrosNorte()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -97,14 +97,14 @@ function regiaoOutros() {
 var roubos2023 = []
 var roubos2024 = []
 
-function graficoOutros() {
-  fetch(`/dashboardRouter/graficoOutros`, {
+function graficoOutrosNorte() {
+  fetch(`/dashboardRouter/graficoOutrosNorte`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
       }
   }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO graficoOutros()!");
+      console.log("ESTOU NO THEN DO graficoOutrosNorte()!");
       if (resposta.ok) {
           resposta.json().then((json) => {
               roubos2023 = json.map((item) => item.roubos_2023);
@@ -173,11 +173,6 @@ function criarGrafico() {
     }
 });
 }
-
-regiaoSelecionada.addEventListener('change', (e) => {
-    const regiaoSelecionada = e.target.value;
-    criarGrafico(regiaoSelecionada);
-})
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
 

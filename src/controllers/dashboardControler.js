@@ -54,9 +54,224 @@ function graficoOutros(req, res) {
     });
 }
 
+function roubosMesOutrosCentro(req, res) {
+  dashboardModel.roubosMesOutrosCentro()
+    .then(function (resultadoroubosMesOutrosNum) {
+      res.json({
+          roubosMesOutrosNum: resultadoroubosMesOutrosNum[0].roubosMesOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function roubosAnoOutrosCentro(req, res) {
+  dashboardModel.roubosAnoOutrosCentro()
+    .then(function (resultadoRoubosAnoOutrosNum) {
+      res.json({
+          roubosAnoOutrosNum: resultadoRoubosAnoOutrosNum[0].roubosAnoOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function graficoOutrosCentro(req, res) {
+dashboardModel.graficoOutrosCentro()
+  .then(function (resultadoGraficoOutros) {
+    res.json(resultadoGraficoOutros);
+  })
+  .catch(function (erro) {
+    console.error(erro);
+    console.error("Houve um erro ao obter o ranking! Erro: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function roubosMesOutrosLeste(req, res) {
+  dashboardModel.roubosMesOutrosLeste()
+    .then(function (resultadoroubosMesOutrosNum) {
+      res.json({
+          roubosMesOutrosNum: resultadoroubosMesOutrosNum[0].roubosMesOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function roubosAnoOutrosLeste(req, res) {
+  dashboardModel.roubosAnoOutrosLeste()
+    .then(function (resultadoRoubosAnoOutrosNum) {
+      res.json({
+          roubosAnoOutrosNum: resultadoRoubosAnoOutrosNum[0].roubosAnoOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function graficoOutrosLeste(req, res) {
+dashboardModel.graficoOutrosLeste()
+  .then(function (resultadoGraficoOutros) {
+    res.json(resultadoGraficoOutros);
+  })
+  .catch(function (erro) {
+    console.error(erro);
+    console.error("Houve um erro ao obter o ranking! Erro: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function roubosMesOutrosNorte(req, res) {
+  dashboardModel.roubosMesOutrosNorte()
+    .then(function (resultadoroubosMesOutrosNum) {
+      res.json({
+          roubosMesOutrosNum: resultadoroubosMesOutrosNum[0].roubosMesOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function roubosAnoOutrosNorte(req, res) {
+  dashboardModel.roubosAnoOutrosNorte()
+    .then(function (resultadoRoubosAnoOutrosNum) {
+      res.json({
+          roubosAnoOutrosNum: resultadoRoubosAnoOutrosNum[0].roubosAnoOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function graficoOutrosNorte(req, res) {
+dashboardModel.graficoOutrosNorte()
+  .then(function (resultadoGraficoOutros) {
+    res.json(resultadoGraficoOutros);
+  })
+  .catch(function (erro) {
+    console.error(erro);
+    console.error("Houve um erro ao obter o ranking! Erro: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function roubosMesOutrosOeste(req, res) {
+  dashboardModel.roubosMesOutrosOeste()
+    .then(function (resultadoroubosMesOutrosNum) {
+      res.json({
+          roubosMesOutrosNum: resultadoroubosMesOutrosNum[0].roubosMesOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function roubosAnoOutrosOeste(req, res) {
+  dashboardModel.roubosAnoOutrosOeste()
+    .then(function (resultadoRoubosAnoOutrosNum) {
+      res.json({
+          roubosAnoOutrosNum: resultadoRoubosAnoOutrosNum[0].roubosAnoOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function graficoOutrosOeste(req, res) {
+dashboardModel.graficoOutrosOeste()
+  .then(function (resultadoGraficoOutros) {
+    res.json(resultadoGraficoOutros);
+  })
+  .catch(function (erro) {
+    console.error(erro);
+    console.error("Houve um erro ao obter o ranking! Erro: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function roubosMesOutrosSul(req, res) {
+  dashboardModel.roubosMesOutrosSul()
+    .then(function (resultadoroubosMesOutrosNum) {
+      res.json({
+          roubosMesOutrosNum: resultadoroubosMesOutrosNum[0].roubosMesOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function roubosAnoOutrosSul(req, res) {
+  dashboardModel.roubosAnoOutrosSul()
+    .then(function (resultadoRoubosAnoOutrosNum) {
+      res.json({
+          roubosAnoOutrosNum: resultadoRoubosAnoOutrosNum[0].roubosAnoOutrosNum
+      });
+    })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o roubo ano carga! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function graficoOutrosSul(req, res) {
+dashboardModel.graficoOutrosSul()
+  .then(function (resultadoGraficoOutros) {
+    res.json(resultadoGraficoOutros);
+  })
+  .catch(function (erro) {
+    console.error(erro);
+    console.error("Houve um erro ao obter o ranking! Erro: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
 module.exports = {
     roubosMesOutros,
     roubosAnoOutros,
     regiaoOutros,
-    graficoOutros
+    graficoOutros,
+    roubosMesOutrosCentro,
+    roubosAnoOutrosCentro,
+    graficoOutrosCentro,
+    roubosMesOutrosLeste,
+    roubosAnoOutrosLeste,
+    graficoOutrosLeste,
+    roubosMesOutrosNorte,
+    roubosAnoOutrosNorte,
+    graficoOutrosNorte,
+    roubosMesOutrosOeste,
+    roubosAnoOutrosOeste,
+    graficoOutrosOeste,
+    roubosMesOutrosSul,
+    roubosAnoOutrosSul,
+    graficoOutrosSul,
 }

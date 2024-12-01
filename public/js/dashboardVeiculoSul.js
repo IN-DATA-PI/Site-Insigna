@@ -17,14 +17,14 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
 }
 
 var roubosMesVeiculoNum
-function roubosMesVeiculo() {
-    fetch(`/dashboardVeiculoRouter/roubosMesVeiculo`, {
+function roubosMesVeiculoSul() {
+    fetch(`/dashboardVeiculoRouter/roubosMesVeiculoSul`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosMesVeiculo()!")
+      console.log("ESTOU NO THEN DO roubosMesVeiculoSul()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -43,14 +43,14 @@ function roubosMesVeiculo() {
 }
 
 var roubosAnoVeiculoNum
-function roubosAnoVeiculo() {
-    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculo`, {
+function roubosAnoVeiculoSul() {
+    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculoSul`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosAnoVeiculo()!")
+      console.log("ESTOU NO THEN DO roubosAnoVeiculoSul()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -97,14 +97,14 @@ function regiaoVeiculo() {
 var roubos2023 = []
 var roubos2024 = []
 
-function graficoVeiculo() {
-  fetch(`/dashboardVeiculoRouter/graficoVeiculo`, {
+function graficoVeiculoSul() {
+  fetch(`/dashboardVeiculoRouter/graficoVeiculoSul`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
       }
   }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO graficoVeiculo()!");
+      console.log("ESTOU NO THEN DO graficoVeiculoSul()!");
       if (resposta.ok) {
           resposta.json().then((json) => {
               roubos2023 = json.map((item) => item.roubos_2023);
@@ -173,11 +173,6 @@ function criarGrafico() {
     }
 });
 }
-
-regiaoSelecionada.addEventListener('change', (e) => {
-    const regiaoSelecionada = e.target.value;
-    criarGrafico(regiaoSelecionada);
-})
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
 

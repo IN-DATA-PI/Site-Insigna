@@ -17,14 +17,14 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
 }
 
 var roubosMesVeiculoNum
-function roubosMesVeiculo() {
-    fetch(`/dashboardVeiculoRouter/roubosMesVeiculo`, {
+function roubosMesVeiculoCentro() {
+    fetch(`/dashboardVeiculoRouter/roubosMesVeiculoCentro`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosMesVeiculo()!")
+      console.log("ESTOU NO THEN DO roubosMesVeiculoCentro()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -43,14 +43,14 @@ function roubosMesVeiculo() {
 }
 
 var roubosAnoVeiculoNum
-function roubosAnoVeiculo() {
-    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculo`, {
+function roubosAnoVeiculoCentro() {
+    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculoCentro`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosAnoVeiculo()!")
+      console.log("ESTOU NO THEN DO roubosAnoVeiculoCentro()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -97,14 +97,14 @@ function regiaoVeiculo() {
 var roubos2023 = []
 var roubos2024 = []
 
-function graficoVeiculo() {
-  fetch(`/dashboardVeiculoRouter/graficoVeiculo`, {
+function graficoVeiculoCentro() {
+  fetch(`/dashboardVeiculoRouter/graficoVeiculoCentro`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
       }
   }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO graficoVeiculo()!");
+      console.log("ESTOU NO THEN DO graficoVeiculoCentro()!");
       if (resposta.ok) {
           resposta.json().then((json) => {
               roubos2023 = json.map((item) => item.roubos_2023);
@@ -173,11 +173,6 @@ function criarGrafico() {
     }
 });
 }
-
-regiaoSelecionada.addEventListener('change', (e) => {
-    const regiaoSelecionada = e.target.value;
-    criarGrafico(regiaoSelecionada);
-})
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
 

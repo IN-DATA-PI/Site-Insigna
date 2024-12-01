@@ -17,14 +17,14 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
 }
 
 var roubosMesVeiculoNum
-function roubosMesVeiculo() {
-    fetch(`/dashboardVeiculoRouter/roubosMesVeiculo`, {
+function roubosMesVeiculoNorte() {
+    fetch(`/dashboardVeiculoRouter/roubosMesVeiculoNorte`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosMesVeiculo()!")
+      console.log("ESTOU NO THEN DO roubosMesVeiculoNorte()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -43,14 +43,14 @@ function roubosMesVeiculo() {
 }
 
 var roubosAnoVeiculoNum
-function roubosAnoVeiculo() {
-    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculo`, {
+function roubosAnoVeiculoNorte() {
+    fetch(`/dashboardVeiculoRouter/roubosAnoVeiculoNorte`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO roubosAnoVeiculo()!")
+      console.log("ESTOU NO THEN DO roubosAnoVeiculoNorte()!")
   
       if (resposta.ok) {
         console.log(resposta);
@@ -97,14 +97,14 @@ function regiaoVeiculo() {
 var roubos2023 = []
 var roubos2024 = []
 
-function graficoVeiculo() {
-  fetch(`/dashboardVeiculoRouter/graficoVeiculo`, {
+function graficoVeiculoNorte() {
+  fetch(`/dashboardVeiculoRouter/graficoVeiculoNorte`, {
       method: "GET",
       headers: {
           "Content-Type": "application/json"
       }
   }).then(function (resposta) {
-      console.log("ESTOU NO THEN DO graficoVeiculo()!");
+      console.log("ESTOU NO THEN DO graficoVeiculoNorte()!");
       if (resposta.ok) {
           resposta.json().then((json) => {
               roubos2023 = json.map((item) => item.roubos_2023);
@@ -174,11 +174,6 @@ function criarGrafico() {
     }
 });
 }
-
-regiaoSelecionada.addEventListener('change', (e) => {
-    const regiaoSelecionada = e.target.value;
-    criarGrafico(regiaoSelecionada);
-})
 
 const rouboSelecionado = document.getElementById('tipo_roubo')
 
