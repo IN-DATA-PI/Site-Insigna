@@ -19,7 +19,7 @@ if (sessionStorage.NOME_USUARIO.includes("iv_")) {
 function editarDep() {
 
     let nome = ipt_nomeAtualizado.value;
-    let cep = ipt_cepAtualizado.value;
+    let cep = Number(ipt_cepAtualizado.value);
     let logradouro = ipt_logradouroAtualizado.value;
     let numero = Number(ipt_numeroAtualizado.value);
     let bairro = ipt_bairroAtualizado.value;
