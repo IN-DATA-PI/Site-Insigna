@@ -79,4 +79,8 @@ router.get("/graficoOutrosSul", function (req, res) {
     dashboardControler.graficoOutrosSul(req, res);
 });
 
+router.get("/recomendacoesIa", function (req, res) {
+    dashboardControler.recomendacoesIa(req, res);
+});
+
 module.exports = router;

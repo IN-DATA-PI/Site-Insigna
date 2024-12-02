@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/recomendacoesIA.css" />
+    <title>IA - INSIGNA</title>
+</head>
+<body>
+    <div class="menu-lateral">
+        <div class="container-menu">
+            <div class="logo">
+                <img src="../assets/insignaLogoBoaQualidade.png" />
+            </div>
+            <br />
+
+            <div class="menu">
+                <h4>MENU</h4>
+                <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png" />Dashboard</a>
+                <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png" />Cadastro de Operações</a>
+                <a href="cadastroInvestigadores.html" class="btn-dl"><img src="../assets/user-icon.png" />Cadastro de Investigador</a>
+                <a href="operacoes.html"><img src="../assets/aceitarOp.png" />Operações</a>
+                <a href="departamentos.html" class="btn-dl">Departamentos</a>
+                <a href="recomendacoesIA.html" class="btn-dl">Recomendações IA</a>
+            </div>
+            <br />
+            <br />
+            <div class="outros">
+                <h4>OUTROS</h4>
+                <a href="/dash/usuarios.html"><img src="../assets/conta-icon.png">Usuários</a>
+                <a href="../index.html"><img src="../assets/home.png" />Home</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="painel">
+
+        <div class="container-painel">
+
+            <div class="header-painel">
+
+                <div class="usuario">
+                    <p id="nome_usuario"></p>
+                </div>
+
+                <div class="notificacoes">
+                    <img src="../assets/notificacao.png">
+                </div>
+            </div>
+
+            <div class="linha-horizontal"></div>
+
+            <div class="conteudo-painel">
+                <div class="cabecalho">
+                    <h1>Recomendações - IA</h1>
+                    <br>
+                    <br>
+                    <h2>Selecione uma pergunta:</h2>
+                </div>
+                
+                <div class="perguntas_geral">
+                    <div class="secao_pergunta_geral">
+                        <div class="caixa_geral">
+                            <div class="pergunta_geral" onclick="pergunta1()">
+                                <p>Analisando a área/zona com mais roubos ou seja a mais perigosa, qual o crime que está em constante crescimento nela?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="secao_pergunta_geral" onclick="pergunta2()">
+                        <div class="caixa_geral">
+                            <div class="pergunta_geral">
+                                <p>Analisando o ano e o mês com mais roubos e crimes, qual seria o mês mais perigoso para assim poder aumentar as operações para que ele possa diminuir?</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="secao_pergunta_geral" onclick="pergunta3()">
+                        <div class="caixa_geral">
+                            <div class="pergunta_geral">
+                                <p>Visando os roubos de veículos e de carga, em qual área/zona de São Paulo eles são muito comum?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resposta" id="resposta">
+                    <h3>Resposta:</h3>
+                    <div id="mensagem"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/recomendacoesIA.js"></script>
+</body>
+</html>

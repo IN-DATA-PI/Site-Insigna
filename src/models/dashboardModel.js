@@ -1,5 +1,13 @@
 var database = require("../database/config")
 
+function recomendacoesIa() {
+
+    var instrucaoSql = `select recomendacoes from ia`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function roubosMesOutros() {
     var instrucaoSql = `
         select sum(agosto) as roubosMesOutrosNum from dados where ano = 2024 and natureza = "ROUBO - OUTROS";
@@ -2071,5 +2079,6 @@ module.exports = {
         graficoOutrosOeste,
         roubosMesOutrosSul,
         roubosAnoOutrosSul,
-        graficoOutrosSul
+        graficoOutrosSul,
+        recomendacoesIa
 }
