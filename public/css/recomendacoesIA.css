@@ -156,6 +156,12 @@ a:hover {
     width: 100%;
 }
 
+.cabecalho h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .filtro {
     display: flex;
     justify-content: space-between;
@@ -175,7 +181,7 @@ a:hover {
     text-align: center;
 }
 
-.indicadores_geral {
+.perguntas_geral {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -183,20 +189,10 @@ a:hover {
     width: 100%;
 }
 
-.secao_kpi_geral {
+.secao_pergunta_geral {
     width: 30%;
-
-    h3 {
-        margin-left: 20px;
-    }
-
 }
 
-.linha {
-    height: 100%;
-    border: solid 1px #D3D3D3;
-    border-radius: 25px;
-}
 
 .caixa_geral {
     display: flex;
@@ -206,17 +202,43 @@ a:hover {
     width: 100%;
 }
 
-.kpi_geral {
+.pergunta_geral {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    height: 35%;
     width: 90%;
-    background-color: black;
+    background-color: rgb(43, 39, 39);
     border-radius: 15px;
     color: white;
     cursor: pointer;
+    animation: pulse 2s infinite;
+    border: 3px solid transparent;
 }
+
+
+@keyframes pulse {
+    0% {
+        border-color: #000;
+    }
+    50% {
+        border-color: #f6eeed;
+    }
+    100% {
+        border-color: #1e1f20;
+    }
+}
+
+
+.pergunta_geral:hover{
+    background-color: #000;
+    
+}
+
+.pergunta_geral p{
+    padding-left: 10px;
+    font-size: 18px;
+  }
 
 .linha-horizontal {
     width: 100%;
@@ -225,15 +247,6 @@ a:hover {
     margin-left: 1%;
 }
 
-.grafico {
-    padding: 10px;
-    height: 60%;
-    width: 100%;
-}
-
-.conteudo-grafico {
-    height: 90%;
-}
 
 .resposta{
     padding: 10px;
@@ -249,20 +262,15 @@ a:hover {
 }
 
 #mensagem {
-    background-color: #DCDCDC;
-    border-radius: 5px;
+    border-radius: 15px;
+    border: rgb(5, 5, 5) solid 1px;
     padding: 5px;
     color: rgb(5, 5, 5);
-    width: 60%;
+    width: 40%;
     height: 30%;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
 
-  }
-
-  .kpi_geral p{
-    padding-left: 10px;
-    font-size: 18px;
   }
