@@ -25,6 +25,9 @@ function pergunta1() {
 }
 
 function pergunta2() {
+    const elemento = document.getElementById("resposta");
+    elemento.style.display = "flex";
+
     fetch(`/dashboardRouter/recomendacoesIa`, {
         method: 'GET',
         headers: {
@@ -42,6 +45,9 @@ function pergunta2() {
 }
 
 function pergunta3() {
+    const elemento = document.getElementById("resposta");
+    elemento.style.display = "flex";
+    
     fetch(`/dashboardRouter/recomendacoesIa`, {
         method: 'GET',
         headers: {
