@@ -39,26 +39,27 @@
   }
   
   
+  
   .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    height: 40%;
+    width: 85%;
+    margin-left: 10%;
+}
+
+  .outros {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     text-align: left;
     height: 35%;
     width: 85%;
-    margin-left: 15%;
-  
-  }
-  
-  .outros {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: left;
-    height: 30%;
-    width: 85%;
-    margin-left: 15%;
-  }
+    margin-left: 10%;
+}
+
   
   .container-menu a {
     display: flex;
@@ -66,14 +67,14 @@
     align-items: center;
     padding: 10px;
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     height: 35px;
     text-decoration: none;
     color: #000;
-  
+
     img {
-      height: 25px;
-      margin-right: 5px;
+        height: 25px;
+        margin-right: 5px;
     }
   }
   
