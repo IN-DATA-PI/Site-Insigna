@@ -1,10 +1,26 @@
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
 
-let linksMenu = document.querySelectorAll(".btn-dl");
+let linksIv = document.querySelectorAll(".btn-iv");
+
+if (sessionStorage.NOME_USUARIO.includes("dl_")) {
+
+    linksIv.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
+
+let linksDl= document.querySelectorAll(".btn-dl");
 
 if (sessionStorage.NOME_USUARIO.includes("iv_")) {
 
-    linksMenu.forEach(link => {
+    linksDl.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault(); 
             alert("Ação desabilitada para este usuário");

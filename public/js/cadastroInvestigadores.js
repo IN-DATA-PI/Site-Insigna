@@ -1,5 +1,36 @@
 nome_usuario.innerHTML = "Bem-vindo(a) " + sessionStorage.NOME_USUARIO;
 
+let linksIv = document.querySelectorAll(".btn-iv");
+
+if (sessionStorage.NOME_USUARIO.includes("dl_")) {
+
+    linksIv.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
+
+let linksDl = document.querySelectorAll(".btn-dl");
+
+if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+
+    linksDl.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            alert("Ação desabilitada para este usuário");
+            link.style.cursor = "not-allowed"; 
+            link.title = "Ação desabilitada para este usuário"; 
+        });
+
+        link.style.opacity = "0.6"; 
+    });
+}
 
 function cadastrarIv() {
     var nomeIvVar = "iv_" + ipt_nomeIv.value;
