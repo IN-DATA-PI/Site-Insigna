@@ -147,6 +147,11 @@ function listarTodas() {
                     divOperacao.appendChild(div2)
                     divOperacao.appendChild(div3)
                     divOperacao.appendChild(div4)
+
+                    if (sessionStorage.NOME_USUARIO.includes("iv_")) {
+                        divButtons2.style.display = 'none';
+                    }
+
                 }
 
             });
