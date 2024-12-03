@@ -25,16 +25,17 @@
                 <a href="./dashboardOutros.html"><img src="../assets/grafico-icon.png" />Dashboard</a>
                 <a href="cadastroOperacoes.html"><img src="../assets/operacoes.png" />Cadastro de Operações</a>
                 <a href="cadastroInvestigadores.html" class="btn-dl"><img src="../assets/user-icon.png" />Cadastro de Investigador</a>
-                <a href="operacoes.html"><img src="../assets/aceitarOp.png" />Operações</a>
-                <a href="departamentos.html" class="btn-dl">Departamentos</a>
-                <a href="recomendacoesIA.html" class="btn-dl">Recomendações IA</a>
+                <a href="cadas.html" class="btn-dl"><img src="../assets/adicionarDep.png">Cadastro de Departamento</a>
+                <a href="recomendacoesIA.html"><img src="../assets/gemini.jpg">Recomendações IA</a>
             </div>
             <br />
             <br />
             <div class="outros">
                 <h4>OUTROS</h4>
+                <a href="departamentos.html" class="btn-dl"><img src="../assets/departamento.png">Departamentos</a>
+                <a href="operacoes.html"><img src="../assets/aceitarOp.png" />Operações</a>
                 <a href="/dash/usuarios.html" class="btn-dl"><img src="../assets/conta-icon.png">Usuários</a>
-                <a href="../index.html"><img src="../assets/home.png" />Home</a>
+                <a href="../index.html"><img src="../assets/sair.png" />Home</a>
             </div>
 
         </div>
@@ -50,10 +51,6 @@
                     <p id="nome_usuario"></p>
                 </div>
 
-                <div class="notificacoes">
-                    <img src="../assets/notificacao.png">
-                </div>
-
             </div>
 
             <div class="linha-horizontal"></div>
@@ -66,6 +63,7 @@
                     <div class="filtro">
 
                         <div class="selecionar">
+                            Tipo de roubo:
                             <select class="select_filtro" id="tipo_roubo">
                                 <option value="outros">Outros</option>
                                 <option value="veiculo">Veículo</option>
@@ -74,6 +72,7 @@
                         </div>
 
                         <div class="selecionar">
+                            Região:
                             <select class="select_filtro" id="regiao" onchange="trocarRegiao()">
                                 <option value="centro">Centro</option>
                                 <option value="geral">Geral</option>
