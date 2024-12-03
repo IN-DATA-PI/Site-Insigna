@@ -69,6 +69,7 @@ a {
     height: 35px;
     text-decoration: none;
     color: #000;
+    transition: background-color 0.3s ease;
 
     img {
         height: 25px;

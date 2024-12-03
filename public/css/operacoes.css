@@ -196,10 +196,10 @@
   }
 
   .div1 .divStatus {
-    width: 25px;              /* Largura da bolinha */
-    height: 25px;             /* Altura da bolinha */
-    border-radius: 50%;        /* Torna a div redonda */
-    display: inline-block;     /* Garante que a div se comporte como um bloco em linha */
+    width: 25px;        
+    height: 25px;   
+    border-radius: 50%;       
+    display: inline-block; 
   }
 
   .pendente {
